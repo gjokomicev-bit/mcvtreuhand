@@ -34,7 +34,7 @@
   --ring:           0 0 0 4px rgba(94, 158, 123, .28);
 
   /* Type */
-  --font-head: "Space Grotesk", "Inter", system-ui, sans-serif;
+  --font-head: "Avenir Next", "Avenir", "Nunito", system-ui, sans-serif;
   --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 
   /* Layout */
