@@ -87,27 +87,88 @@
     reveals.forEach((el) => el.classList.add("in"));
   }
 
-  /* --- Contact form (front-end demo handling) --- */
-  const form = document.getElementById("contactForm");
-  const success = document.getElementById("formSuccess");
-  if (form) {
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
+  /* --- Multi-step Contact Wizard --- */
+  const wizard = document.getElementById("contactWizard");
+  if (wizard) {
+    let curStep = 1;
+    let topic = "";
 
-      // Minimal validation
-      if (!form.checkValidity()) {
-        form.reportValidity();
-        return;
-      }
+    const dots = Array.from(wizard.querySelectorAll(".wdot"));
+    const gaps = Array.from(wizard.querySelectorAll(".wdot-gap"));
+    const label = document.getElementById("wizLabel");
 
-      // NOTE: connect this to a real backend / mail service before going live.
-      form.reset();
-      if (success) {
-        success.classList.add("show");
-        success.scrollIntoView({ behavior: "smooth", block: "center" });
-        setTimeout(() => success.classList.remove("show"), 7000);
-      }
+    const LABELS = {
+      1: "Schritt 1 von 3 – Dein Anliegen",
+      2: "Schritt 2 von 3 – Details",
+      3: "Schritt 3 von 3 – Kontaktdaten",
+      4: "Fertig!"
+    };
+
+    function goTo(n) {
+      const cur = document.getElementById("wpanel-" + curStep);
+      if (cur) cur.classList.remove("active");
+      curStep = n;
+      const next = document.getElementById("wpanel-" + n);
+      if (next) { next.hidden = false; next.classList.add("active"); }
+
+      const dotIdx = Math.min(n, 3) - 1;
+      dots.forEach((d, i) => {
+        d.classList.toggle("active", i === dotIdx);
+        d.classList.toggle("done", i < dotIdx);
+      });
+      gaps.forEach((g, i) => g.classList.toggle("done", i < dotIdx));
+      if (label) label.textContent = LABELS[n] || "";
+
+      const top = wizard.getBoundingClientRect().top + window.scrollY - 80;
+      window.scrollTo({ top: Math.max(top, 0), behavior: "smooth" });
+    }
+
+    // Step 1 – topic selection
+    wizard.querySelectorAll("#wpanel-1 .wopt").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        topic = btn.dataset.topic;
+        wizard.querySelectorAll("#wpanel-1 .wopt").forEach((b) => b.classList.remove("selected"));
+        btn.classList.add("selected");
+
+        if (topic === "anderes") {
+          setTimeout(() => goTo(3), 180);
+        } else {
+          wizard.querySelectorAll(".wsub").forEach((s) => { s.hidden = true; });
+          const sub = document.getElementById("sub-" + topic);
+          if (sub) sub.hidden = false;
+          setTimeout(() => goTo(2), 180);
+        }
+      });
     });
+
+    // Step 2 – detail selection
+    wizard.querySelectorAll("#wpanel-2 .wopt").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        wizard.querySelectorAll("#wpanel-2 .wopt").forEach((b) => b.classList.remove("selected"));
+        btn.classList.add("selected");
+        setTimeout(() => goTo(3), 180);
+      });
+    });
+
+    // Back buttons
+    document.getElementById("wback-2")?.addEventListener("click", () => goTo(1));
+    document.getElementById("wback-3")?.addEventListener("click", () =>
+      goTo(topic === "anderes" ? 1 : 2)
+    );
+
+    // Contact form submit → step 4
+    const contactForm = document.getElementById("contactForm");
+    if (contactForm) {
+      contactForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        if (!contactForm.checkValidity()) { contactForm.reportValidity(); return; }
+        // NOTE: connect to backend / mail service before going live.
+        contactForm.reset();
+        goTo(4);
+      });
+    }
+
+    goTo(1);
   }
 
   /* --- Footer year --- */

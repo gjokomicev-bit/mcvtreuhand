@@ -768,6 +768,108 @@ p { margin: 0 0 1rem; }
 .info-card p { margin: 0; color: var(--ink); font-weight: 500; line-height: 1.5; }
 .info-card a:hover { color: var(--accent-700); }
 
+/* ---------- Contact Wizard ---------- */
+.wiz-track { display: flex; flex-direction: column; gap: 8px; margin-bottom: 4px; }
+.wiz-dots { display: flex; align-items: center; }
+.wdot {
+  width: 30px; height: 30px; border-radius: 50%;
+  border: 2px solid var(--line);
+  background: var(--bg); color: var(--ink-3);
+  font-size: .76rem; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  transition: background .25s, border-color .25s, color .25s;
+}
+.wdot.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+.wdot.done  { background: var(--accent-700); border-color: var(--accent-700); color: #fff; }
+.wdot-gap { flex: 1; max-width: 56px; height: 2px; background: var(--line); transition: background .25s; }
+.wdot-gap.done { background: var(--accent); }
+.wiz-lbl { font-size: .78rem; color: var(--ink-3); margin: 0; }
+
+.wpanel { display: none; flex-direction: column; gap: 14px; }
+.wpanel.active { display: flex; }
+.wiz-q  { font-size: 1.18rem; font-weight: 700; color: var(--ink); margin: 0; }
+.wiz-sub { color: var(--ink-3); margin: 0; font-size: .9rem; line-height: 1.5; }
+
+.wiz-opts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.wiz-opts--list { grid-template-columns: 1fr; gap: 8px; }
+
+.wopt {
+  display: flex; flex-direction: column; align-items: center;
+  gap: 10px; text-align: center;
+  padding: 18px 14px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--line);
+  background: var(--bg);
+  cursor: pointer;
+  transition: border-color .18s, background .18s, transform .12s;
+  font-family: var(--font-body);
+  font-size: .9rem; font-weight: 600; color: var(--ink);
+  line-height: 1.3;
+}
+.wopt:hover { border-color: var(--accent); background: rgba(94,158,123,.07); transform: translateY(-1px); }
+.wopt.selected { border-color: var(--accent); background: rgba(94,158,123,.13); }
+.wopt-ico { width: 34px; height: 34px; color: var(--accent); }
+
+.wiz-opts--list .wopt {
+  flex-direction: row; align-items: center;
+  justify-content: flex-start; text-align: left;
+  padding: 13px 16px; gap: 12px;
+}
+.wiz-opts--list .wopt::before {
+  content: ''; width: 18px; height: 18px; border-radius: 50%;
+  border: 2px solid var(--line); flex-shrink: 0;
+  transition: background .18s, border-color .18s;
+}
+.wiz-opts--list .wopt.selected::before { background: var(--accent); border-color: var(--accent); }
+
+.wiz-back {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: none; border: none; cursor: pointer;
+  color: var(--ink-3); font-family: var(--font-body);
+  font-size: .84rem; font-weight: 500; padding: 0;
+  width: fit-content;
+}
+.wiz-back:hover { color: var(--ink); }
+
+#contactWizard .field textarea { min-height: 88px; }
+.req { color: var(--accent-700); }
+.field-opt { font-weight: 400; opacity: .6; }
+
+.wpanel--done {
+  align-items: center; text-align: center;
+  padding: 12px 0; gap: 18px;
+}
+.wdone-icon {
+  width: 62px; height: 62px; border-radius: 50%;
+  background: rgba(94,158,123,.15);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--accent);
+}
+.wdone-icon svg { width: 28px; height: 28px; }
+.wdone-cal {
+  display: inline-flex; align-items: center;
+  gap: 10px; width: 100%; justify-content: center;
+}
+.wdone-or {
+  display: flex; align-items: center; gap: 12px;
+  color: var(--ink-3); font-size: .82rem; width: 100%;
+}
+.wdone-or::before, .wdone-or::after {
+  content: ''; flex: 1; height: 1px; background: var(--line);
+}
+.wdone-alt { color: var(--ink-2); font-size: .92rem; margin: 0; }
+.wdone-alt a { color: var(--accent-700); text-decoration: none; }
+.wdone-alt a:hover { text-decoration: underline; }
+
+@media (max-width: 520px) {
+  .wiz-opts { grid-template-columns: 1fr; }
+}
+
 /* ---------- Footer ---------- */
 .footer {
   background: var(--primary-900);
