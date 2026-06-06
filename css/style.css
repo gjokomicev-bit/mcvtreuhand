@@ -355,14 +355,16 @@ p { margin: 0 0 1rem; }
   margin-bottom: 26px;
 }
 .hero__pill b {
-  background: var(--accent);
-  color: var(--on-gold);
-  font-family: var(--font-head);
-  font-size: .72rem;
-  font-weight: 700;
-  letter-spacing: .04em;
-  padding: 4px 9px;
-  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex: none;
+  padding: 0;
+  background: none;
 }
 .hero h1 { color: #fff; margin-bottom: 22px; }
 .hero h1 .hl {
