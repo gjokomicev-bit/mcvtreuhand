@@ -1021,16 +1021,35 @@ p { margin: 0 0 1rem; }
   gap: 16px;
 }
 .problem {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
+  position: relative;
   background: var(--bg);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 22px 24px;
-  transition: transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s var(--ease);
+  transition: transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s var(--ease), background .3s var(--ease);
 }
-.problem:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: transparent; }
+.problem:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--accent);
+  background: linear-gradient(150deg, rgba(94,158,123,.12), rgba(94,158,123,.04));
+}
+/* two faces: problem (default) and solution (on hover) */
+.problem__face {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  transition: opacity .3s var(--ease);
+}
+.problem__face--ok {
+  position: absolute;
+  inset: 22px 24px;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+}
+.problem:hover .problem__face--problem { opacity: 0; }
+.problem:hover .problem__face--ok { opacity: 1; }
 .problem__mark {
   width: 30px; height: 30px; border-radius: 9px;
   background: rgba(190, 76, 76, .12);
@@ -1038,8 +1057,20 @@ p { margin: 0 0 1rem; }
   display: grid; place-items: center;
   flex: none; margin-top: 2px;
 }
+.problem__face--ok .problem__mark {
+  background: linear-gradient(150deg, var(--accent), var(--accent-700));
+  color: #fff;
+  margin-top: 0;
+}
 .problem__mark svg { width: 17px; height: 17px; }
 .problem p { margin: 0; font-weight: 500; color: var(--ink); font-size: .98rem; line-height: 1.45; }
+.problem__face--ok p { color: var(--accent-700); }
+.problems-hint {
+  text-align: center;
+  color: var(--ink-3);
+  font-size: .92rem;
+  margin: -28px 0 32px;
+}
 
 /* ---------- Feature list (two-column check list) ---------- */
 .feature-list {
