@@ -38,17 +38,11 @@ python3 -m http.server 8000
 - **Schriften:** *Space Grotesk* (Titel) + *Inter* (Text), via Google Fonts.
 - Vollständig responsiv, mit Reduced-Motion-Unterstützung.
 
-## ✅ Vor dem Go-Live ausfüllen
+## Go-Live-Stand
 
-Folgende Platzhalter sind noch durch echte Angaben zu ersetzen:
-
-- [ ] **Telefonnummer** – in `index.html` (`tel:`-Links) und im `impressum.html`
-- [ ] **Adresse** (Strasse, PLZ, Ort) – `impressum.html` und `datenschutz.html`
-- [ ] **Rechtsform & Handelsregister-/MwSt.-Nummer** – `impressum.html`
-- [ ] **E-Mail prüfen** – aktuell `info@mcvtreuhand.ch`
-- [ ] **Kontaktformular anbinden** – aktuell reine Frontend-Demo
-  (siehe Hinweis in `js/main.js`); an Mailservice/Backend anschliessen
-- [ ] **Eigene Bilder/Team-Fotos** ergänzen (optional)
-
-> Inhalte und Positionierung orientieren sich an der bestehenden Marke
-> „MCV Treuhand – digitaler Buchhalter". Texte können jederzeit angepasst werden.
+- [x] Telefon: 031 561 91 13
+- [x] Adresse: Worblentalstrasse 33, 3063 Ittigen
+- [x] E-Mail: info@mcv-treuhand.ch
+- [x] Google Calendar Buchungslink integriert
+- [ ] Handelsregister-/MwSt.-Nummer im Impressum ergänzen
+- [ ] Kontaktformular an Backend/Mailservice anbinden
