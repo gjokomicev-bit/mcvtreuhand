@@ -337,12 +337,12 @@ p { margin: 0 0 1rem; }
 .hero__grid {
   position: relative;
   display: grid;
-  grid-template-columns: 1.2fr .8fr;
+  grid-template-columns: 1fr 1fr;
   gap: 48px;
   align-items: center;
 }
 .hero__visual {
-  zoom: 0.8;
+  zoom: 0.72;
   transform-origin: top center;
 }
 .hero__pill {
