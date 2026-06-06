@@ -358,13 +358,15 @@ p { margin: 0 0 1rem; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 26px;
-  height: 26px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
   overflow: hidden;
   flex: none;
   padding: 0;
   background: none;
+  border: none;
+  box-shadow: none;
 }
 .hero h1 { color: #fff; margin-bottom: 22px; }
 .hero h1 .hl {
