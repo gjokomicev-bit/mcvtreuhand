@@ -65,7 +65,10 @@
     sections.forEach((s) => spy.observe(s));
   }
 
-  /* --- Reveal-on-scroll animations --- */
+  /* --- Reveal-on-scroll animations ---
+     Mark <html> as js-loaded so CSS activates the hidden state,
+     then immediately reveal anything already in the viewport. --- */
+  document.documentElement.classList.add("js-loaded");
   const reveals = document.querySelectorAll(".reveal");
   if (reveals.length && "IntersectionObserver" in window) {
     const io = new IntersectionObserver(
@@ -77,7 +80,7 @@
           }
         });
       },
-      { threshold: 0.14, rootMargin: "0px 0px -40px 0px" }
+      { threshold: 0.08, rootMargin: "0px 0px -30px 0px" }
     );
     reveals.forEach((el) => io.observe(el));
   } else {
