@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MCV Treuhand – Ihr digitaler Buchhalter für Bern & Zürich</title>
-  <meta name="description" content="MCV Treuhand GmbH – Ihr digitaler Buchhalter in Ittigen bei Bern. Buchhaltung, Lohnbuchhaltung, Steuern und Beratung für Selbstständige, KMU und Vereine. Tel. 031 561 91 13.">
+  <title>MCV Treuhand – Treuhand, so einfach wie es sein sollte</title>
+  <meta name="description" content="MCV Treuhand übernimmt deine Buchhaltung, Steuern und Administration vollständig, digital und persönlich. Ab 140 CHF / Monat. Kostenloses Erstgespräch sichern.">
   <meta name="theme-color" content="#0F2A47">
   <link rel="canonical" href="https://www.mcvtreuhand.ch/">
 
@@ -21,7 +21,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -31,18 +31,15 @@
   <header class="nav" id="nav">
     <div class="nav__inner">
       <a href="#top" class="logo" aria-label="MCV Treuhand Startseite">
-        <span class="logo__mark">MCV</span>
-        <span class="logo__text"><b>MCV</b> <span>Treuhand</span></span>
+        <span class="logo__wordmark">M<span class="logo__slash">c</span>V<span class="logo__sub">TREUHAND</span></span>
       </a>
 
       <nav aria-label="Hauptnavigation">
         <ul class="nav__menu" id="navMenu">
-          <li><a class="nav__link" href="#leistungen">Leistungen</a></li>
-          <li><a class="nav__link" href="#ueber-uns">Über uns</a></li>
-          <li><a class="nav__link" href="#team">Team</a></li>
-          <li><a class="nav__link" href="#ablauf">Ablauf</a></li>
-          <li><a class="nav__link" href="#kontakt">Kontakt</a></li>
-          <li><a class="btn btn--primary nav__cta" href="#kontakt">Kostenloses Erstgespräch</a></li>
+          <li><a class="nav__link" href="#immobilien">Immobilien</a></li>
+          <li><a class="nav__link" href="#leistungen">Treuhand</a></li>
+          <li><a class="nav__link" href="#steuer">Steuererklärung</a></li>
+          <li><a class="btn btn--green nav__cta" href="#kontakt">Kennenlerngespräch sichern</a></li>
         </ul>
       </nav>
 
@@ -52,55 +49,68 @@
     </div>
   </header>
 
-  <main id="top">
+  <main>
 
     <!-- ============ Hero ============ -->
-    <section class="hero">
+    <section class="hero" id="top">
+      <div class="hero__photo-bg" aria-hidden="true"></div>
       <div class="container hero__grid">
         <div class="hero__copy">
-          <span class="hero__pill"><b>NEU</b> 100 % digitale Buchhaltung – ortsunabhängig</span>
-          <h1>Ihre Finanzen.<br>Endlich in <span class="hl">guten Händen.</span></h1>
-          <p class="hero__sub">MCV Treuhand ist Ihr digitaler Buchhalter in der Region Bern und Zürich. Wir kümmern uns um Buchhaltung, Steuern und Administration – damit Sie sich auf das konzentrieren können, was Sie am besten können.</p>
+          <h1>Treuhand,<br>so einfach wie es sein sollte.</h1>
+          <p class="hero__sub">MCV Treuhand übernimmt deine Buchhaltung, Steuern und Administration vollständig, digital und persönlich. Du bekommst klare Zahlen, konkrete Empfehlungen und mehr Zeit für das was wirklich zählt: dein Kerngeschäft.</p>
           <div class="hero__actions">
-            <a href="#kontakt" class="btn btn--primary">Erstgespräch vereinbaren <span class="arr" aria-hidden="true">→</span></a>
-            <a href="#leistungen" class="btn btn--ghost">Unsere Leistungen</a>
+            <a href="#kontakt" class="btn btn--green hero__btn-main">
+              Kostenloses Erstgespräch sichern
+              <small>unverbindlich &amp; ohne Druck</small>
+            </a>
+            <a href="#preise" class="btn btn--hero-outline hero__btn-sec">
+              Transparente Preise
+              <small>ab 140 CHF / Monat</small>
+            </a>
           </div>
-          <ul class="hero__trust">
-            <li><span class="dot"></span> Persönlich seit 2019</li>
-            <li><span class="dot"></span> Region Bern &amp; Zürich</li>
-            <li><span class="dot"></span> Papierlos &amp; transparent</li>
-          </ul>
+          <div class="hero__social">
+            <div class="hero__avatars" aria-hidden="true">
+              <span class="avatar avatar--1"></span>
+              <span class="avatar avatar--2"></span>
+              <span class="avatar avatar--3"></span>
+            </div>
+            <div class="hero__social-text">
+              <strong>70+ Kunden vertrauen uns</strong>
+              <span>4.9 von 5.0 basiert auf 11 Bewertungen</span>
+            </div>
+          </div>
         </div>
+        <div class="hero__portrait" aria-hidden="true">
+          <img src="assets/team/portrait.jpg" alt="" loading="eager">
+        </div>
+      </div>
+    </section>
 
-        <div class="hero__visual" aria-hidden="true">
-          <div class="mock">
-            <div class="mock__bar">
-              <div class="mock__dots"><i></i><i></i><i></i></div>
-              <span class="mock__title">Finanzübersicht · 2026</span>
-            </div>
-            <div class="mock__card">
-              <div class="mock__row"><span>Einnahmen</span><b class="pos">CHF 184’500</b></div>
-              <div class="mock__row"><span>Ausgaben</span><b>CHF 96’200</b></div>
-              <div class="mock__row"><span>Gewinn</span><b class="pos">CHF 88’300</b></div>
-              <div class="mock__chart">
-                <i style="height:42%"></i><i style="height:60%"></i><i style="height:38%"></i>
-                <i style="height:74%"></i><i style="height:55%"></i><i style="height:88%"></i>
-                <i style="height:66%"></i>
-              </div>
-            </div>
-            <div class="mock__badge">
-              <span class="tick" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              </span>
-              <span><b>MwSt.-Abrechnung</b><small>automatisch erledigt</small></span>
-            </div>
-          </div>
+    <!-- ============ Stats bar ============ -->
+    <section class="stats-bar">
+      <div class="container stats-bar__grid">
+        <div class="stats-bar__item">
+          <div class="stats-bar__num">4.9 / 5.0</div>
+          <div class="stats-bar__stars" aria-label="4.9 von 5 Sternen">★★★★★</div>
+          <div class="stats-bar__label">Google Bewertungen</div>
+        </div>
+        <div class="stats-bar__item">
+          <div class="stats-bar__num">70+</div>
+          <div class="stats-bar__label">Betreute Mandate</div>
+        </div>
+        <div class="stats-bar__item">
+          <div class="stats-bar__num">9+</div>
+          <div class="stats-bar__label">Jahre Erfahrung</div>
+        </div>
+        <div class="stats-bar__item">
+          <div class="stats-bar__num">1:1</div>
+          <div class="stats-bar__label">Persönliche Betreuung</div>
         </div>
       </div>
     </section>
 
     <!-- ============ Audience strip ============ -->
-    <section class="audience">
+    <section class="audience" id="immobilien">
       <div class="container audience__inner">
         <p class="audience__label">Wir begleiten Menschen und Organisationen, die etwas bewegen</p>
         <ul class="audience__list">
@@ -118,8 +128,8 @@
       <div class="container">
         <div class="section-head reveal">
           <span class="eyebrow">Leistungen</span>
-          <h2>Alles rund um Ihre Zahlen – aus einer Hand</h2>
-          <p class="lead">Von der laufenden Buchhaltung bis zur Steuererklärung: Wir nehmen Ihnen die administrative Last ab und schaffen Klarheit über Ihre Finanzen.</p>
+          <h2>Alles rund um deine Zahlen – aus einer Hand</h2>
+          <p class="lead">Von der laufenden Buchhaltung bis zur Steuererklärung: Wir nehmen dir die administrative Last ab und schaffen Klarheit über deine Finanzen.</p>
         </div>
 
         <div class="services-grid">
@@ -180,12 +190,12 @@
         <div class="about__text reveal">
           <span class="eyebrow">Über uns</span>
           <h2>Treuhand, wie es heute sein sollte</h2>
-          <p>Seit 2019 begleiten wir Selbstständige, KMU und Vereine aus der Region Bern und Zürich auf ihrem Weg. Wir glauben, dass moderne Treuhand mehr ist als Zahlen verwalten: Sie schafft Klarheit, spart Zeit und gibt Ihnen die Sicherheit, gute Entscheidungen zu treffen.</p>
-          <p>Statt Aktenordner und Papierberge arbeiten wir konsequent digital – ortsunabhängig, effizient und immer auf dem aktuellen Stand. Und trotzdem bleiben wir, was gute Treuhand ausmacht: persönlich erreichbar und an Ihrer Seite.</p>
+          <p>Seit 2019 begleiten wir Selbstständige, KMU und Vereine aus der Region Bern und Zürich auf ihrem Weg. Wir glauben, dass moderne Treuhand mehr ist als Zahlen verwalten: Sie schafft Klarheit, spart Zeit und gibt dir die Sicherheit, gute Entscheidungen zu treffen.</p>
+          <p>Statt Aktenordner und Papierberge arbeiten wir konsequent digital – ortsunabhängig, effizient und immer auf dem aktuellen Stand. Und trotzdem bleiben wir, was gute Treuhand ausmacht: persönlich erreichbar und an deiner Seite.</p>
           <ul class="about__check">
             <li>
               <span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-              Eine feste Ansprechperson, die Ihr Geschäft kennt
+              Eine feste Ansprechperson, die dein Geschäft kennt
             </li>
             <li>
               <span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
@@ -193,7 +203,7 @@
             </li>
             <li>
               <span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-              Digitale Tools, die Ihnen jederzeit den Überblick geben
+              Digitale Tools, die dir jederzeit den Überblick geben
             </li>
           </ul>
         </div>
@@ -225,19 +235,19 @@
         <div class="section-head center reveal">
           <span class="eyebrow">So arbeiten wir</span>
           <h2>In vier Schritten zur sorgenfreien Buchhaltung</h2>
-          <p class="lead">Unkompliziert starten, digital zusammenarbeiten – und den Kopf für Ihr Kerngeschäft frei haben.</p>
+          <p class="lead">Unkompliziert starten, digital zusammenarbeiten – und den Kopf für dein Kerngeschäft frei haben.</p>
         </div>
 
         <div class="steps">
           <article class="step reveal" data-delay="1">
             <div class="step__num">01</div>
             <h3>Kennenlernen</h3>
-            <p>In einem kostenlosen Erstgespräch lernen wir Sie, Ihr Geschäft und Ihre Ziele kennen.</p>
+            <p>In einem kostenlosen Erstgespräch lernen wir dich, dein Geschäft und deine Ziele kennen.</p>
           </article>
           <article class="step reveal" data-delay="1">
             <div class="step__num">02</div>
             <h3>Digital starten</h3>
-            <p>Sie übergeben uns Ihre Unterlagen bequem digital – wir richten alles sauber für Sie ein.</p>
+            <p>Du übergibst uns deine Unterlagen bequem digital – wir richten alles sauber für dich ein.</p>
           </article>
           <article class="step reveal" data-delay="2">
             <div class="step__num">03</div>
@@ -247,7 +257,7 @@
           <article class="step reveal" data-delay="3">
             <div class="step__num">04</div>
             <h3>Überblick behalten</h3>
-            <p>Sie erhalten jederzeit verständliche Auswertungen und eine Ansprechperson bei Fragen.</p>
+            <p>Du erhältst jederzeit verständliche Auswertungen und eine Ansprechperson bei Fragen.</p>
           </article>
         </div>
       </div>
@@ -339,9 +349,9 @@
     <section class="section section--soft" style="padding-bottom:0">
       <div class="container">
         <div class="cta reveal">
-          <h2>Bereit, sich auf Ihr Kerngeschäft zu konzentrieren?</h2>
-          <p>Lassen Sie uns Ihre Buchhaltung übernehmen. Vereinbaren Sie jetzt Ihr kostenloses und unverbindliches Erstgespräch.</p>
-          <a href="#kontakt" class="btn">Jetzt Gespräch vereinbaren <span class="arr" aria-hidden="true">→</span></a>
+          <h2>Bereit, dich auf dein Kerngeschäft zu konzentrieren?</h2>
+          <p>Lass uns deine Buchhaltung übernehmen. Vereinbare jetzt dein kostenloses und unverbindliches Erstgespräch.</p>
+          <a href="#kontakt" class="btn btn--green">Kennenlerngespräch sichern <span class="arr" aria-hidden="true">→</span></a>
         </div>
       </div>
     </section>
@@ -351,8 +361,8 @@
       <div class="container">
         <div class="section-head reveal">
           <span class="eyebrow">Kontakt</span>
-          <h2>Lassen Sie uns über Ihre Finanzen sprechen</h2>
-          <p class="lead">Das erste Gespräch ist kostenlos und unverbindlich. Schreiben Sie uns kurz, worum es geht – wir melden uns zeitnah bei Ihnen.</p>
+          <h2>Lass uns über deine Finanzen sprechen</h2>
+          <p class="lead">Das erste Gespräch ist kostenlos und unverbindlich. Schreib uns kurz, worum es geht – wir melden uns zeitnah bei dir.</p>
         </div>
 
         <div class="contact__grid">
@@ -435,8 +445,7 @@
       <div class="footer__grid">
         <div class="footer__about">
           <a href="#top" class="logo logo--light" aria-label="MCV Treuhand">
-            <span class="logo__mark">MCV</span>
-            <span class="logo__text"><b>MCV</b> <span>Treuhand</span></span>
+            <span class="logo__wordmark">M<span class="logo__slash">c</span>V<span class="logo__sub">TREUHAND</span></span>
           </a>
           <p>Ihr digitaler Buchhalter für die Region Bern und Zürich. Wir kümmern uns um Ihre Zahlen, damit Sie sich auf Ihr Kerngeschäft konzentrieren können.</p>
         </div>
