@@ -4,6 +4,10 @@
 (function () {
   "use strict";
 
+  /* Always start at the top — prevent browser scroll restoration */
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+  window.scrollTo(0, 0);
+
   const nav = document.getElementById("nav");
   const toggle = document.getElementById("navToggle");
   const menu = document.getElementById("navMenu");
