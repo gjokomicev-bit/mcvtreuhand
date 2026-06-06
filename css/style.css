@@ -337,9 +337,13 @@ p { margin: 0 0 1rem; }
 .hero__grid {
   position: relative;
   display: grid;
-  grid-template-columns: 1.05fr .95fr;
-  gap: 56px;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 48px;
   align-items: center;
+}
+.hero__visual {
+  zoom: 0.8;
+  transform-origin: top center;
 }
 .hero__pill {
   display: inline-flex;
@@ -1274,27 +1278,6 @@ p { margin: 0 0 1rem; }
 .btn--stack { flex-direction: column; gap: 3px; padding-block: 12px; line-height: 1.2; }
 .btn--stack small { font-weight: 400; font-size: .76rem; opacity: .85; }
 
-/* ---------- Stat bar (dark) ---------- */
-.statbar { background: var(--primary-900); color: #fff; }
-.statbar__grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  padding-block: 48px;
-}
-.statbar__item { text-align: center; }
-.statbar__num {
-  font-family: var(--font-head);
-  font-weight: 700;
-  font-size: clamp(1.9rem, 3.4vw, 2.6rem);
-  letter-spacing: -.03em;
-  line-height: 1;
-  color: #fff;
-}
-.statbar__num .stars { margin-top: 8px; display: flex; justify-content: center; }
-.statbar__label { color: rgba(255,255,255,.62); font-size: .92rem; margin-top: 10px; }
-.statbar__item + .statbar__item { border-left: 1px solid rgba(255,255,255,.12); }
-
 /* ---------- Problems grid ---------- */
 .problems-grid {
   display: grid;
@@ -1448,9 +1431,6 @@ p { margin: 0 0 1rem; }
 @media (max-width: 980px) {
   .problems-grid { grid-template-columns: repeat(2, 1fr); }
   .split { grid-template-columns: 1fr; gap: 40px; }
-  .statbar__grid { grid-template-columns: repeat(2, 1fr); gap: 32px 24px; }
-  .statbar__item:nth-child(odd) { border-left: 0; }
-  .statbar__item:nth-child(3) { border-left: 0; }
 }
 @media (max-width: 620px) {
   .problems-grid,
