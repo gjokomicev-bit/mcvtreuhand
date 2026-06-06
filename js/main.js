@@ -174,4 +174,34 @@
   /* --- Footer year --- */
   const year = document.getElementById("year");
   if (year) year.textContent = String(new Date().getFullYear());
+
+  /* --- Hero visual entry animations --- */
+  (function () {
+    const nodes = [
+      document.getElementById("hvn1"),
+      document.getElementById("hvn2"),
+      document.getElementById("hvn3"),
+    ];
+    const items = [
+      document.getElementById("hvi1"),
+      document.getElementById("hvi2"),
+      document.getElementById("hvi3"),
+    ];
+    const badge = document.getElementById("hv-badge");
+
+    nodes.forEach((n, i) => {
+      if (n) setTimeout(() => n.classList.add("hv-on"), 120 + i * 220);
+    });
+    items.forEach((el, i) => {
+      if (el) setTimeout(() => el.classList.add("hv-on"), 1100 + i * 420);
+    });
+
+    if (badge) {
+      let up = false;
+      setInterval(() => {
+        up = !up;
+        badge.classList.toggle("badge-up", up);
+      }, 3200);
+    }
+  })();
 })();

@@ -87,125 +87,137 @@
         <div class="hero__visual" aria-hidden="true">
 
           <!-- Workflow ribbon -->
-          <div class="hv-ribbon">
-            <div class="hv-node">
-              <div class="hv-ico">
+          <div class="ribbon">
+            <div class="wf-node" id="hvn1">
+              <div class="wf-ico">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h4"/></svg>
               </div>
-              <div><div class="hv-n-title">Belege &amp; Rechnungen</div><div class="hv-n-sub">Erfassen &amp; hochladen</div></div>
-            </div>
-            <div class="hv-link">
-              <div class="hv-track"></div>
-              <div class="hv-dot"></div>
-              <svg class="hv-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-            </div>
-            <div class="hv-node">
-              <div class="hv-ico hv-ico--mid">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
-                <div class="hv-ring"></div>
+              <div class="wf-text">
+                <div class="wf-title">Belege &amp; Rechnungen</div>
+                <div class="wf-sub">Erfassen &amp; hochladen</div>
               </div>
-              <div><div class="hv-n-title">Automatisierte Verarbeitung</div><div class="hv-n-sub">KI-gestützt &amp; lückenlos</div></div>
             </div>
-            <div class="hv-link">
-              <div class="hv-track"></div>
-              <div class="hv-dot hv-dot--2"></div>
-              <svg class="hv-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            <div class="wf-link">
+              <div class="wf-track"></div>
+              <div class="wf-dot"></div>
+              <svg class="wf-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg>
             </div>
-            <div class="hv-node">
-              <div class="hv-ico">
+            <div class="wf-node" id="hvn2">
+              <div class="wf-ico wf-ico--mid">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.7a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                <div class="wf-ring"></div>
+              </div>
+              <div class="wf-text">
+                <div class="wf-title">Automatisierte Verarbeitung</div>
+                <div class="wf-sub">KI-gestützt &amp; lückenlos</div>
+              </div>
+            </div>
+            <div class="wf-link">
+              <div class="wf-track"></div>
+              <div class="wf-dot wf-dot--2"></div>
+              <svg class="wf-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg>
+            </div>
+            <div class="wf-node" id="hvn3">
+              <div class="wf-ico">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><rect x="7" y="12" width="3" height="6"/><rect x="12" y="8" width="3" height="10"/><rect x="17" y="5" width="3" height="13"/></svg>
               </div>
-              <div><div class="hv-n-title">Klare Finanzübersicht</div><div class="hv-n-sub">Jederzeit aktuell</div></div>
+              <div class="wf-text">
+                <div class="wf-title">Klare Finanzübersicht</div>
+                <div class="wf-sub">Jederzeit aktuell</div>
+              </div>
             </div>
           </div>
 
           <!-- Drop connector -->
           <div class="hv-drop">
-            <div class="hv-drop-line"></div>
-            <div class="hv-drop-dot"></div>
+            <div class="drop-line"></div>
+            <div class="drop-dot"></div>
           </div>
 
           <!-- Dashboard + badge -->
-          <div class="hv-stage">
-            <div class="hv-dash">
-              <div class="hv-head">
+          <div class="stage-dash">
+            <div class="dash">
+              <div class="dash-head">
                 <div>
-                  <div class="hv-eyebrow">Buchhaltung · Live</div>
-                  <div class="hv-dash-title">Finanzübersicht · 2026</div>
+                  <div class="dash-eyebrow">Buchhaltung · Live</div>
+                  <div class="dash-title">Finanzübersicht · 2026</div>
                 </div>
-                <div class="hv-live">
-                  <div class="hv-live-dot"></div>
+                <div class="dash-live">
+                  <div class="live-dot"></div>
                   Aktuell
                 </div>
               </div>
-              <div class="hv-grid">
-                <div class="hv-main">
-                  <div class="hv-tile hv-tile-hero">
-                    <div class="hv-tile-lbl">Liquidität</div>
-                    <div class="hv-tile-val"><span class="hv-cur">CHF</span> 142'800</div>
-                    <div class="hv-delta">
+              <div class="dash-grid">
+                <div class="dash-main">
+                  <div class="tile tile-hero">
+                    <div class="tile-label">Liquidität</div>
+                    <div class="tile-value"><span class="cur">CHF</span> 142'800</div>
+                    <div class="tile-delta">
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
                       +12.4% vs. Vormonat
                     </div>
                   </div>
-                  <div class="hv-bars-wrap">
-                    <div class="hv-bars-cap"><span>Cashflow 2026</span><b>CHF 88'300</b></div>
-                    <div class="hv-bars">
-                      <div class="hv-bar" style="height:42%"></div>
-                      <div class="hv-bar" style="height:60%"></div>
-                      <div class="hv-bar" style="height:38%"></div>
-                      <div class="hv-bar" style="height:74%"></div>
-                      <div class="hv-bar" style="height:55%"></div>
-                      <div class="hv-bar hv-bar-hi" style="height:88%"></div>
-                      <div class="hv-bar" style="height:66%"></div>
+                  <div class="bars-wrap">
+                    <div class="bars-cap">
+                      <span>Cashflow 2026</span>
+                      <span class="bars-cap-val">CHF 88'300</span>
+                    </div>
+                    <div class="bars">
+                      <div class="bar" style="height:42%"></div>
+                      <div class="bar" style="height:60%"></div>
+                      <div class="bar" style="height:38%"></div>
+                      <div class="bar" style="height:74%"></div>
+                      <div class="bar" style="height:55%"></div>
+                      <div class="bar bar-hi" style="height:88%"></div>
+                      <div class="bar" style="height:66%"></div>
                     </div>
                   </div>
-                  <div class="hv-srows">
-                    <div class="hv-srow hv-srow-ok">
-                      <div class="hv-srow-dot"></div>
-                      <span class="hv-srow-lbl">MWST-Status</span>
-                      <span class="hv-srow-val">eingereicht ✓</span>
+                  <div class="srow-panel">
+                    <div class="srow srow-ok">
+                      <div class="srow-dot"></div>
+                      <span class="srow-label">MWST-Status</span>
+                      <span class="srow-val">eingereicht ✓</span>
                     </div>
-                    <div class="hv-srow hv-srow-info">
-                      <div class="hv-srow-dot"></div>
-                      <span class="hv-srow-lbl">Steuer-Rückstellungen</span>
-                      <span class="hv-srow-val">CHF 18'200</span>
+                    <div class="srow srow-info">
+                      <div class="srow-dot"></div>
+                      <span class="srow-label">Steuer-Rückstellungen</span>
+                      <span class="srow-val">CHF 18'200</span>
                     </div>
-                    <div class="hv-srow hv-srow-info">
-                      <div class="hv-srow-dot"></div>
-                      <span class="hv-srow-lbl">Offene Rechnungen</span>
-                      <span class="hv-srow-val">CHF 23'450</span>
+                    <div class="srow srow-info">
+                      <div class="srow-dot"></div>
+                      <span class="srow-label">Offene Rechnungen</span>
+                      <span class="srow-val">CHF 23'450</span>
                     </div>
                   </div>
                 </div>
-                <div class="hv-side">
-                  <div class="hv-tile">
-                    <div class="hv-tile-lbl">Gewinn</div>
-                    <div class="hv-tile-val"><span class="hv-cur">CHF</span> 88'300</div>
-                    <div class="hv-tile-sub">nach Steuern</div>
+                <div class="dash-side">
+                  <div class="tile">
+                    <div class="tile-label">Gewinn</div>
+                    <div class="tile-value"><span class="cur">CHF</span> 88'300</div>
+                    <div class="tile-sub">nach Steuern</div>
                   </div>
-                  <div class="hv-tile">
-                    <div class="hv-tile-lbl">Jahresabschluss</div>
-                    <div class="hv-tile-val"><span class="hv-cur">2025</span></div>
-                    <div class="hv-tile-ok">eingereicht ✓</div>
+                  <div class="tile">
+                    <div class="tile-label">Jahresabschluss</div>
+                    <div class="tile-value"><span class="cur">2025</span></div>
+                    <div class="tile-ok">eingereicht ✓</div>
                   </div>
                 </div>
               </div>
             </div>
             <!-- Floating badge -->
-            <div class="hv-badge">
-              <div class="hv-badge-head">Alles erledigt</div>
-              <div class="hv-badge-list">
-                <div class="hv-badge-item">
-                  <div class="hv-badge-chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div class="badge" id="hv-badge">
+              <div class="badge-head">Alles erledigt</div>
+              <div class="badge-list">
+                <div class="badge-item" id="hvi1">
+                  <div class="badge-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
                   Buchhaltung aktuell
                 </div>
-                <div class="hv-badge-item">
-                  <div class="hv-badge-chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <div class="badge-item" id="hvi2">
+                  <div class="badge-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
                   MWST eingereicht
                 </div>
-                <div class="hv-badge-item">
-                  <div class="hv-badge-chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <div class="badge-item" id="hvi3">
+                  <div class="badge-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
                   Steuererklärung vorbereitet
                 </div>
               </div>
