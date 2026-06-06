@@ -1,6 +1,6 @@
 # MCV Treuhand – Website
 
-Statische Website für **MCV Treuhand** – dein digitaler Buchhalter für die Region
+Statische Website für **MCV Treuhand** – Ihr digitaler Buchhalter für die Region
 Bern und Zürich. Modern, schlank und ohne Build-Schritt: reines HTML, CSS und
 JavaScript.
 
@@ -30,9 +30,9 @@ python3 -m http.server 8000
 
 ## Design
 
-- **Farben:** tiefes Blau `#123A5E` (Vertrauen) + frisches Teal `#15B0A0` (digital).
-  Alle Farben sind als CSS-Variablen in `:root` (siehe `css/style.css`) definiert
-  und an einer Stelle anpassbar.
+- **Farben:** Marineblau `#0F2A47` (Vertrauen) + gedämpftes Gold `#B0894F` (Premium),
+  dazu warmes Off-White `#F6F4EF`. Alle Farben sind als CSS-Variablen in `:root`
+  (siehe `css/style.css`) definiert und an einer Stelle anpassbar.
 - **Schriften:** *Space Grotesk* (Titel) + *Inter* (Text), via Google Fonts.
 - Vollständig responsiv, mit Reduced-Motion-Unterstützung.
 
