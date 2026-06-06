@@ -1660,7 +1660,77 @@ p { margin: 0 0 1rem; }
   .card3 { padding: 36px 28px; }
 }
 
-/* ---------- Pricing ---------- */
+/* ---------- Solution list ---------- */
+.solution-list {
+  display: grid;
+  gap: 0;
+  max-width: 860px;
+}
+.solution-item {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+.solution-item__icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 26px;
+}
+.solution-item__icon-wrap {
+  width: 44px; height: 44px;
+  display: grid; place-items: center;
+  color: var(--ink-3);
+  flex: none;
+}
+.solution-item__icon-wrap svg { width: 26px; height: 26px; }
+.solution-item__line {
+  width: 1px;
+  flex: 1;
+  min-height: 28px;
+  background: var(--line);
+  margin-top: 4px;
+}
+.solution-item:last-child .solution-item__line { display: none; }
+
+.solution-item__card {
+  background: var(--primary);
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: var(--radius);
+  padding: 26px 32px 28px;
+  margin-bottom: 16px;
+}
+.solution-item__card h3 {
+  font-size: 1.22rem;
+  color: var(--accent);
+  margin: 0 0 10px;
+  letter-spacing: -.01em;
+}
+.solution-item__card p {
+  color: rgba(255,255,255,.78);
+  font-size: .97rem;
+  margin: 0 0 16px;
+  line-height: 1.6;
+}
+.solution-badge {
+  display: inline-flex;
+  font-family: var(--font-head);
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.50);
+  background: rgba(255,255,255,.08);
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+@media (max-width: 520px) {
+  .solution-item__card { padding: 20px 22px 22px; }
+}
+
+/* ---------- Pricing ---------- -->
 .pricing-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
