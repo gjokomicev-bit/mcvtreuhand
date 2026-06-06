@@ -104,7 +104,7 @@
       4: "Fertig!"
     };
 
-    function goTo(n) {
+    function goTo(n, skipScroll) {
       const cur = document.getElementById("wpanel-" + curStep);
       if (cur) cur.classList.remove("active");
       curStep = n;
@@ -119,8 +119,10 @@
       gaps.forEach((g, i) => g.classList.toggle("done", i < dotIdx));
       if (label) label.textContent = LABELS[n] || "";
 
-      const top = wizard.getBoundingClientRect().top + window.scrollY - 80;
-      window.scrollTo({ top: Math.max(top, 0), behavior: "smooth" });
+      if (!skipScroll) {
+        const top = wizard.getBoundingClientRect().top + window.scrollY - 80;
+        window.scrollTo({ top: Math.max(top, 0), behavior: "smooth" });
+      }
     }
 
     // Step 1 – topic selection
@@ -168,7 +170,7 @@
       });
     }
 
-    goTo(1);
+    goTo(1, true);
   }
 
   /* --- Footer year --- */
