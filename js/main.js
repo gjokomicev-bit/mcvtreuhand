@@ -4,6 +4,10 @@
 (function () {
   "use strict";
 
+  /* ---- Web3Forms: get your free access key at https://web3forms.com ----
+     Enter info@mcv-treuhand.ch there, copy the key and paste it below.   */
+  var FORM_KEY = "YOUR_WEB3FORMS_ACCESS_KEY";
+
   /* Always start at the top — prevent browser scroll restoration */
   if ("scrollRestoration" in history) history.scrollRestoration = "manual";
   window.scrollTo(0, 0);
@@ -96,6 +100,7 @@
   if (wizard) {
     let curStep = 1;
     let topic = "";
+    let detail = "";
 
     const dots = Array.from(wizard.querySelectorAll(".wdot"));
     const gaps = Array.from(wizard.querySelectorAll(".wdot-gap"));
@@ -150,6 +155,7 @@
     // Step 2 – detail selection
     wizard.querySelectorAll("#wpanel-2 .wopt").forEach((btn) => {
       btn.addEventListener("click", () => {
+        detail = btn.textContent.trim();
         wizard.querySelectorAll("#wpanel-2 .wopt").forEach((b) => b.classList.remove("selected"));
         btn.classList.add("selected");
         setTimeout(() => goTo(3), 180);
@@ -162,15 +168,36 @@
       goTo(topic === "anderes" ? 1 : 2)
     );
 
-    // Contact form submit → step 4
+    // Contact form submit → send via Web3Forms → step 4
     const contactForm = document.getElementById("contactForm");
     if (contactForm) {
       contactForm.addEventListener("submit", (e) => {
         e.preventDefault();
         if (!contactForm.checkValidity()) { contactForm.reportValidity(); return; }
-        // NOTE: connect to backend / mail service before going live.
-        contactForm.reset();
-        goTo(4);
+        const btn = contactForm.querySelector('[type="submit"]');
+        const origHTML = btn.innerHTML;
+        btn.disabled = true;
+        btn.textContent = "Wird gesendet…";
+        fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: { "Accept": "application/json", "Content-Type": "application/json" },
+          body: JSON.stringify({
+            access_key: FORM_KEY,
+            subject: "Neue Anfrage – Treuhand | MCV Treuhand",
+            from_name: "MCV Treuhand Website",
+            thema: topic,
+            detail: detail,
+            name: contactForm.querySelector('[name="name"]').value,
+            email: contactForm.querySelector('[name="email"]').value,
+            telefon: contactForm.querySelector('[name="phone"]').value,
+            nachricht: contactForm.querySelector('[name="message"]').value,
+          })
+        })
+        .then((r) => {
+          if (r.ok) { contactForm.reset(); goTo(4); }
+          else { btn.disabled = false; btn.innerHTML = origHTML; alert("Fehler beim Senden. Bitte ruf uns an: 031 561 91 13"); }
+        })
+        .catch(() => { btn.disabled = false; btn.innerHTML = origHTML; alert("Fehler beim Senden. Bitte ruf uns an: 031 561 91 13"); });
       });
     }
 
@@ -221,6 +248,7 @@
   if (immoWiz) {
     let imCurStep = 1;
     let imTopic = "";
+    let imDetail = "";
 
     const imDots = Array.from(immoWiz.querySelectorAll(".wdot"));
     const imGaps = Array.from(immoWiz.querySelectorAll(".wdot-gap"));
@@ -275,6 +303,7 @@
     // Step 2 – detail selection
     immoWiz.querySelectorAll("#impanel-2 .wopt").forEach((btn) => {
       btn.addEventListener("click", () => {
+        imDetail = btn.textContent.trim();
         immoWiz.querySelectorAll("#impanel-2 .wopt").forEach((b) => b.classList.remove("selected"));
         btn.classList.add("selected");
         setTimeout(() => imGoTo(3), 180);
@@ -287,14 +316,36 @@
       imGoTo(imTopic === "anderes" ? 1 : 2)
     );
 
-    // Contact form submit → step 4
+    // Contact form submit → send via Web3Forms → step 4
     const immoContactForm = document.getElementById("immoContactForm");
     if (immoContactForm) {
       immoContactForm.addEventListener("submit", (e) => {
         e.preventDefault();
         if (!immoContactForm.checkValidity()) { immoContactForm.reportValidity(); return; }
-        immoContactForm.reset();
-        imGoTo(4);
+        const btn = immoContactForm.querySelector('[type="submit"]');
+        const origHTML = btn.innerHTML;
+        btn.disabled = true;
+        btn.textContent = "Wird gesendet…";
+        fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: { "Accept": "application/json", "Content-Type": "application/json" },
+          body: JSON.stringify({
+            access_key: FORM_KEY,
+            subject: "Neue Anfrage – Immobilien | MCV Treuhand",
+            from_name: "MCV Treuhand Website",
+            dienstleistung: imTopic,
+            detail: imDetail,
+            name: immoContactForm.querySelector('[name="name"]').value,
+            email: immoContactForm.querySelector('[name="email"]').value,
+            telefon: immoContactForm.querySelector('[name="phone"]').value,
+            nachricht: immoContactForm.querySelector('[name="message"]').value,
+          })
+        })
+        .then((r) => {
+          if (r.ok) { immoContactForm.reset(); imGoTo(4); }
+          else { btn.disabled = false; btn.innerHTML = origHTML; alert("Fehler beim Senden. Bitte ruf uns an: 031 561 91 13"); }
+        })
+        .catch(() => { btn.disabled = false; btn.innerHTML = origHTML; alert("Fehler beim Senden. Bitte ruf uns an: 031 561 91 13"); });
       });
     }
 
