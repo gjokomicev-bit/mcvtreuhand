@@ -1281,6 +1281,50 @@ p { margin: 0 0 1rem; }
   .calc__summary { position: static; }
 }
 
+@media (max-width: 600px) {
+  /* Basispaket: preis unter body */
+  .calc-base { flex-wrap: wrap; gap: 10px 12px; }
+  .calc-base__badge { order: 1; }
+  .calc-base__body { order: 2; width: 100%; }
+  .calc-base__price {
+    order: 3; width: 100%; text-align: left;
+    border-top: 1px solid rgba(94,158,123,.2); padding-top: 10px;
+    display: flex; align-items: baseline; gap: 6px;
+  }
+  .calc-base__price span { font-size: 1.1rem; }
+
+  /* Stepper-Zeilen & Segmented: Label oben, Control unten */
+  .calc-row:has(.calc-step),
+  .calc-row:has(.calc-seg) { flex-wrap: wrap; gap: 8px 16px; }
+  .calc-row:has(.calc-step) .calc-row__main,
+  .calc-row:has(.calc-seg) .calc-row__main { flex-basis: 100%; }
+
+  /* Segmented: volle Breite */
+  .calc-seg { width: 100%; }
+  .calc-seg label { flex: 1; }
+  .calc-seg span { text-align: center; padding: 10px 6px; font-size: .82rem; }
+
+  /* Grössere Touch-Targets */
+  .calc-step button { width: 44px; height: 46px; font-size: 1.35rem; }
+  .calc-step input { width: 54px; height: 46px; font-size: 1rem; }
+
+  /* Toggle leicht grösser */
+  .calc-check { width: 50px; height: 28px; }
+  .calc-check__track::after { width: 22px; height: 22px; }
+  .calc-check input:checked + .calc-check__track::after { transform: translateX(22px); }
+
+  /* Zeilen-Padding kleiner */
+  .calc-group { padding: 16px 18px; }
+  .calc-row { padding: 11px 0; gap: 12px; }
+  .calc-row__name { font-size: .9rem; }
+  .calc-row__price { font-size: .74rem; }
+
+  /* Summary kompakter */
+  .calc__summary-inner { padding: 20px 18px; }
+  .calc__sum-total { font-size: 2rem; }
+  .calc__breakdown { max-height: 180px; }
+}
+
 /* ---------- Footer ---------- */
 .footer {
   background: var(--primary-900);
