@@ -6,7 +6,7 @@
 
   /* ---- Web3Forms: get your free access key at https://web3forms.com ----
      Enter info@mcv-treuhand.ch there, copy the key and paste it below.   */
-  var FORM_KEY = "YOUR_WEB3FORMS_ACCESS_KEY";
+  var FORM_KEY = "45320b1e-366c-498a-8e46-9ff995cdb372";
 
   /* Always start at the top — prevent browser scroll restoration */
   if ("scrollRestoration" in history) history.scrollRestoration = "manual";
