@@ -251,6 +251,49 @@
     .st-form-done h3 { font-family: var(--font-head); font-size: 1.2rem; color: var(--primary); margin: 0; }
     .st-form-done p { font-size: .9rem; color: var(--ink-2); margin: 0; }
 
+    /* ---- 2-Step progress ---- */
+    .sf-steps {
+      display: flex; align-items: center; gap: 10px;
+      margin: 0 0 20px;
+    }
+    .sf-steps__item {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: .82rem; font-weight: 700; color: var(--ink-3);
+      transition: color .25s;
+    }
+    .sf-steps__num {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 26px; height: 26px; border-radius: 50%; flex: none;
+      background: var(--bg-soft); border: 1.5px solid var(--line);
+      font-size: .82rem; font-weight: 800; color: var(--ink-3);
+      transition: background .25s, border-color .25s, color .25s;
+    }
+    .sf-steps__bar {
+      flex: 1; height: 2px; border-radius: 2px; background: var(--line);
+      position: relative; overflow: hidden;
+    }
+    .sf-steps__bar::after {
+      content: ''; position: absolute; inset: 0; width: 0;
+      background: var(--accent); transition: width .35s var(--ease);
+    }
+    .sf-steps.is-step2 .sf-steps__bar::after { width: 100%; }
+    .sf-steps__item.is-active { color: var(--primary); }
+    .sf-steps__item.is-active .sf-steps__num,
+    .sf-steps__item.is-done .sf-steps__num {
+      background: var(--accent-700); border-color: var(--accent-700); color: #fff;
+    }
+    .sf-steps__item.is-done { color: var(--accent-700); }
+
+    /* ---- Step panels ---- */
+    .sf-step[hidden] { display: none; }
+    .sf-step { animation: sf-fade .3s var(--ease) both; }
+    @keyframes sf-fade { from { opacity: 0; transform: translateX(8px); } to { opacity: 1; transform: none; } }
+    .sf-actions { display: flex; gap: 10px; margin-top: 14px; }
+    .sf-actions .btn { flex: 1; justify-content: center; }
+    .sf-back {
+      flex: 0 0 auto !important; padding-left: 16px; padding-right: 16px;
+    }
+
     /* ---- Steps ---- */
     .st-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
     .st-step {
@@ -449,73 +492,96 @@
               <input type="hidden" name="access_key" value="45320b1e-366c-498a-8e46-9ff995cdb372">
               <input type="hidden" name="subject" value="Steuererklärung Anfrage – MCV Treuhand">
 
-              <div class="st-form-grid">
-                <div class="sf-field">
-                  <label for="st_vorname">Vorname</label>
-                  <input type="text" id="st_vorname" name="vorname" required autocomplete="given-name" placeholder="Max">
-                </div>
-                <div class="sf-field">
-                  <label for="st_nachname">Nachname</label>
-                  <input type="text" id="st_nachname" name="nachname" required autocomplete="family-name" placeholder="Mustermann">
-                </div>
-                <div class="sf-field">
-                  <label for="st_email">E-Mail</label>
-                  <input type="email" id="st_email" name="email" required autocomplete="email" placeholder="max@beispiel.ch">
-                </div>
-                <div class="sf-field">
-                  <label for="st_telefon">Telefon</label>
-                  <input type="tel" id="st_telefon" name="telefon" required autocomplete="tel" placeholder="+41 79 000 00 00">
-                </div>
-                <div class="sf-field">
-                  <label for="st_plz">PLZ</label>
-                  <input type="text" id="st_plz" name="plz" required autocomplete="postal-code" placeholder="3000">
-                </div>
-                <div class="sf-field">
-                  <label for="st_adresse">Wohnort</label>
-                  <input type="text" id="st_adresse" name="adresse" required autocomplete="address-level2" placeholder="Bern">
-                </div>
+              <!-- Step progress -->
+              <div class="sf-steps" id="steuerProgress">
+                <div class="sf-steps__item is-active" data-ind="1"><span class="sf-steps__num">1</span> Kontakt</div>
+                <div class="sf-steps__bar"></div>
+                <div class="sf-steps__item" data-ind="2"><span class="sf-steps__num">2</span> Details</div>
+              </div>
 
-                <div class="full">
-                  <p class="st-group-title">Steuererklärung für</p>
-                  <div class="st-chips">
-                    <label class="st-chip"><input type="checkbox" name="zielgruppe" value="Lernende"><span class="st-chip-label">Lernende</span></label>
-                    <label class="st-chip"><input type="checkbox" name="zielgruppe" value="Studenten"><span class="st-chip-label">Studenten</span></label>
-                    <label class="st-chip"><input type="checkbox" name="zielgruppe" value="Einzelpersonen"><span class="st-chip-label">Einzelpersonen</span></label>
-                    <label class="st-chip"><input type="checkbox" name="zielgruppe" value="Ehepaare"><span class="st-chip-label">Ehepaare</span></label>
+              <!-- STEP 1: Kontaktdaten -->
+              <div class="sf-step" data-step="1">
+                <div class="st-form-grid">
+                  <div class="sf-field">
+                    <label for="st_vorname">Vorname</label>
+                    <input type="text" id="st_vorname" name="vorname" required autocomplete="given-name" placeholder="Max">
+                  </div>
+                  <div class="sf-field">
+                    <label for="st_nachname">Nachname</label>
+                    <input type="text" id="st_nachname" name="nachname" required autocomplete="family-name" placeholder="Mustermann">
+                  </div>
+                  <div class="sf-field">
+                    <label for="st_email">E-Mail</label>
+                    <input type="email" id="st_email" name="email" required autocomplete="email" placeholder="max@beispiel.ch">
+                  </div>
+                  <div class="sf-field">
+                    <label for="st_telefon">Telefon</label>
+                    <input type="tel" id="st_telefon" name="telefon" required autocomplete="tel" placeholder="+41 79 000 00 00">
+                  </div>
+                  <div class="sf-field">
+                    <label for="st_plz">PLZ</label>
+                    <input type="text" id="st_plz" name="plz" required autocomplete="postal-code" placeholder="3000">
+                  </div>
+                  <div class="sf-field">
+                    <label for="st_adresse">Wohnort</label>
+                    <input type="text" id="st_adresse" name="adresse" required autocomplete="address-level2" placeholder="Bern">
                   </div>
                 </div>
-
-                <div class="full">
-                  <p class="st-group-title">Was ist dir wichtig?</p>
-                  <div class="st-chips">
-                    <label class="st-chip"><input type="checkbox" name="ziel" value="Steuern sparen"><span class="st-chip-label">Steuern sparen</span></label>
-                    <label class="st-chip"><input type="checkbox" name="ziel" value="Fristverlängerung"><span class="st-chip-label">Fristverlängerung</span></label>
-                    <label class="st-chip"><input type="checkbox" name="ziel" value="Kosten optimieren"><span class="st-chip-label">Kosten optimieren</span></label>
-                    <label class="st-chip"><input type="checkbox" name="ziel" value="Beratung"><span class="st-chip-label">Beratung</span></label>
-                  </div>
-                </div>
-
-                <div class="full">
-                  <p class="st-group-title">Personen im Haushalt</p>
-                  <div class="st-chips">
-                    <label class="st-chip"><input type="radio" name="haushalt" value="1 Person"><span class="st-chip-label">1 Person</span></label>
-                    <label class="st-chip"><input type="radio" name="haushalt" value="2 Personen"><span class="st-chip-label">2 Personen</span></label>
-                    <label class="st-chip"><input type="radio" name="haushalt" value="3–4 Personen"><span class="st-chip-label">3–4 Personen</span></label>
-                    <label class="st-chip"><input type="radio" name="haushalt" value="+5 Personen"><span class="st-chip-label">+5 Personen</span></label>
-                  </div>
-                </div>
-
-                <div class="full">
-                  <p class="st-group-title">Weitere Angaben</p>
-                  <div class="st-chips">
-                    <label class="st-chip"><input type="checkbox" name="weiteres" value="Immobilien"><span class="st-chip-label">Ich besitze Immobilien</span></label>
-                    <label class="st-chip"><input type="checkbox" name="weiteres" value="Wertschriften"><span class="st-chip-label">Ich habe Wertschriften</span></label>
-                  </div>
-                </div>
-
-                <button type="submit" class="btn btn--primary st-form-submit" id="steuerSubmit">
-                  Jetzt anfragen <span class="arr" aria-hidden="true">→</span>
+                <button type="button" class="btn btn--primary st-form-submit" id="steuerNext">
+                  Weiter <span class="arr" aria-hidden="true">→</span>
                 </button>
+              </div>
+
+              <!-- STEP 2: Details -->
+              <div class="sf-step" data-step="2" hidden>
+                <div class="st-form-grid">
+                  <div class="full">
+                    <p class="st-group-title">Steuererklärung für</p>
+                    <div class="st-chips">
+                      <label class="st-chip"><input type="checkbox" name="zielgruppe" value="Lernende"><span class="st-chip-label">Lernende</span></label>
+                      <label class="st-chip"><input type="checkbox" name="zielgruppe" value="Studenten"><span class="st-chip-label">Studenten</span></label>
+                      <label class="st-chip"><input type="checkbox" name="zielgruppe" value="Einzelpersonen"><span class="st-chip-label">Einzelpersonen</span></label>
+                      <label class="st-chip"><input type="checkbox" name="zielgruppe" value="Ehepaare"><span class="st-chip-label">Ehepaare</span></label>
+                    </div>
+                  </div>
+
+                  <div class="full">
+                    <p class="st-group-title">Was ist dir wichtig?</p>
+                    <div class="st-chips">
+                      <label class="st-chip"><input type="checkbox" name="ziel" value="Steuern sparen"><span class="st-chip-label">Steuern sparen</span></label>
+                      <label class="st-chip"><input type="checkbox" name="ziel" value="Fristverlängerung"><span class="st-chip-label">Fristverlängerung</span></label>
+                      <label class="st-chip"><input type="checkbox" name="ziel" value="Kosten optimieren"><span class="st-chip-label">Kosten optimieren</span></label>
+                      <label class="st-chip"><input type="checkbox" name="ziel" value="Beratung"><span class="st-chip-label">Beratung</span></label>
+                    </div>
+                  </div>
+
+                  <div class="full">
+                    <p class="st-group-title">Personen im Haushalt</p>
+                    <div class="st-chips">
+                      <label class="st-chip"><input type="radio" name="haushalt" value="1 Person"><span class="st-chip-label">1 Person</span></label>
+                      <label class="st-chip"><input type="radio" name="haushalt" value="2 Personen"><span class="st-chip-label">2 Personen</span></label>
+                      <label class="st-chip"><input type="radio" name="haushalt" value="3–4 Personen"><span class="st-chip-label">3–4 Personen</span></label>
+                      <label class="st-chip"><input type="radio" name="haushalt" value="+5 Personen"><span class="st-chip-label">+5 Personen</span></label>
+                    </div>
+                  </div>
+
+                  <div class="full">
+                    <p class="st-group-title">Weitere Angaben</p>
+                    <div class="st-chips">
+                      <label class="st-chip"><input type="checkbox" name="weiteres" value="Immobilien"><span class="st-chip-label">Ich besitze Immobilien</span></label>
+                      <label class="st-chip"><input type="checkbox" name="weiteres" value="Wertschriften"><span class="st-chip-label">Ich habe Wertschriften</span></label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="sf-actions">
+                  <button type="button" class="btn btn--outline sf-back" id="steuerBack">
+                    <span class="arr" aria-hidden="true">←</span> Zurück
+                  </button>
+                  <button type="submit" class="btn btn--primary" id="steuerSubmit">
+                    Anfrage senden <span class="arr" aria-hidden="true">→</span>
+                  </button>
+                </div>
                 <p class="st-form-note">Unverbindlich &amp; kostenlos. Wir melden uns innert 24 h.</p>
               </div>
             </form>
@@ -850,14 +916,45 @@
 
   <script src="js/main.js"></script>
   <script>
-    /* Steuer form submit */
+    /* Steuer form – 2-step flow */
     const steuerForm = document.getElementById("steuerKontaktForm");
     const steuerSubmit = document.getElementById("steuerSubmit");
     const steuerDone = document.getElementById("steuerDone");
     if (steuerForm) {
+      const stepEls = steuerForm.querySelectorAll(".sf-step");
+      const step1 = steuerForm.querySelector('.sf-step[data-step="1"]');
+      const step2 = steuerForm.querySelector('.sf-step[data-step="2"]');
+      const progress = document.getElementById("steuerProgress");
+      const indItems = progress.querySelectorAll(".sf-steps__item");
+      const nextBtn = document.getElementById("steuerNext");
+      const backBtn = document.getElementById("steuerBack");
+      const formCard = document.getElementById("steuerForm");
+
+      function setStep(n) {
+        step1.hidden = n !== 1;
+        step2.hidden = n !== 2;
+        progress.classList.toggle("is-step2", n === 2);
+        indItems.forEach((it) => {
+          const i = +it.dataset.ind;
+          it.classList.toggle("is-active", i === n);
+          it.classList.toggle("is-done", i < n);
+        });
+        formCard.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+
+      // Step 1 → 2: validate only the contact fields
+      nextBtn.addEventListener("click", () => {
+        const fields = step1.querySelectorAll("input[required]");
+        for (const f of fields) {
+          if (!f.checkValidity()) { f.reportValidity(); return; }
+        }
+        setStep(2);
+      });
+      backBtn.addEventListener("click", () => setStep(1));
+
       steuerForm.addEventListener("submit", async (e) => {
         e.preventDefault();
-        if (!steuerForm.checkValidity()) { steuerForm.reportValidity(); return; }
+        if (!steuerForm.checkValidity()) { setStep(1); steuerForm.reportValidity(); return; }
         steuerSubmit.disabled = true;
         steuerSubmit.textContent = "Wird gesendet…";
         const data = new FormData(steuerForm);
@@ -872,7 +969,7 @@
           } else { throw new Error(); }
         } catch {
           steuerSubmit.disabled = false;
-          steuerSubmit.textContent = "Jetzt anfragen →";
+          steuerSubmit.textContent = "Anfrage senden →";
           alert("Fehler beim Senden. Bitte versuche es erneut oder ruf uns an.");
         }
       });
