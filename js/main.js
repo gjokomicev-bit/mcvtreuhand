@@ -243,22 +243,29 @@
     });
   });
 
-  /* --- Immobilien multi-step wizard --- */
+  /* --- Immobilien multi-step wizard (5 steps + done) --- */
   const immoWiz = document.getElementById("immoWizard");
   if (immoWiz) {
+    const IM_STEPS = 5;            // question/contact steps; step 6 = done
     let imCurStep = 1;
-    let imTopic = "";
-    let imDetail = "";
+    const imData = {
+      leistungen: [],   // step 1, multi
+      anzahl: "",       // step 2
+      rolle: "",        // step 3
+      software: ""      // step 4
+    };
 
     const imDots = Array.from(immoWiz.querySelectorAll(".wdot"));
     const imGaps = Array.from(immoWiz.querySelectorAll(".wdot-gap"));
     const imLabel = document.getElementById("imwizLabel");
 
     const IM_LABELS = {
-      1: "Schritt 1 von 3 – Dein Anliegen",
-      2: "Schritt 2 von 3 – Details",
-      3: "Schritt 3 von 3 – Kontaktdaten",
-      4: "Fertig!"
+      1: "Schritt 1 von 5 – Leistungen",
+      2: "Schritt 2 von 5 – Umfang",
+      3: "Schritt 3 von 5 – Über dich",
+      4: "Schritt 4 von 5 – Software",
+      5: "Schritt 5 von 5 – Kontaktdaten",
+      6: "Fertig!"
     };
 
     function imGoTo(n, skipScroll) {
@@ -268,7 +275,7 @@
       const next = document.getElementById("impanel-" + n);
       if (next) { next.hidden = false; next.classList.add("active"); }
 
-      const dotIdx = Math.min(n, 3) - 1;
+      const dotIdx = Math.min(n, IM_STEPS) - 1;
       imDots.forEach((d, i) => {
         d.classList.toggle("active", i === dotIdx);
         d.classList.toggle("done", i < dotIdx);
@@ -282,41 +289,49 @@
       }
     }
 
-    // Step 1 – topic selection
-    immoWiz.querySelectorAll("#impanel-1 .wopt").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        imTopic = btn.dataset.topic;
-        immoWiz.querySelectorAll("#impanel-1 .wopt").forEach((b) => b.classList.remove("selected"));
-        btn.classList.add("selected");
+    // Wire each panel's options + next button
+    function wireStep(step, opts) {
+      const panel = document.getElementById("impanel-" + step);
+      if (!panel) return;
+      const multi = panel.querySelector(".iw-opts")?.dataset.multi === "true";
+      const nextBtn = document.getElementById("imnext-" + step);
+      const buttons = Array.from(panel.querySelectorAll(".iw-opt"));
 
-        if (imTopic === "anderes") {
-          setTimeout(() => imGoTo(3), 180);
-        } else {
-          immoWiz.querySelectorAll(".wsub").forEach((s) => { s.hidden = true; });
-          const sub = document.getElementById("imsub-" + imTopic);
-          if (sub) sub.hidden = false;
-          setTimeout(() => imGoTo(2), 180);
-        }
+      const syncNext = () => {
+        const any = buttons.some((b) => b.classList.contains("selected"));
+        if (nextBtn) nextBtn.disabled = !any;
+      };
+
+      buttons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          if (multi) {
+            btn.classList.toggle("selected");
+            imData[opts.key] = buttons.filter((b) => b.classList.contains("selected"))
+                                      .map((b) => b.dataset.value);
+          } else {
+            buttons.forEach((b) => b.classList.remove("selected"));
+            btn.classList.add("selected");
+            imData[opts.key] = btn.dataset.value;
+          }
+          syncNext();
+        });
       });
-    });
 
-    // Step 2 – detail selection
-    immoWiz.querySelectorAll("#impanel-2 .wopt").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        imDetail = btn.textContent.trim();
-        immoWiz.querySelectorAll("#impanel-2 .wopt").forEach((b) => b.classList.remove("selected"));
-        btn.classList.add("selected");
-        setTimeout(() => imGoTo(3), 180);
-      });
-    });
+      if (nextBtn) nextBtn.addEventListener("click", () => imGoTo(step + 1));
+      syncNext();
+    }
 
-    // Back buttons
-    document.getElementById("imback-2")?.addEventListener("click", () => imGoTo(1));
-    document.getElementById("imback-3")?.addEventListener("click", () =>
-      imGoTo(imTopic === "anderes" ? 1 : 2)
-    );
+    wireStep(1, { key: "leistungen" });
+    wireStep(2, { key: "anzahl" });
+    wireStep(3, { key: "rolle" });
+    wireStep(4, { key: "software" });
 
-    // Contact form submit → send via Web3Forms → step 4
+    // Previous buttons (step 1 has none active)
+    for (let s = 2; s <= 5; s++) {
+      document.getElementById("imprev-" + s)?.addEventListener("click", () => imGoTo(s - 1));
+    }
+
+    // Contact form submit → send via Web3Forms → done
     const immoContactForm = document.getElementById("immoContactForm");
     if (immoContactForm) {
       immoContactForm.addEventListener("submit", (e) => {
@@ -333,8 +348,10 @@
             access_key: FORM_KEY,
             subject: "Neue Anfrage – Immobilien | MCV Treuhand",
             from_name: "MCV Treuhand Website",
-            dienstleistung: imTopic,
-            detail: imDetail,
+            leistungen: imData.leistungen.join(", "),
+            anzahl_liegenschaften: imData.anzahl,
+            rolle: imData.rolle,
+            aktuelle_software: imData.software,
             name: immoContactForm.querySelector('[name="name"]').value,
             email: immoContactForm.querySelector('[name="email"]').value,
             telefon: immoContactForm.querySelector('[name="phone"]').value,
@@ -342,7 +359,7 @@
           })
         })
         .then((r) => {
-          if (r.ok) { immoContactForm.reset(); imGoTo(4); }
+          if (r.ok) { immoContactForm.reset(); imGoTo(6); }
           else { btn.disabled = false; btn.innerHTML = origHTML; alert("Fehler beim Senden. Bitte ruf uns an: 031 561 91 13"); }
         })
         .catch(() => { btn.disabled = false; btn.innerHTML = origHTML; alert("Fehler beim Senden. Bitte ruf uns an: 031 561 91 13"); });

@@ -191,6 +191,46 @@
     .conclusion-box p { margin: 0; font-size: .93rem; line-height: 1.6; }
     .conclusion-box strong { color: var(--accent-700); }
 
+    /* immo wizard: option rows + step navigation */
+    .iw-opts { display: grid; grid-template-columns: 1fr; gap: 10px; }
+    .iw-opts--grid { grid-template-columns: 1fr 1fr; }
+    .iw-opt {
+      display: flex; align-items: center; gap: 13px; text-align: left; width: 100%;
+      padding: 14px 16px; border: 1.5px solid var(--line); border-radius: 12px;
+      background: var(--bg); cursor: pointer;
+      font-family: var(--font-body); font-size: .92rem; font-weight: 600; color: var(--ink);
+      transition: border-color .18s var(--ease), background .18s var(--ease), transform .18s var(--ease);
+    }
+    .iw-opt:hover { border-color: var(--accent); background: rgba(94,158,123,.06); transform: translateY(-1px); }
+    .iw-opt.selected { border-color: var(--accent); background: rgba(94,158,123,.1); }
+    .iw-opt__ico { width: 22px; height: 22px; color: var(--accent); flex: none; }
+    .iw-opt__check {
+      margin-left: auto; width: 22px; height: 22px; border-radius: 6px; flex: none;
+      border: 2px solid var(--line); display: grid; place-items: center;
+      transition: background .18s, border-color .18s;
+    }
+    .iw-opt__check svg { width: 13px; height: 13px; color: #fff; opacity: 0; transition: opacity .15s; }
+    .iw-opt.selected .iw-opt__check { background: var(--accent); border-color: var(--accent); }
+    .iw-opt.selected .iw-opt__check svg { opacity: 1; }
+    .iw-opts--grid .iw-opt { justify-content: center; text-align: center; padding: 14px 12px; }
+
+    .iw-nav { display: flex; gap: 12px; margin-top: 8px; }
+    .iw-prev, .iw-next {
+      flex: 1; border: none; border-radius: 12px; cursor: pointer;
+      font-family: var(--font-head); font-weight: 700; font-size: .92rem;
+      padding: 14px 16px;
+      transition: background .2s var(--ease), transform .2s var(--ease), box-shadow .2s var(--ease), opacity .2s var(--ease);
+    }
+    .iw-prev { background: #EEF1F0; color: var(--ink); }
+    .iw-prev:hover:not(:disabled) { background: #e3e8e6; }
+    .iw-next { color: #fff; background: linear-gradient(150deg, var(--accent), var(--accent-700)); }
+    .iw-next:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 10px 22px -10px rgba(94,158,123,.7); }
+    .iw-prev:disabled, .iw-next:disabled { opacity: .45; cursor: not-allowed; }
+
+    @media (max-width: 480px) {
+      .iw-opts--grid { grid-template-columns: 1fr; }
+    }
+
     /* responsive */
     @media (max-width: 980px) {
       /* keep the chart below the copy on tablet/mobile (overrides global order:-1) */
@@ -742,7 +782,7 @@
         <div class="section-head reveal">
           <span class="eyebrow">Kontakt</span>
           <h2>Jetzt Angebot anfragen</h2>
-          <p class="lead">In 3 Schritten zur unverbindlichen Offerte. Das Erstgespräch ist kostenlos und ohne Druck.</p>
+          <p class="lead">In wenigen Schritten zur unverbindlichen Offerte. Das Erstgespräch ist kostenlos und ohne Druck.</p>
         </div>
 
         <div class="contact__grid">
@@ -756,97 +796,123 @@
                 <span class="wdot" data-dot="2">2</span>
                 <span class="wdot-gap"></span>
                 <span class="wdot" data-dot="3">3</span>
+                <span class="wdot-gap"></span>
+                <span class="wdot" data-dot="4">4</span>
+                <span class="wdot-gap"></span>
+                <span class="wdot" data-dot="5">5</span>
               </div>
-              <p class="wiz-lbl" id="imwizLabel">Schritt 1 von 3 – Dein Anliegen</p>
+              <p class="wiz-lbl" id="imwizLabel">Schritt 1 von 5 – Leistungen</p>
             </div>
 
-            <!-- Step 1: Topic -->
+            <!-- Step 1: Leistungen (Mehrfachauswahl) -->
             <div class="wpanel active" id="impanel-1">
-              <h3 class="wiz-q">Womit kann ich dir helfen?</h3>
-              <p class="wiz-sub">Wähle den passenden Bereich – wir passen das Gespräch darauf ab.</p>
-              <div class="wiz-opts">
-                <button class="wopt" data-topic="buchhaltung">
-                  <svg class="wopt-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
-                  <span>Immobilienbuchhaltung</span>
+              <h3 class="wiz-q">Welche Leistungen interessieren dich?</h3>
+              <p class="wiz-sub">Mehrfachauswahl möglich – wähle alles was passt.</p>
+              <div class="iw-opts" data-multi="true">
+                <button type="button" class="iw-opt" data-value="Jahresabschlüsse">
+                  <svg class="iw-opt__ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="10" y2="10"/><line x1="14" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="10" y2="14"/><line x1="14" y1="14" x2="16" y2="14"/><line x1="8" y1="18" x2="10" y2="18"/></svg>
+                  <span>Jahresabschlüsse</span>
+                  <span class="iw-opt__check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
                 </button>
-                <button class="wopt" data-topic="bewirtschaftung">
-                  <svg class="wopt-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                <button type="button" class="iw-opt" data-value="Nebenkostenabrechnungen">
+                  <svg class="iw-opt__ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 14l2 2 4-4"/></svg>
+                  <span>Nebenkostenabrechnungen</span>
+                  <span class="iw-opt__check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                </button>
+                <button type="button" class="iw-opt" data-value="Immobilienbuchhaltung auslagern">
+                  <svg class="iw-opt__ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="10" y1="6" x2="10" y2="13"/><line x1="13" y1="6" x2="13" y2="13"/></svg>
+                  <span>Immobilienbuchhaltung auslagern</span>
+                  <span class="iw-opt__check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                </button>
+                <button type="button" class="iw-opt" data-value="Bewirtschaftung">
+                  <svg class="iw-opt__ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
                   <span>Bewirtschaftung</span>
+                  <span class="iw-opt__check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
                 </button>
-                <button class="wopt" data-topic="outsourcing">
-                  <svg class="wopt-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3z"/><path d="M3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
-                  <span>Outsourcing</span>
+                <button type="button" class="iw-opt" data-value="Digitalisierung & Prozesse">
+                  <svg class="iw-opt__ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+                  <span>Digitalisierung &amp; Prozesse</span>
+                  <span class="iw-opt__check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
                 </button>
-                <button class="wopt" data-topic="it-setup">
-                  <svg class="wopt-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-                  <span>IT-Setup &amp; Prozesse</span>
-                </button>
-                <button class="wopt" data-topic="anderes">
-                  <svg class="wopt-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01"/></svg>
-                  <span>Anderes / Frage</span>
-                </button>
+              </div>
+              <div class="iw-nav">
+                <button type="button" class="iw-prev" id="imprev-1" disabled>Vorheriger Schritt</button>
+                <button type="button" class="iw-next" id="imnext-1" disabled>Nächster Schritt</button>
               </div>
             </div>
 
-            <!-- Step 2: Details -->
+            <!-- Step 2: Anzahl Liegenschaften -->
             <div class="wpanel" id="impanel-2" hidden>
-              <button class="wiz-back" id="imback-2">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="15 18 9 12 15 6"/></svg>
-                Zurück
-              </button>
-
-              <div class="wsub" id="imsub-buchhaltung" hidden>
-                <h3 class="wiz-q">Wie viele Liegenschaften?</h3>
-                <p class="wiz-sub">Damit wir ein passendes Angebot erstellen können.</p>
-                <div class="wiz-opts wiz-opts--list">
-                  <button class="wopt" data-detail="1-5">1–5 Liegenschaften</button>
-                  <button class="wopt" data-detail="6-15">6–15 Liegenschaften</button>
-                  <button class="wopt" data-detail="16-30">16–30 Liegenschaften</button>
-                  <button class="wopt" data-detail="30plus">Mehr als 30</button>
-                </div>
+              <h3 class="wiz-q">Wie viele Liegenschaften sind betroffen?</h3>
+              <div class="iw-opts">
+                <button type="button" class="iw-opt" data-value="bis 10 Liegenschaften">
+                  <svg class="iw-opt__ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                  <span>bis 10 Liegenschaften</span>
+                  <span class="iw-opt__check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                </button>
+                <button type="button" class="iw-opt" data-value="bis 30 Liegenschaften">
+                  <svg class="iw-opt__ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                  <span>bis 30 Liegenschaften</span>
+                  <span class="iw-opt__check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                </button>
+                <button type="button" class="iw-opt" data-value="bis 50 Liegenschaften">
+                  <svg class="iw-opt__ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg>
+                  <span>bis 50 Liegenschaften</span>
+                  <span class="iw-opt__check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                </button>
+                <button type="button" class="iw-opt" data-value="50+ Liegenschaften">
+                  <svg class="iw-opt__ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                  <span>50+ Liegenschaften</span>
+                  <span class="iw-opt__check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                </button>
               </div>
-
-              <div class="wsub" id="imsub-bewirtschaftung" hidden>
-                <h3 class="wiz-q">Welches Portfolio?</h3>
-                <p class="wiz-sub">Was für Liegenschaften verwaltest du?</p>
-                <div class="wiz-opts wiz-opts--list">
-                  <button class="wopt" data-detail="wohn">Wohnimmobilien</button>
-                  <button class="wopt" data-detail="gewerbe">Gewerbe / Büro</button>
-                  <button class="wopt" data-detail="gemischt">Gemischt genutzt</button>
-                  <button class="wopt" data-detail="unklar">Noch unklar</button>
-                </div>
+              <div class="iw-nav">
+                <button type="button" class="iw-prev" id="imprev-2">Vorheriger Schritt</button>
+                <button type="button" class="iw-next" id="imnext-2" disabled>Nächster Schritt</button>
               </div>
-
-              <div class="wsub" id="imsub-outsourcing" hidden>
-                <h3 class="wiz-q">Wo liegt der Engpass?</h3>
-                <p class="wiz-sub">Was beschreibt deine Situation am besten?</p>
-                <div class="wiz-opts wiz-opts--list">
-                  <button class="wopt" data-detail="jahresabschluss">Jahresabschluss-Saison</button>
-                  <button class="wopt" data-detail="personalausfall">Personalausfall / Kündigung</button>
-                  <button class="wopt" data-detail="wachstum">Starkes Wachstum</button>
-                  <button class="wopt" data-detail="sonstiges">Sonstiges</button>
-                </div>
-              </div>
-
-              <div class="wsub" id="imsub-it-setup" hidden>
-                <h3 class="wiz-q">Was soll optimiert werden?</h3>
-                <p class="wiz-sub">Wähle den Schwerpunkt:</p>
-                <div class="wiz-opts wiz-opts--list">
-                  <button class="wopt" data-detail="software">Software einrichten</button>
-                  <button class="wopt" data-detail="prozesse">Prozesse digitalisieren</button>
-                  <button class="wopt" data-detail="datenmigration">Datenmigration</button>
-                  <button class="wopt" data-detail="schulung">Team schulen</button>
-                </div>
-              </div>
-
             </div>
 
-            <!-- Step 3: Contact details -->
+            <!-- Step 3: Ich bin -->
             <div class="wpanel" id="impanel-3" hidden>
-              <button class="wiz-back" id="imback-3">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="15 18 9 12 15 6"/></svg>
-                Zurück
-              </button>
+              <h3 class="wiz-q">Ich bin …</h3>
+              <div class="iw-opts">
+                <button type="button" class="iw-opt" data-value="Eigentümer">
+                  <svg class="iw-opt__ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  <span>Eigentümer</span>
+                  <span class="iw-opt__check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                </button>
+                <button type="button" class="iw-opt" data-value="Immobilienverwaltung">
+                  <svg class="iw-opt__ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-3"/><line x1="9" y1="9" x2="9" y2="9.01"/><line x1="9" y1="12" x2="9" y2="12.01"/><line x1="9" y1="15" x2="9" y2="15.01"/></svg>
+                  <span>Immobilienverwaltung</span>
+                  <span class="iw-opt__check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                </button>
+              </div>
+              <div class="iw-nav">
+                <button type="button" class="iw-prev" id="imprev-3">Vorheriger Schritt</button>
+                <button type="button" class="iw-next" id="imnext-3" disabled>Nächster Schritt</button>
+              </div>
+            </div>
+
+            <!-- Step 4: Software -->
+            <div class="wpanel" id="impanel-4" hidden>
+              <h3 class="wiz-q">Welche Software wird aktuell genutzt?</h3>
+              <div class="iw-opts iw-opts--grid">
+                <button type="button" class="iw-opt" data-value="Rimo R5"><span>Rimo R5</span></button>
+                <button type="button" class="iw-opt" data-value="Immotop"><span>Immotop</span></button>
+                <button type="button" class="iw-opt" data-value="Garaio REM"><span>Garaio REM</span></button>
+                <button type="button" class="iw-opt" data-value="Fairwalter"><span>Fairwalter</span></button>
+                <button type="button" class="iw-opt" data-value="Excel / manuell"><span>Excel / manuell</span></button>
+                <button type="button" class="iw-opt" data-value="andere Software"><span>andere Software</span></button>
+                <button type="button" class="iw-opt" data-value="noch keine Software"><span>noch keine Software</span></button>
+              </div>
+              <div class="iw-nav">
+                <button type="button" class="iw-prev" id="imprev-4">Vorheriger Schritt</button>
+                <button type="button" class="iw-next" id="imnext-4" disabled>Nächster Schritt</button>
+              </div>
+            </div>
+
+            <!-- Step 5: Contact details -->
+            <div class="wpanel" id="impanel-5" hidden>
               <h3 class="wiz-q">Fast geschafft!</h3>
               <p class="wiz-sub">Hinterlasse deine Kontaktdaten – wir melden uns innerhalb von 24 h.</p>
               <form id="immoContactForm" novalidate>
@@ -868,13 +934,16 @@
                   <label for="im-message">Nachricht <span class="field-opt">(optional)</span></label>
                   <textarea id="im-message" name="message" rows="3" placeholder="Ergänze gerne weitere Infos …"></textarea>
                 </div>
-                <button type="submit" class="btn btn--primary">Anfrage senden <span class="arr" aria-hidden="true">→</span></button>
+                <div class="iw-nav">
+                  <button type="button" class="iw-prev" id="imprev-5">Vorheriger Schritt</button>
+                  <button type="submit" class="iw-next">Anfrage senden</button>
+                </div>
                 <p class="form-note">Wir behandeln deine Angaben vertraulich. <a href="datenschutz.html">Datenschutz</a></p>
               </form>
             </div>
 
-            <!-- Step 4: Done -->
-            <div class="wpanel wpanel--done" id="impanel-4" hidden>
+            <!-- Step 6: Done -->
+            <div class="wpanel wpanel--done" id="impanel-6" hidden>
               <div class="wdone-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
               </div>
