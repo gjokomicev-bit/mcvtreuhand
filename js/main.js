@@ -216,6 +216,91 @@
     });
   });
 
+  /* --- Immobilien multi-step wizard --- */
+  const immoWiz = document.getElementById("immoWizard");
+  if (immoWiz) {
+    let imCurStep = 1;
+    let imTopic = "";
+
+    const imDots = Array.from(immoWiz.querySelectorAll(".wdot"));
+    const imGaps = Array.from(immoWiz.querySelectorAll(".wdot-gap"));
+    const imLabel = document.getElementById("imwizLabel");
+
+    const IM_LABELS = {
+      1: "Schritt 1 von 3 – Dein Anliegen",
+      2: "Schritt 2 von 3 – Details",
+      3: "Schritt 3 von 3 – Kontaktdaten",
+      4: "Fertig!"
+    };
+
+    function imGoTo(n, skipScroll) {
+      const cur = document.getElementById("impanel-" + imCurStep);
+      if (cur) cur.classList.remove("active");
+      imCurStep = n;
+      const next = document.getElementById("impanel-" + n);
+      if (next) { next.hidden = false; next.classList.add("active"); }
+
+      const dotIdx = Math.min(n, 3) - 1;
+      imDots.forEach((d, i) => {
+        d.classList.toggle("active", i === dotIdx);
+        d.classList.toggle("done", i < dotIdx);
+      });
+      imGaps.forEach((g, i) => g.classList.toggle("done", i < dotIdx));
+      if (imLabel) imLabel.textContent = IM_LABELS[n] || "";
+
+      if (!skipScroll) {
+        const top = immoWiz.getBoundingClientRect().top + window.scrollY - 80;
+        window.scrollTo({ top: Math.max(top, 0), behavior: "smooth" });
+      }
+    }
+
+    // Step 1 – topic selection
+    immoWiz.querySelectorAll("#impanel-1 .wopt").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        imTopic = btn.dataset.topic;
+        immoWiz.querySelectorAll("#impanel-1 .wopt").forEach((b) => b.classList.remove("selected"));
+        btn.classList.add("selected");
+
+        if (imTopic === "anderes") {
+          setTimeout(() => imGoTo(3), 180);
+        } else {
+          immoWiz.querySelectorAll(".wsub").forEach((s) => { s.hidden = true; });
+          const sub = document.getElementById("imsub-" + imTopic);
+          if (sub) sub.hidden = false;
+          setTimeout(() => imGoTo(2), 180);
+        }
+      });
+    });
+
+    // Step 2 – detail selection
+    immoWiz.querySelectorAll("#impanel-2 .wopt").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        immoWiz.querySelectorAll("#impanel-2 .wopt").forEach((b) => b.classList.remove("selected"));
+        btn.classList.add("selected");
+        setTimeout(() => imGoTo(3), 180);
+      });
+    });
+
+    // Back buttons
+    document.getElementById("imback-2")?.addEventListener("click", () => imGoTo(1));
+    document.getElementById("imback-3")?.addEventListener("click", () =>
+      imGoTo(imTopic === "anderes" ? 1 : 2)
+    );
+
+    // Contact form submit → step 4
+    const immoContactForm = document.getElementById("immoContactForm");
+    if (immoContactForm) {
+      immoContactForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        if (!immoContactForm.checkValidity()) { immoContactForm.reportValidity(); return; }
+        immoContactForm.reset();
+        imGoTo(4);
+      });
+    }
+
+    imGoTo(1, true);
+  }
+
   /* --- Footer year --- */
   const year = document.getElementById("year");
   if (year) year.textContent = String(new Date().getFullYear());
