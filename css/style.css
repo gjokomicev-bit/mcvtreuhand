@@ -1449,7 +1449,8 @@ p { margin: 0 0 1rem; }
   padding: 22px 24px;
   transition: transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s var(--ease), background .3s var(--ease);
 }
-.problem:hover {
+.problem:hover,
+.problem.flipped {
   transform: translateY(-4px);
   box-shadow: var(--shadow-md);
   border-color: var(--accent);
@@ -1469,8 +1470,10 @@ p { margin: 0 0 1rem; }
   opacity: 0;
   pointer-events: none;
 }
-.problem:hover .problem__face--problem { opacity: 0; }
-.problem:hover .problem__face--ok { opacity: 1; }
+.problem:hover .problem__face--problem,
+.problem.flipped .problem__face--problem { opacity: 0; }
+.problem:hover .problem__face--ok,
+.problem.flipped .problem__face--ok { opacity: 1; }
 .problem__mark {
   width: 30px; height: 30px; border-radius: 9px;
   background: rgba(190, 76, 76, .12);

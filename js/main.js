@@ -177,6 +177,18 @@
     goTo(1, true);
   }
 
+  /* --- Problem cards: tap to flip on touch devices --- */
+  document.querySelectorAll(".problem").forEach((card) => {
+    card.addEventListener("click", () => {
+      const flipped = card.classList.toggle("flipped");
+      if (flipped) {
+        document.querySelectorAll(".problem.flipped").forEach((other) => {
+          if (other !== card) other.classList.remove("flipped");
+        });
+      }
+    });
+  });
+
   /* --- Footer year --- */
   const year = document.getElementById("year");
   if (year) year.textContent = String(new Date().getFullYear());
