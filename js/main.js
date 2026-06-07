@@ -29,16 +29,17 @@
 
   /* --- Mobile menu toggle --- */
   if (toggle && menu) {
-    const closeMenu = () => {
-      nav.classList.remove("menu-open");
-      toggle.setAttribute("aria-expanded", "false");
-      toggle.setAttribute("aria-label", "Menü öffnen");
-    };
-
-    toggle.addEventListener("click", () => {
-      const open = nav.classList.toggle("menu-open");
+    const setMenu = (open) => {
+      nav.classList.toggle("menu-open", open);
       toggle.setAttribute("aria-expanded", String(open));
       toggle.setAttribute("aria-label", open ? "Menü schliessen" : "Menü öffnen");
+      // lock background scroll while the menu is open
+      document.body.style.overflow = open ? "hidden" : "";
+    };
+    const closeMenu = () => setMenu(false);
+
+    toggle.addEventListener("click", () => {
+      setMenu(!nav.classList.contains("menu-open"));
     });
 
     // Close after picking a link
@@ -46,9 +47,25 @@
       link.addEventListener("click", closeMenu);
     });
 
+    // Close on tap outside the panel (e.g. the dim backdrop)
+    document.addEventListener("click", (e) => {
+      if (
+        nav.classList.contains("menu-open") &&
+        !menu.contains(e.target) &&
+        !toggle.contains(e.target)
+      ) {
+        closeMenu();
+      }
+    });
+
     // Close on Escape
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") closeMenu();
+    });
+
+    // Reset when resizing back to desktop
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 720 && nav.classList.contains("menu-open")) closeMenu();
     });
   }
 
