@@ -177,6 +177,33 @@
     goTo(1, true);
   }
 
+  /* --- Solution wheel: activate node → fill center hub --- */
+  const wheel = document.getElementById("solutionWheel");
+  if (wheel) {
+    const nodes = Array.from(wheel.querySelectorAll(".wheel__node"));
+    const hubTitle = wheel.querySelector(".wheel__hub-title");
+    const hubDesc = wheel.querySelector(".wheel__hub-desc");
+    const hubBadge = wheel.querySelector(".wheel__hub-badge");
+
+    const activate = (node) => {
+      nodes.forEach((n) => {
+        const on = n === node;
+        n.classList.toggle("active", on);
+        n.setAttribute("aria-pressed", String(on));
+      });
+      if (hubTitle) hubTitle.innerHTML = node.querySelector(".wheel__node-title").innerHTML;
+      if (hubDesc) hubDesc.textContent = node.querySelector(".wheel__node-desc").textContent;
+      if (hubBadge) hubBadge.textContent = node.querySelector(".wheel__node-badge").textContent;
+    };
+
+    nodes.forEach((node) => {
+      node.addEventListener("click", () => activate(node));
+      node.addEventListener("mouseenter", () => activate(node));
+    });
+
+    if (nodes.length) activate(nodes[0]);
+  }
+
   /* --- Problem cards: tap to flip on touch devices --- */
   document.querySelectorAll(".problem").forEach((card) => {
     card.addEventListener("click", () => {
