@@ -137,7 +137,7 @@
     .st-form-card {
       background: #fff;
       border-radius: 20px;
-      padding: 32px 30px;
+      padding: 32px 28px 28px;
       box-shadow: 0 32px 80px -20px rgba(10,20,30,.45);
     }
     .st-form-card h2 {
@@ -147,27 +147,70 @@
     .st-form-card .st-form-sub {
       font-size: .83rem; color: var(--ink-2); margin: 0 0 20px;
     }
-    .st-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .st-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 14px; }
     .st-form-grid .full { grid-column: 1 / -1; }
+
+    /* ---- Inputs ---- */
+    .sf-field { display: flex; flex-direction: column; gap: 5px; }
+    .sf-field label {
+      font-size: .78rem; font-weight: 700; letter-spacing: .04em;
+      color: var(--ink-2); text-transform: uppercase;
+    }
+    .sf-field input {
+      width: 100%; font-family: var(--font-body); font-size: .92rem;
+      color: var(--ink); padding: 11px 13px;
+      border: 1.5px solid var(--line); border-radius: 10px;
+      background: var(--bg-soft);
+      transition: border-color .2s, background .2s, box-shadow .2s;
+      box-sizing: border-box;
+    }
+    .sf-field input::placeholder { color: var(--ink-3); }
+    .sf-field input:focus {
+      outline: none; border-color: var(--accent);
+      background: #fff; box-shadow: var(--ring);
+    }
+
+    /* ---- Group title ---- */
     .st-group-title {
       font-size: .72rem; font-weight: 700; letter-spacing: .1em;
       text-transform: uppercase; color: var(--accent-700);
-      margin: 16px 0 8px; grid-column: 1 / -1;
+      margin: 6px 0 8px;
     }
-    .st-checks { display: flex; flex-direction: column; gap: 6px; }
-    .st-check {
-      display: flex; align-items: center; gap: 8px;
-      font-size: .87rem; color: var(--ink); cursor: pointer;
+
+    /* ---- Chip checkboxes ---- */
+    .st-chips { display: flex; flex-wrap: wrap; gap: 7px; }
+    .st-chip { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; }
+    .st-chip input[type="checkbox"],
+    .st-chip input[type="radio"] { position: absolute; opacity: 0; width: 0; height: 0; }
+    .st-chip-label {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 7px 13px; border-radius: 999px;
+      border: 1.5px solid var(--line); background: var(--bg-soft);
+      font-size: .82rem; font-weight: 600; color: var(--ink-2);
+      cursor: pointer;
+      transition: border-color .18s, background .18s, color .18s, box-shadow .18s;
+      user-select: none;
     }
-    .st-check input { width: 16px; height: 16px; accent-color: var(--accent-700); cursor: pointer; }
-    .st-radios { display: flex; flex-direction: column; gap: 6px; }
-    .st-radio {
-      display: flex; align-items: center; gap: 8px;
-      font-size: .87rem; color: var(--ink); cursor: pointer;
+    .st-chip-label::before {
+      content: '';
+      display: inline-block; width: 14px; height: 14px;
+      border-radius: 50%; border: 1.5px solid var(--line);
+      background: #fff; flex-shrink: 0;
+      transition: border-color .18s, background .18s;
     }
-    .st-radio input { width: 16px; height: 16px; accent-color: var(--accent-700); cursor: pointer; }
+    .st-chip input:checked + .st-chip-label {
+      border-color: var(--accent); background: rgba(94,158,123,.1);
+      color: var(--accent-700); box-shadow: 0 0 0 3px rgba(94,158,123,.15);
+    }
+    .st-chip input:checked + .st-chip-label::before {
+      background: var(--accent-700); border-color: var(--accent-700);
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 10 10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolyline points='2,5 4,7.5 8,3' stroke='white' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-size: 10px; background-position: center; background-repeat: no-repeat;
+    }
+    .st-chip-label:hover { border-color: var(--accent); color: var(--ink); }
+
     .st-form-submit {
-      width: 100%; margin-top: 16px; grid-column: 1 / -1;
+      width: 100%; margin-top: 8px; grid-column: 1 / -1;
       justify-content: center;
     }
     .st-form-note { font-size: .72rem; color: var(--ink-3); text-align: center; margin: 8px 0 0; grid-column: 1 / -1; }
@@ -387,66 +430,66 @@
               <input type="hidden" name="subject" value="Steuererklärung Anfrage – MCV Treuhand">
 
               <div class="st-form-grid">
-                <div class="field-wrap">
-                  <label for="st_vorname">Vorname *</label>
-                  <input type="text" id="st_vorname" name="vorname" required autocomplete="given-name">
+                <div class="sf-field">
+                  <label for="st_vorname">Vorname</label>
+                  <input type="text" id="st_vorname" name="vorname" required autocomplete="given-name" placeholder="Max">
                 </div>
-                <div class="field-wrap">
-                  <label for="st_nachname">Nachname *</label>
-                  <input type="text" id="st_nachname" name="nachname" required autocomplete="family-name">
+                <div class="sf-field">
+                  <label for="st_nachname">Nachname</label>
+                  <input type="text" id="st_nachname" name="nachname" required autocomplete="family-name" placeholder="Mustermann">
                 </div>
-                <div class="field-wrap">
-                  <label for="st_email">E-Mail *</label>
-                  <input type="email" id="st_email" name="email" required autocomplete="email">
+                <div class="sf-field">
+                  <label for="st_email">E-Mail</label>
+                  <input type="email" id="st_email" name="email" required autocomplete="email" placeholder="max@beispiel.ch">
                 </div>
-                <div class="field-wrap">
-                  <label for="st_telefon">Telefon *</label>
-                  <input type="tel" id="st_telefon" name="telefon" required autocomplete="tel">
+                <div class="sf-field">
+                  <label for="st_telefon">Telefon</label>
+                  <input type="tel" id="st_telefon" name="telefon" required autocomplete="tel" placeholder="+41 79 000 00 00">
                 </div>
-                <div class="field-wrap">
-                  <label for="st_plz">PLZ *</label>
-                  <input type="text" id="st_plz" name="plz" required autocomplete="postal-code">
+                <div class="sf-field">
+                  <label for="st_plz">PLZ</label>
+                  <input type="text" id="st_plz" name="plz" required autocomplete="postal-code" placeholder="3000">
                 </div>
-                <div class="field-wrap">
-                  <label for="st_adresse">Adresse *</label>
-                  <input type="text" id="st_adresse" name="adresse" required autocomplete="street-address">
+                <div class="sf-field">
+                  <label for="st_adresse">Wohnort</label>
+                  <input type="text" id="st_adresse" name="adresse" required autocomplete="address-level2" placeholder="Bern">
                 </div>
 
                 <div class="full">
                   <p class="st-group-title">Steuererklärung für</p>
-                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px 16px;">
-                    <label class="st-check"><input type="checkbox" name="zielgruppe" value="Lernende"> Lernende</label>
-                    <label class="st-check"><input type="checkbox" name="zielgruppe" value="Studenten"> Studenten</label>
-                    <label class="st-check"><input type="checkbox" name="zielgruppe" value="Einzelpersonen"> Einzelpersonen</label>
-                    <label class="st-check"><input type="checkbox" name="zielgruppe" value="Ehepaare"> Ehepaare</label>
+                  <div class="st-chips">
+                    <label class="st-chip"><input type="checkbox" name="zielgruppe" value="Lernende"><span class="st-chip-label">Lernende</span></label>
+                    <label class="st-chip"><input type="checkbox" name="zielgruppe" value="Studenten"><span class="st-chip-label">Studenten</span></label>
+                    <label class="st-chip"><input type="checkbox" name="zielgruppe" value="Einzelpersonen"><span class="st-chip-label">Einzelpersonen</span></label>
+                    <label class="st-chip"><input type="checkbox" name="zielgruppe" value="Ehepaare"><span class="st-chip-label">Ehepaare</span></label>
                   </div>
                 </div>
 
-                <div>
+                <div class="full">
                   <p class="st-group-title">Was ist dir wichtig?</p>
-                  <div class="st-checks">
-                    <label class="st-check"><input type="checkbox" name="ziel" value="Steuern sparen"> Steuern sparen</label>
-                    <label class="st-check"><input type="checkbox" name="ziel" value="Fristverlängerung"> Fristverlängerung</label>
-                    <label class="st-check"><input type="checkbox" name="ziel" value="Kosten optimieren"> Kosten optimieren</label>
-                    <label class="st-check"><input type="checkbox" name="ziel" value="Beratung"> Beratung</label>
+                  <div class="st-chips">
+                    <label class="st-chip"><input type="checkbox" name="ziel" value="Steuern sparen"><span class="st-chip-label">Steuern sparen</span></label>
+                    <label class="st-chip"><input type="checkbox" name="ziel" value="Fristverlängerung"><span class="st-chip-label">Fristverlängerung</span></label>
+                    <label class="st-chip"><input type="checkbox" name="ziel" value="Kosten optimieren"><span class="st-chip-label">Kosten optimieren</span></label>
+                    <label class="st-chip"><input type="checkbox" name="ziel" value="Beratung"><span class="st-chip-label">Beratung</span></label>
                   </div>
                 </div>
 
-                <div>
+                <div class="full">
                   <p class="st-group-title">Personen im Haushalt</p>
-                  <div class="st-radios">
-                    <label class="st-radio"><input type="radio" name="haushalt" value="1 Person"> 1 Person</label>
-                    <label class="st-radio"><input type="radio" name="haushalt" value="2 Personen"> 2 Personen</label>
-                    <label class="st-radio"><input type="radio" name="haushalt" value="3–4 Personen"> 3–4 Personen</label>
-                    <label class="st-radio"><input type="radio" name="haushalt" value="+5 Personen"> +5 Personen</label>
+                  <div class="st-chips">
+                    <label class="st-chip"><input type="radio" name="haushalt" value="1 Person"><span class="st-chip-label">1 Person</span></label>
+                    <label class="st-chip"><input type="radio" name="haushalt" value="2 Personen"><span class="st-chip-label">2 Personen</span></label>
+                    <label class="st-chip"><input type="radio" name="haushalt" value="3–4 Personen"><span class="st-chip-label">3–4 Personen</span></label>
+                    <label class="st-chip"><input type="radio" name="haushalt" value="+5 Personen"><span class="st-chip-label">+5 Personen</span></label>
                   </div>
                 </div>
 
                 <div class="full">
                   <p class="st-group-title">Weitere Angaben</p>
-                  <div style="display:flex;gap:20px;flex-wrap:wrap;">
-                    <label class="st-check"><input type="checkbox" name="weiteres" value="Immobilien"> Ich besitze Immobilien</label>
-                    <label class="st-check"><input type="checkbox" name="weiteres" value="Wertschriften"> Ich habe Wertschriften</label>
+                  <div class="st-chips">
+                    <label class="st-chip"><input type="checkbox" name="weiteres" value="Immobilien"><span class="st-chip-label">Ich besitze Immobilien</span></label>
+                    <label class="st-chip"><input type="checkbox" name="weiteres" value="Wertschriften"><span class="st-chip-label">Ich habe Wertschriften</span></label>
                   </div>
                 </div>
 
