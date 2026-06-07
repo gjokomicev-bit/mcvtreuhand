@@ -181,9 +181,13 @@
   const year = document.getElementById("year");
   if (year) year.textContent = String(new Date().getFullYear());
 
-  /* --- Hero visual – portal progress bar --- */
+  /* --- Hero visual – portal progress bars (desktop + iPhone) --- */
   (function () {
-    const fill = document.getElementById("pt-fill");
-    if (fill) setTimeout(function () { fill.style.width = "78%"; }, 700);
+    const fills = document.querySelectorAll(".pt-prog-fill");
+    if (fills.length) {
+      setTimeout(function () {
+        fills.forEach(function (f) { f.style.width = "78%"; });
+      }, 700);
+    }
   })();
 })();

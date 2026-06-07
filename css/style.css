@@ -398,7 +398,9 @@ p { margin: 0 0 1rem; }
 .hero__trust .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); flex: none; }
 
 /* ---- Hero Visual – Customer Portal ---- */
-.hero__visual .pt-scene { width: 100%; }
+.hero__visual .pt-scene { width: 100%; animation: pt-float 6.5s ease-in-out infinite; }
+@keyframes pt-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
+.hero__visual .ph-phone { display: none; }
 .hero__visual .pt-win {
   border-radius: 18px;
   border: 1px solid rgba(255,255,255,.09);
@@ -572,9 +574,64 @@ p { margin: 0 0 1rem; }
 @media (prefers-reduced-motion: reduce) {
   .hero__visual .pt-win,
   .hero__visual .stagger { animation: none !important; opacity: 1 !important; transform: none !important; }
+  .hero__visual .pt-scene,
+  .hero__visual .ph-device,
   .hero__visual .pt-bell-dot,
   .hero__visual .pt-task-mark { animation: none !important; }
 }
+
+/* ---- Hero Visual – iPhone version (mobile only) ---- */
+.hero__visual .ph-device {
+  position: relative;
+  width: 330px; max-width: 100%; margin: 0 auto;
+  border-radius: 52px;
+  padding: 13px;
+  background: linear-gradient(155deg, #2a3947, #11181f);
+  border: 1px solid rgba(255,255,255,.1);
+  box-shadow: 0 50px 90px -30px rgba(0,0,0,.75), inset 0 1px 0 rgba(255,255,255,.08);
+  animation: pt-float 6.5s ease-in-out infinite;
+}
+.hero__visual .ph-screen {
+  position: relative;
+  border-radius: 40px;
+  overflow: hidden;
+  height: 600px;
+  display: flex; flex-direction: column;
+  background:
+    radial-gradient(120% 80% at 84% 4%, rgba(94,158,123,.16), transparent 55%),
+    linear-gradient(165deg, #1b2c3c, #14212e 60%);
+}
+.hero__visual .ph-island {
+  position: absolute; top: 12px; left: 50%; transform: translateX(-50%);
+  width: 96px; height: 26px; border-radius: 999px;
+  background: #05090d; z-index: 5;
+}
+.hero__visual .ph-status {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 24px 6px; font-size: 12px; font-weight: 700; color: #eef3f0;
+}
+.hero__visual .ph-status-icons { display: flex; align-items: center; gap: 5px; color: #cdd6dd; }
+.hero__visual .ph-status-icons svg { display: block; }
+.hero__visual .ph-appbar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 8px 18px 12px; border-bottom: 1px solid rgba(255,255,255,.07);
+}
+.hero__visual .ph-content {
+  flex: 1; overflow: hidden;
+  padding: 14px 16px 8px;
+  display: flex; flex-direction: column; gap: 11px;
+  -webkit-mask-image: linear-gradient(180deg, #000 86%, transparent 100%);
+  mask-image: linear-gradient(180deg, #000 86%, transparent 100%);
+}
+.hero__visual .ph-tabbar {
+  display: flex; align-items: center; justify-content: space-around;
+  padding: 11px 10px 16px;
+  border-top: 1px solid rgba(255,255,255,.08);
+  background: rgba(0,0,0,.22);
+}
+.hero__visual .ph-tab { display: flex; flex-direction: column; align-items: center; gap: 4px; color: #6f828f; font-size: 9.5px; font-weight: 600; }
+.hero__visual .ph-tab svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; display: block; }
+.hero__visual .ph-tab-on { color: #79bc97; }
 
 /* ---------- Audience strip ---------- */
 .audience { background: var(--bg); border-bottom: 1px solid var(--line); }
@@ -1289,6 +1346,13 @@ p { margin: 0 0 1rem; }
   .step:not(:last-child)::after { display: none; }
   .values-grid { grid-template-columns: repeat(2, 1fr); }
   .footer__grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+}
+
+/* Swap desktop portal → iPhone mockup on phones */
+@media (max-width: 767px) {
+  .hero__visual { zoom: 1; max-width: 360px; margin-inline: auto; }
+  .hero__visual .pt-scene { display: none; }
+  .hero__visual .ph-phone { display: block; }
 }
 
 @media (max-width: 720px) {
