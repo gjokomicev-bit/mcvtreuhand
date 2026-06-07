@@ -4,18 +4,65 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Datenschutzerklärung – MCV Treuhand</title>
-  <meta name="description" content="Datenschutzerklärung der MCV Treuhand gemäss dem Schweizer Datenschutzgesetz (DSG).">
-  <meta name="robots" content="noindex">
+  <meta name="description" content="Datenschutzerklärung von MCV Treuhand GmbH. Informationen zur Verarbeitung Ihrer personenbezogenen Daten.">
+  <meta name="robots" content="noindex, follow">
   <meta name="theme-color" content="#1B2A38">
+
+  <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%231B2A38'/%3E%3Ctext x='50%25' y='54%25' font-family='Arial,Helvetica,sans-serif' font-size='26' font-weight='700' fill='%235E9E7B' text-anchor='middle' dominant-baseline='middle'%3EM%3C/text%3E%3C/svg%3E">
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@500;600;700;800&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="css/style.css">
+
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "x3bj5l7kkg");
+  </script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KXM7CEQTQJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-KXM7CEQTQJ');
+  </script>
+
+  <style>
+    .legal { max-width: 800px; margin: 0 auto; padding: 80px 24px 100px; }
+    .legal__back { display: inline-flex; align-items: center; gap: 8px; color: var(--accent-700); font-weight: 600; font-size: .9rem; text-decoration: none; margin-bottom: 48px; }
+    .legal__back:hover { text-decoration: underline; }
+    .legal__back svg { width: 16px; height: 16px; }
+    .legal h1 { font-family: var(--font-head); font-size: 2.2rem; font-weight: 800; color: var(--primary); letter-spacing: -.03em; margin: 0 0 8px; }
+    .legal__meta { color: var(--ink-3, var(--ink-2)); font-size: .9rem; margin: 0 0 48px; }
+    .legal h2 { font-family: var(--font-head); font-size: 1.2rem; font-weight: 700; color: var(--primary); margin: 40px 0 10px; }
+    .legal p { color: var(--ink-2); line-height: 1.75; margin: 0 0 14px; font-size: .97rem; }
+    .legal ul { color: var(--ink-2); line-height: 1.75; margin: 0 0 14px; padding-left: 20px; font-size: .97rem; }
+    .legal ul li { margin-bottom: 6px; }
+    .legal a { color: var(--accent-700); }
+    .legal a:hover { text-decoration: underline; }
+    .legal__divider { border: none; border-top: 1px solid var(--line); margin: 40px 0; }
+    .legal__card { background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px 28px; margin: 16px 0 24px; }
+    .legal__card-head { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+    .legal__card-ico { width: 40px; height: 40px; border-radius: 10px; display: grid; place-items: center; flex: none; }
+    .legal__card-ico svg { width: 20px; height: 20px; }
+    .legal__card-title { font-family: var(--font-head); font-weight: 700; font-size: 1rem; color: var(--primary); }
+    .legal__card p { margin-bottom: 8px; }
+    .legal__card p:last-child { margin-bottom: 0; }
+  </style>
 </head>
 <body>
 
-  <header class="nav nav--solid" id="nav">
+  <!-- Navigation -->
+  <header class="nav" id="nav">
     <div class="nav__inner">
       <a href="index.html" class="logo" aria-label="MCV Treuhand Startseite">
         <span class="logo__mark">MCV</span>
@@ -24,7 +71,7 @@
       <nav aria-label="Hauptnavigation">
         <ul class="nav__menu" id="navMenu">
           <li><a class="nav__link" href="index.html#leistungen">Treuhand</a></li>
-          <li><a class="nav__link" href="index.html#immobilien">Immobilien</a></li>
+          <li><a class="nav__link" href="immobilien.html">Immobilien</a></li>
           <li><a class="nav__link" href="index.html#steuern">Steuererklärung</a></li>
           <li><a class="nav__link" href="index.html#ueber-uns">Über uns</a></li>
           <li><a class="nav__link" href="index.html#kontakt">Kontakt</a></li>
@@ -37,53 +84,163 @@
     </div>
   </header>
 
-  <main class="legal">
-    <div class="container">
+  <main>
+    <div class="legal">
+
+      <a href="index.html" class="legal__back">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        Zurück zur Startseite
+      </a>
+
       <h1>Datenschutzerklärung</h1>
-      <p class="updated">Diese Erklärung richtet sich nach dem Schweizer Datenschutzgesetz (DSG).</p>
+      <p class="legal__meta">Stand: Juni 2026 &nbsp;&middot;&nbsp; MCV Treuhand GmbH, Worblentalstrasse 33, 3063 Ittigen</p>
 
       <h2>1. Verantwortliche Stelle</h2>
+      <p>Verantwortlich für die Datenverarbeitung auf dieser Website:</p>
       <p>
-        Verantwortlich für die Bearbeitung von Personendaten auf dieser Website ist:<br>
-        <strong>MCV Treuhand GmbH</strong>, Worblentalstrasse 33, 3063 Ittigen,
-        E-Mail: <a href="mailto:info@mcv-treuhand.ch">info@mcv-treuhand.ch</a>.
+        <strong>MCV Treuhand GmbH</strong><br>
+        Worblentalstrasse 33<br>
+        3063 Ittigen, Schweiz<br>
+        Tel.: <a href="tel:+41315619113">031 561 91 13</a><br>
+        E-Mail: <a href="mailto:info@mcv-treuhand.ch">info@mcv-treuhand.ch</a>
       </p>
 
-      <h2>2. Grundsätze</h2>
-      <p>Wir bearbeiten Personendaten gemäss den Vorgaben des schweizerischen Datenschutzrechts. Wir erheben und bearbeiten nur jene Daten, die für den Betrieb dieser Website und für die Erbringung unserer Dienstleistungen erforderlich sind. Personendaten werden vertraulich behandelt.</p>
+      <hr class="legal__divider">
 
-      <h2>3. Bearbeitung von Daten beim Besuch der Website</h2>
-      <p>Beim Aufrufen unserer Website können durch den Hosting-Provider technische Zugriffsdaten (z. B. IP-Adresse, Datum und Uhrzeit des Zugriffs, abgerufene Seite, Browsertyp) in Server-Logfiles gespeichert werden. Diese Daten dienen der Sicherstellung eines störungsfreien Betriebs sowie der Verbesserung unseres Angebots und lassen keine direkten Rückschlüsse auf deine Person zu.</p>
+      <h2>2. Allgemeines zur Datenverarbeitung</h2>
+      <p>Wir verarbeiten personenbezogene Daten unserer Nutzer grundsätzlich nur, soweit dies zur Bereitstellung einer funktionsfähigen Website sowie unserer Inhalte und Leistungen erforderlich ist. Die Verarbeitung erfolgt auf Basis des Schweizerischen Datenschutzgesetzes (DSG) sowie, sofern anwendbar, der Europäischen Datenschutz-Grundverordnung (DSGVO).</p>
 
-      <h2>4. Kontaktformular</h2>
-      <p>Wenn du uns über das Kontaktformular eine Nachricht sendest, bearbeiten wir die von dir angegebenen Daten (Name, E-Mail-Adresse, Telefonnummer sowie den Inhalt deiner Nachricht) ausschliesslich zur Bearbeitung deiner Anfrage und für allfällige Anschlussfragen. Diese Daten geben wir nicht ohne deine Einwilligung an Dritte weiter.</p>
+      <hr class="legal__divider">
 
-      <h2>5. Bekanntgabe an Dritte</h2>
-      <p>Eine Weitergabe deiner Daten erfolgt nur, soweit dies zur Erfüllung unserer Leistungen erforderlich ist, du eingewilligt hast oder wir gesetzlich dazu verpflichtet sind. Beigezogene Dienstleister (z. B. Hosting) sind zur Einhaltung des Datenschutzes verpflichtet.</p>
+      <h2>3. Hosting</h2>
+      <p>Diese Website wird über <strong>GitHub Pages</strong> (GitHub Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA) gehostet. Beim Abruf unserer Website werden automatisch Verbindungsdaten (IP-Adresse, Zeitstempel, abgerufene Seiten) in Server-Logs gespeichert. Diese Daten werden ausschliesslich zur Sicherstellung des technischen Betriebs verwendet und nach spätestens 7 Tagen gelöscht. Rechtsgrundlage ist das berechtigte Interesse gemäss Art. 6 Abs. 1 lit. f DSGVO.</p>
+      <p>Weitere Informationen: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub Privacy Statement</a></p>
+
+      <hr class="legal__divider">
+
+      <h2>4. Analyse- und Tracking-Dienste</h2>
+      <p>Zur Verbesserung unserer Website setzen wir folgende Analyse-Dienste ein. Diese verwenden Cookies und ähnliche Technologien, um Informationen über die Nutzung der Website zu sammeln.</p>
+
+      <div class="legal__card">
+        <div class="legal__card-head">
+          <div class="legal__card-ico" style="background: rgba(66,133,244,.1); color: #4285F4;">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+          </div>
+          <span class="legal__card-title">Google Analytics 4 (Google LLC)</span>
+        </div>
+        <p>Wir nutzen Google Analytics 4, einen Webanalysedienst der Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA. Google Analytics setzt Cookies ein, die eine Analyse der Benutzung unserer Website ermöglichen.</p>
+        <p><strong>Mess-ID:</strong> G-KXM7CEQTQJ</p>
+        <p><strong>Zweck:</strong> Analyse des Nutzerverhaltens, Seitenaufrufe, Verweildauer, Einstiegsseiten, Herkunft der Besucher.</p>
+        <p><strong>Rechtsgrundlage:</strong> Berechtigtes Interesse (Art. 6 Abs. 1 lit. f DSGVO).</p>
+        <p><strong>Opt-out:</strong> Browser-Plugin unter <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">tools.google.com/dlpage/gaoptout</a></p>
+        <p>Weitere Informationen: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Datenschutzerklärung</a></p>
+      </div>
+
+      <div class="legal__card">
+        <div class="legal__card-head">
+          <div class="legal__card-ico" style="background: rgba(0,120,212,.1); color: #0078D4;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <span class="legal__card-title">Microsoft Clarity (Microsoft Corporation)</span>
+        </div>
+        <p>Wir nutzen Microsoft Clarity der Microsoft Corporation, One Microsoft Way, Redmond, WA 98052, USA. Clarity zeichnet Mausbewegungen, Klicks und Scroll-Verhalten auf (Heatmaps &amp; Session Recordings).</p>
+        <p><strong>Projekt-ID:</strong> x3bj5l7kkg</p>
+        <p><strong>Zweck:</strong> Analyse des Nutzerverhaltens zur Verbesserung der Benutzerfreundlichkeit.</p>
+        <p><strong>Verarbeitete Daten:</strong> Klick- und Scrollverhalten, Mausbewegungen, Seitenaufrufe, Gerätedaten, anonymisierte IP-Adresse.</p>
+        <p><strong>Rechtsgrundlage:</strong> Berechtigtes Interesse (Art. 6 Abs. 1 lit. f DSGVO).</p>
+        <p><strong>Opt-out:</strong> <a href="https://choice.microsoft.com/opt-out" target="_blank" rel="noopener">choice.microsoft.com/opt-out</a></p>
+        <p>Weitere Informationen: <a href="https://privacy.microsoft.com/privacystatement" target="_blank" rel="noopener">Microsoft Datenschutzerklärung</a></p>
+      </div>
+
+      <div class="legal__card">
+        <div class="legal__card-head">
+          <div class="legal__card-ico" style="background: rgba(24,119,242,.1); color: #1877F2;">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </div>
+          <span class="legal__card-title">Meta (Facebook / Instagram)</span>
+        </div>
+        <p>Auf unserer Website können Inhalte oder Tracking-Mechanismen der Meta Platforms Ireland Ltd., 4 Grand Canal Square, Dublin 2, Irland eingebunden sein. Dies umfasst Social-Media-Buttons sowie ggf. den Meta-Pixel zur Erfolgsmessung von Werbeanzeigen.</p>
+        <p><strong>Zweck:</strong> Analyse von Websitebesuchen für Werbezwecke, Erstellung von Zielgruppen für Anzeigen auf Facebook und Instagram.</p>
+        <p><strong>Verarbeitete Daten:</strong> IP-Adresse, Browser-Informationen, besuchte Seiten, Ereignisse (z. B. Formularabsendungen).</p>
+        <p><strong>Rechtsgrundlage:</strong> Berechtigtes Interesse (Art. 6 Abs. 1 lit. f DSGVO).</p>
+        <p><strong>Opt-out:</strong> <a href="https://www.facebook.com/settings?tab=ads" target="_blank" rel="noopener">facebook.com/settings?tab=ads</a></p>
+        <p>Weitere Informationen: <a href="https://www.facebook.com/policy.php" target="_blank" rel="noopener">Meta Datenschutzrichtlinie</a></p>
+      </div>
+
+      <hr class="legal__divider">
+
+      <h2>5. Kontaktformular</h2>
+      <p>Wenn Sie uns über das Kontaktformular auf dieser Website kontaktieren, werden die von Ihnen eingegebenen Daten (Name, E-Mail-Adresse, Telefonnummer, Nachricht sowie Angaben zu Ihren Dienstleistungsinteressen) zur Bearbeitung Ihrer Anfrage verarbeitet. Die Übermittlung erfolgt über <strong>Web3Forms</strong> (web3forms.com). Die Daten werden ausschliesslich zur Bearbeitung Ihrer Anfrage verwendet.</p>
+      <p><strong>Rechtsgrundlage:</strong> Vertragsanbahnung (Art. 6 Abs. 1 lit. b DSGVO).</p>
+      <p><strong>Speicherdauer:</strong> Die Daten werden gelöscht, sobald Ihre Anfrage abschliessend bearbeitet wurde und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</p>
+
+      <hr class="legal__divider">
 
       <h2>6. Cookies</h2>
-      <p>Diese Website verwendet nur technisch notwendige Mittel. Sollten künftig Analyse- oder Marketing-Cookies eingesetzt werden, informieren wir dich an dieser Stelle und holen – wo erforderlich – deine Einwilligung ein. <span class="placeholder">[Bei Einsatz von Tracking/Analytics ergänzen.]</span></p>
+      <p>Unsere Website verwendet Cookies. Wir unterscheiden zwischen:</p>
+      <ul>
+        <li><strong>Technisch notwendige Cookies:</strong> Erforderlich für den Betrieb der Website. Keine Einwilligung erforderlich.</li>
+        <li><strong>Analyse-Cookies:</strong> Gesetzt durch Google Analytics, Microsoft Clarity und Meta. Diese dienen der Verhaltensanalyse und Optimierung.</li>
+      </ul>
+      <p>Sie können Cookies in Ihren Browser-Einstellungen jederzeit deaktivieren oder löschen.</p>
 
-      <h2>7. Deine Rechte</h2>
-      <p>Im Rahmen des anwendbaren Rechts hast du das Recht auf Auskunft über die zu deiner Person bearbeiteten Daten sowie auf Berichtigung oder Löschung. Für die Ausübung deiner Rechte wende dich bitte an <a href="mailto:info@mcv-treuhand.ch">info@mcv-treuhand.ch</a>.</p>
+      <hr class="legal__divider">
 
-      <h2>8. Datensicherheit</h2>
-      <p>Wir treffen angemessene technische und organisatorische Massnahmen, um deine Daten gegen Verlust, Missbrauch und unbefugten Zugriff zu schützen. Die Übertragung erfolgt verschlüsselt (SSL/TLS).</p>
+      <h2>7. Datenübermittlung in Drittländer</h2>
+      <p>Google LLC und Microsoft Corporation haben ihren Sitz in den USA. Die Datenübermittlung erfolgt auf Basis der EU-Standardvertragsklauseln sowie des EU-US Data Privacy Frameworks. Für die Schweiz gilt das Angemessenheitsprinzip gemäss DSG.</p>
 
-      <h2>9. Änderungen</h2>
-      <p>Wir behalten uns vor, diese Datenschutzerklärung jederzeit anzupassen. Massgebend ist die jeweils auf dieser Website veröffentlichte Fassung.</p>
+      <hr class="legal__divider">
 
-      <p style="margin-top:48px"><a href="index.html">← Zurück zur Startseite</a></p>
+      <h2>8. Ihre Rechte</h2>
+      <p>Sie haben gegenüber uns folgende Rechte bezüglich Ihrer personenbezogenen Daten:</p>
+      <ul>
+        <li><strong>Auskunftsrecht</strong> – Sie können Auskunft über die gespeicherten Daten verlangen.</li>
+        <li><strong>Berichtigungsrecht</strong> – Sie können die Berichtigung unrichtiger Daten verlangen.</li>
+        <li><strong>Recht auf Löschung</strong> – Sie können die Löschung Ihrer Daten verlangen.</li>
+        <li><strong>Recht auf Einschränkung</strong> – Sie können die Einschränkung der Verarbeitung verlangen.</li>
+        <li><strong>Widerspruchsrecht</strong> – Sie können der Verarbeitung auf Basis berechtigter Interessen jederzeit widersprechen.</li>
+        <li><strong>Datenübertragbarkeit</strong> – Sie können Ihre Daten in einem maschinenlesbaren Format erhalten.</li>
+        <li><strong>Widerruf der Einwilligung</strong> – Erteilte Einwilligungen können Sie jederzeit widerrufen.</li>
+      </ul>
+      <p>Zur Ausübung Ihrer Rechte: <a href="mailto:info@mcv-treuhand.ch">info@mcv-treuhand.ch</a></p>
+      <p>Beschwerderecht bei der zuständigen Aufsichtsbehörde:</p>
+      <ul>
+        <li><strong>Schweiz:</strong> <a href="https://www.edoeb.admin.ch" target="_blank" rel="noopener">Eidgenössischer Datenschutz- und Öffentlichkeitsbeauftragter (EDÖB)</a></li>
+        <li><strong>EU:</strong> Zuständige Aufsichtsbehörde Ihres Wohnsitzlandes</li>
+      </ul>
+
+      <hr class="legal__divider">
+
+      <h2>9. Aktualität und Änderungen</h2>
+      <p>Diese Datenschutzerklärung hat den Stand Juni 2026. Aufgrund von Weiterentwicklungen unserer Website oder geänderten gesetzlichen Vorgaben kann eine Anpassung notwendig werden. Die jeweils aktuelle Version ist stets auf dieser Seite abrufbar.</p>
+
     </div>
   </main>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__bottom" style="border-top:0;padding-top:0">
-        <span>© <span id="year">2026</span> MCV Treuhand GmbH. Alle Rechte vorbehalten.</span>
+  <footer>
+    <div class="contact-bar">
+      <div class="container contact-bar__inner">
+        <span class="contact-bar__lead"><strong>Lieber direkt?</strong> Ruf uns an oder schreib uns.</span>
+        <a href="tel:+41315619113">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l.95-.95a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 17z"/></svg>
+          031 561 91 13
+        </a>
+        <a href="mailto:info@mcv-treuhand.ch">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+          info@mcv-treuhand.ch
+        </a>
+        <span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Worblentalstrasse 33, 3063 Ittigen
+        </span>
+      </div>
+    </div>
+    <div class="footer-min">
+      <div class="container footer-min__inner">
+        <span>&copy; <span id="year">2026</span> MCV Treuhand GmbH. Alle Rechte vorbehalten.</span>
         <nav aria-label="Rechtliches">
-          <a href="impressum.html">Impressum</a>
-          <a href="datenschutz.html">Datenschutz</a>
+          <a href="impressum.html">Nutzungsbedingungen</a>
+          <a href="datenschutz.html">Datenschutzerklärung</a>
         </nav>
       </div>
     </div>
