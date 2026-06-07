@@ -204,13 +204,14 @@
     goTo(1, true);
   }
 
-  /* --- Solution wheel: activate node → fill center hub --- */
+  /* --- Solution wheel: activate node → fill explanation panel --- */
   const wheel = document.getElementById("solutionWheel");
   if (wheel) {
     const nodes = Array.from(wheel.querySelectorAll(".wheel__node"));
-    const hubTitle = wheel.querySelector(".wheel__hub-title");
-    const hubDesc = wheel.querySelector(".wheel__hub-desc");
-    const hubBadge = wheel.querySelector(".wheel__hub-badge");
+    const panelIco   = document.getElementById("wheelPanelIco");
+    const panelTitle = document.getElementById("wheelPanelTitle");
+    const panelDesc  = document.getElementById("wheelPanelDesc");
+    const panelBadge = document.getElementById("wheelPanelBadge");
 
     const activate = (node) => {
       nodes.forEach((n) => {
@@ -218,9 +219,11 @@
         n.classList.toggle("active", on);
         n.setAttribute("aria-pressed", String(on));
       });
-      if (hubTitle) hubTitle.innerHTML = node.querySelector(".wheel__node-title").innerHTML;
-      if (hubDesc) hubDesc.textContent = node.querySelector(".wheel__node-desc").textContent;
-      if (hubBadge) hubBadge.textContent = node.querySelector(".wheel__node-badge").textContent;
+      const iconEl = node.querySelector(".wheel__node-icon");
+      if (panelIco && iconEl) panelIco.innerHTML = iconEl.innerHTML;
+      if (panelTitle) panelTitle.innerHTML = node.querySelector(".wheel__node-title").innerHTML;
+      if (panelDesc) panelDesc.textContent = node.querySelector(".wheel__node-desc").textContent;
+      if (panelBadge) panelBadge.textContent = node.querySelector(".wheel__node-badge").textContent;
     };
 
     nodes.forEach((node) => {

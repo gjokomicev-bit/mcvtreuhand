@@ -573,10 +573,8 @@
         <div class="wheel reveal" id="solutionWheel">
           <div class="wheel__ring">
 
-            <div class="wheel__hub" aria-live="polite">
-              <span class="wheel__hub-title"></span>
-              <span class="wheel__hub-desc"></span>
-              <span class="wheel__hub-badge"></span>
+            <div class="wheel__hub">
+              <span class="wheel__hub-brand">MCV</span>
             </div>
 
             <button type="button" class="wheel__node" style="--i:0" aria-pressed="false">
@@ -646,6 +644,16 @@
             </button>
 
           </div>
+
+          <div class="wheel__panel" id="wheelPanel" aria-live="polite">
+            <div class="wheel__panel-ico" id="wheelPanelIco"></div>
+            <div class="wheel__panel-content">
+              <span class="wheel__panel-badge" id="wheelPanelBadge"></span>
+              <strong class="wheel__panel-title" id="wheelPanelTitle"></strong>
+              <p class="wheel__panel-desc" id="wheelPanelDesc"></p>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
