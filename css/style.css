@@ -840,6 +840,13 @@ p { margin: 0 0 1rem; }
 .section--dark h2 { color: #fff; }
 .section--dark .lead { color: rgba(255,255,255,.78); }
 
+/* light-green (mint) section background */
+.section--mint {
+  background:
+    radial-gradient(900px 500px at 100% 0%, rgba(94,158,123,.10), transparent 60%),
+    linear-gradient(170deg, #EEF6F1 0%, #E4F1EA 100%);
+}
+
 /* ---------- Flow showcase (workflow → dashboard) ---------- */
 .fs-stage { max-width: 880px; margin: 56px auto 0; }
 
