@@ -450,6 +450,68 @@
     calc.addEventListener("input", recompute);
     calc.addEventListener("change", recompute);
     recompute();
+
+    /* --- Calc CTA → Modal --- */
+    const ctaBtn      = document.getElementById("calcCtaBtn");
+    const modal       = document.getElementById("calcModal");
+    const modalClose  = document.getElementById("calcModalClose");
+    const cmodTotal   = document.getElementById("cmodTotal");
+    const cmodBd      = document.getElementById("cmodBreakdown");
+    const cmodKalk    = document.getElementById("cmodKalkulation");
+    const cmodForm    = document.getElementById("calcContactForm");
+    const cmodSubmit  = document.getElementById("calcContactSubmit");
+    const cmodDone    = document.getElementById("calcContactDone");
+
+    const openModal = (e) => {
+      e.preventDefault();
+      // Sync summary into modal
+      const monthly = document.getElementById("calcMonthly").textContent;
+      cmodTotal.innerHTML = monthly + ' <small>/ Monat</small>';
+      cmodBd.innerHTML    = document.getElementById("calcBreakdown").innerHTML;
+      // Build kalkulation text for email
+      const rows = Array.from(document.querySelectorAll("#calcBreakdown li"))
+        .map(li => li.querySelectorAll("span")[0].textContent + ": " + li.querySelectorAll("span")[1].textContent)
+        .join("\n");
+      cmodKalk.value = rows + "\nGesamt: " + monthly + " / Monat";
+
+      modal.hidden = false;
+      document.body.style.overflow = "hidden";
+      modal.querySelector("input[name='vorname']").focus();
+    };
+
+    const closeModal = () => {
+      modal.hidden = true;
+      document.body.style.overflow = "";
+    };
+
+    if (ctaBtn && modal) {
+      ctaBtn.addEventListener("click", openModal);
+      modalClose.addEventListener("click", closeModal);
+      modal.addEventListener("click", (e) => { if (e.target === modal) closeModal(); });
+      document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !modal.hidden) closeModal(); });
+    }
+
+    if (cmodForm) {
+      cmodForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        if (!cmodForm.checkValidity()) { cmodForm.reportValidity(); return; }
+        cmodSubmit.disabled = true;
+        cmodSubmit.textContent = "Wird gesendet…";
+        const data = new FormData(cmodForm);
+        try {
+          const res = await fetch("https://api.web3forms.com/submit", { method: "POST", body: data });
+          const json = await res.json();
+          if (json.success) {
+            cmodForm.hidden = true;
+            cmodDone.hidden = false;
+          } else { throw new Error(); }
+        } catch {
+          cmodSubmit.disabled = false;
+          cmodSubmit.textContent = "Angebot anfordern →";
+          alert("Fehler beim Senden. Bitte versuche es erneut oder schreib uns direkt.");
+        }
+      });
+    }
   }
 
   /* --- Footer year --- */

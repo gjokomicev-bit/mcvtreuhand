@@ -1528,7 +1528,7 @@
               <div class="calc__sum-total"><span id="calcMonthly">CHF 0.00</span><small>pro Monat exkl. MWST</small></div>
               <div class="calc__sum-year">≈ <span id="calcYearly">CHF 0.00</span> / Jahr</div>
               <ul class="calc__breakdown" id="calcBreakdown"></ul>
-              <a href="#kontakt" class="btn btn--primary calc__cta">Unverbindliches Angebot anfragen <span class="arr" aria-hidden="true">→</span></a>
+              <a href="#kontakt" class="btn btn--primary calc__cta" id="calcCtaBtn">Unverbindliches Angebot anfragen <span class="arr" aria-hidden="true">→</span></a>
               <p class="calc__note">Richtwert auf Basis unserer Standard-Preisliste. Das definitive Fixpreis-Angebot erhältst du nach dem kostenlosen Erstgespräch.</p>
             </div>
           </aside>
@@ -1793,6 +1793,68 @@
       </div>
     </div>
   </footer>
+
+  <!-- Kostenrechner Modal -->
+  <div class="cmod-overlay" id="calcModal" role="dialog" aria-modal="true" aria-labelledby="cmodTitle" hidden>
+    <div class="cmod">
+      <button class="cmod__close" id="calcModalClose" aria-label="Schliessen">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+
+      <!-- Zusammenfassung -->
+      <div class="cmod__summary">
+        <span class="cmod__sum-label">Deine Konfiguration</span>
+        <div class="cmod__sum-total" id="cmodTotal">CHF 0.00 <small>/ Monat</small></div>
+        <ul class="cmod__breakdown" id="cmodBreakdown"></ul>
+      </div>
+
+      <!-- Kontaktformular -->
+      <div class="cmod__form-wrap">
+        <h3 class="cmod__title" id="cmodTitle">Angebot anfordern</h3>
+        <p class="cmod__sub">Wir melden uns innerhalb von 24 Stunden mit einem konkreten Fixpreis-Angebot.</p>
+
+        <form id="calcContactForm" novalidate>
+          <input type="hidden" name="access_key" value="45320b1e-366c-498a-8e46-9ff995cdb372">
+          <input type="hidden" name="subject" value="Kostenrechner Anfrage – MCV Treuhand">
+          <input type="hidden" name="kalkulation" id="cmodKalkulation">
+
+          <div class="cmod__row">
+            <div class="field-wrap">
+              <label for="cmod_vorname">Vorname *</label>
+              <input type="text" id="cmod_vorname" name="vorname" required autocomplete="given-name">
+            </div>
+            <div class="field-wrap">
+              <label for="cmod_name">Nachname *</label>
+              <input type="text" id="cmod_name" name="nachname" required autocomplete="family-name">
+            </div>
+          </div>
+          <div class="field-wrap">
+            <label for="cmod_firma">Firma</label>
+            <input type="text" id="cmod_firma" name="firma" autocomplete="organization">
+          </div>
+          <div class="field-wrap">
+            <label for="cmod_email">E-Mail *</label>
+            <input type="email" id="cmod_email" name="email" required autocomplete="email">
+          </div>
+          <div class="field-wrap">
+            <label for="cmod_telefon">Telefon</label>
+            <input type="tel" id="cmod_telefon" name="telefon" autocomplete="tel">
+          </div>
+
+          <button type="submit" class="btn btn--primary cmod__submit" id="calcContactSubmit">
+            Angebot anfordern <span class="arr" aria-hidden="true">→</span>
+          </button>
+          <p class="cmod__note">Unverbindlich &amp; kostenlos. Kein Spam.</p>
+        </form>
+
+        <div class="cmod__done" id="calcContactDone" hidden>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <h4>Anfrage gesendet!</h4>
+          <p>Wir melden uns in Kürze mit deinem persönlichen Angebot.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="js/main.js"></script>
 </body>
