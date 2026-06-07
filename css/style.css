@@ -1350,7 +1350,8 @@ p { margin: 0 0 1rem; }
 
 /* Swap desktop portal → iPhone mockup on phones */
 @media (max-width: 767px) {
-  .hero__visual { zoom: 1; max-width: 360px; margin-inline: auto; }
+  /* Text + buttons first, iPhone below */
+  .hero__visual { order: 0; zoom: 1; max-width: 360px; margin-inline: auto; }
   .hero__visual .pt-scene { display: none; }
   .hero__visual .ph-phone { display: block; }
 }
