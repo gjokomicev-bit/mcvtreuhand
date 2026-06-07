@@ -1291,28 +1291,47 @@
           <p class="lead">Stell dir dein Paket zusammen – die Schätzung aktualisiert sich live. Unverbindlich &amp; transparent.</p>
         </div>
 
-        <div class="calc reveal" id="calc">
+        <div class="calc reveal" id="calc" data-base="140">
           <div class="calc__form">
 
-            <div class="calc-group">
-              <p class="calc-group__title">Grundleistungen</p>
-              <div class="calc-row">
-                <div class="calc-row__main">
-                  <span class="calc-row__name">Grundpauschale</span>
-                  <span class="calc-row__price">CHF 50.00 / Monat</span>
+            <!-- Basispaket: immer inbegriffen, nicht wählbar -->
+            <div class="calc-group calc-group--base">
+              <div class="calc-base">
+                <div class="calc-base__badge">Immer inbegriffen</div>
+                <div class="calc-base__body">
+                  <span class="calc-base__name">Basispaket</span>
+                  <ul class="calc-base__list">
+                    <li>
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                      Grundpauschale
+                    </li>
+                    <li>
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                      Jahresabschluss inkl. 240 Belegbuchungen
+                    </li>
+                    <li>
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                      Steuererklärung juristische Person
+                    </li>
+                  </ul>
                 </div>
-                <label class="calc-check">
-                  <input type="checkbox" data-price="50" data-label="Grundpauschale" checked>
-                  <span class="calc-check__track"></span>
-                </label>
+                <div class="calc-base__price">
+                  <span>CHF 140.00</span>
+                  <small>/ Monat</small>
+                </div>
               </div>
+            </div>
+
+            <!-- Optionale Leistungen -->
+            <div class="calc-group">
+              <p class="calc-group__title">Optionale Leistungen</p>
               <div class="calc-row">
                 <div class="calc-row__main">
                   <span class="calc-row__name">Buchführung inkl. Belege</span>
                   <span class="calc-row__price">bis 20 Belege / Monat · CHF 40.00 / Monat</span>
                 </div>
                 <label class="calc-check">
-                  <input type="checkbox" data-price="40" data-label="Buchführung inkl. Belege" checked>
+                  <input type="checkbox" data-price="40" data-label="Buchführung inkl. Belege">
                   <span class="calc-check__track"></span>
                 </label>
               </div>
@@ -1326,89 +1345,13 @@
                   <span class="calc-check__track"></span>
                 </label>
               </div>
-            </div>
-
-            <div class="calc-group">
-              <p class="calc-group__title">Mengen pro Monat</p>
               <div class="calc-row">
                 <div class="calc-row__main">
-                  <span class="calc-row__name">Zusätzliche Belege</span>
-                  <span class="calc-row__price">CHF 3.50 pro Beleg</span>
-                </div>
-                <div class="calc-step" data-step>
-                  <button type="button" class="calc-step__dec" aria-label="weniger">−</button>
-                  <input type="number" min="0" step="1" value="0" inputmode="numeric" data-price="3.5" data-label="Zusätzliche Belege">
-                  <button type="button" class="calc-step__inc" aria-label="mehr">+</button>
-                </div>
-              </div>
-              <div class="calc-row">
-                <div class="calc-row__main">
-                  <span class="calc-row__name">Kreditorenrechnungen</span>
-                  <span class="calc-row__price">CHF 15.00 pro Rechnung</span>
-                </div>
-                <div class="calc-step" data-step>
-                  <button type="button" class="calc-step__dec" aria-label="weniger">−</button>
-                  <input type="number" min="0" step="1" value="0" inputmode="numeric" data-price="15" data-label="Kreditorenrechnungen">
-                  <button type="button" class="calc-step__inc" aria-label="mehr">+</button>
-                </div>
-              </div>
-              <div class="calc-row">
-                <div class="calc-row__main">
-                  <span class="calc-row__name">Lohnbuchhaltung – Mitarbeitende</span>
-                  <span class="calc-row__price">CHF 35.00 pro Mitarbeiter / Monat</span>
-                </div>
-                <div class="calc-step" data-step>
-                  <button type="button" class="calc-step__dec" aria-label="weniger">−</button>
-                  <input type="number" min="0" step="1" value="0" inputmode="numeric" data-price="35" data-label="Mitarbeitende">
-                  <button type="button" class="calc-step__inc" aria-label="mehr">+</button>
-                </div>
-              </div>
-            </div>
-
-            <div class="calc-group">
-              <p class="calc-group__title">Rechtsform &amp; Abschluss</p>
-              <div class="calc-row">
-                <div class="calc-row__main">
-                  <span class="calc-row__name">Rechtsform</span>
-                  <span class="calc-row__price">GmbH CHF 20.00 · AG CHF 30.00 / Monat</span>
-                </div>
-                <div class="calc-seg" role="radiogroup" aria-label="Rechtsform">
-                  <label><input type="radio" name="rechtsform" data-price="0" data-label="Rechtsform" checked><span>Keine</span></label>
-                  <label><input type="radio" name="rechtsform" data-price="20" data-label="Rechtsform GmbH"><span>GmbH</span></label>
-                  <label><input type="radio" name="rechtsform" data-price="30" data-label="Rechtsform AG"><span>AG</span></label>
-                </div>
-              </div>
-              <div class="calc-row">
-                <div class="calc-row__main">
-                  <span class="calc-row__name">Jahresabschluss</span>
-                  <span class="calc-row__price">CHF 75.00 / Monat</span>
-                </div>
-                <label class="calc-check">
-                  <input type="checkbox" data-price="75" data-label="Jahresabschluss" checked>
-                  <span class="calc-check__track"></span>
-                </label>
-              </div>
-              <div class="calc-row">
-                <div class="calc-row__main">
-                  <span class="calc-row__name">Quartalsbesprechung (1h)</span>
+                  <span class="calc-row__name">Quartalsbesprechung (1 h)</span>
                   <span class="calc-row__price">CHF 50.00 / Monat</span>
                 </div>
                 <label class="calc-check">
                   <input type="checkbox" data-price="50" data-label="Quartalsbesprechung">
-                  <span class="calc-check__track"></span>
-                </label>
-              </div>
-            </div>
-
-            <div class="calc-group">
-              <p class="calc-group__title">Steuererklärung</p>
-              <div class="calc-row">
-                <div class="calc-row__main">
-                  <span class="calc-row__name">Steuererklärung Firma</span>
-                  <span class="calc-row__price">CHF 15.00 / Monat</span>
-                </div>
-                <label class="calc-check">
-                  <input type="checkbox" data-price="15" data-label="Steuererklärung Firma">
                   <span class="calc-check__track"></span>
                 </label>
               </div>
@@ -1421,6 +1364,60 @@
                   <input type="checkbox" data-price="10" data-label="Steuererklärung privat">
                   <span class="calc-check__track"></span>
                 </label>
+              </div>
+            </div>
+
+            <!-- Mengen pro Monat -->
+            <div class="calc-group">
+              <p class="calc-group__title">Mengen pro Monat</p>
+              <div class="calc-row">
+                <div class="calc-row__main">
+                  <span class="calc-row__name">Kreditoren (Eingangsrechnungen)</span>
+                  <span class="calc-row__price">CHF 15.00 pro 5 Stk. · max. 100</span>
+                </div>
+                <div class="calc-step" data-stepsize="5" data-max="100">
+                  <button type="button" class="calc-step__dec" aria-label="weniger">−</button>
+                  <input type="number" min="0" max="100" step="5" value="0" inputmode="numeric" data-price-per5="15" data-label="Kreditoren">
+                  <button type="button" class="calc-step__inc" aria-label="mehr">+</button>
+                </div>
+              </div>
+              <div class="calc-row">
+                <div class="calc-row__main">
+                  <span class="calc-row__name">Debitoren (Ausgangsrechnungen)</span>
+                  <span class="calc-row__price">CHF 15.00 pro 5 Stk. · max. 100</span>
+                </div>
+                <div class="calc-step" data-stepsize="5" data-max="100">
+                  <button type="button" class="calc-step__dec" aria-label="weniger">−</button>
+                  <input type="number" min="0" max="100" step="5" value="0" inputmode="numeric" data-price-per5="15" data-label="Debitoren">
+                  <button type="button" class="calc-step__inc" aria-label="mehr">+</button>
+                </div>
+              </div>
+              <div class="calc-row">
+                <div class="calc-row__main">
+                  <span class="calc-row__name">Anzahl Mitarbeiter</span>
+                  <span class="calc-row__price">CHF 35.00 pro Mitarbeiter / Monat</span>
+                </div>
+                <div class="calc-step" data-stepsize="1">
+                  <button type="button" class="calc-step__dec" aria-label="weniger">−</button>
+                  <input type="number" min="0" step="1" value="0" inputmode="numeric" data-price="35" data-label="Mitarbeiter">
+                  <button type="button" class="calc-step__inc" aria-label="mehr">+</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Rechtsform -->
+            <div class="calc-group">
+              <p class="calc-group__title">Rechtsform</p>
+              <div class="calc-row">
+                <div class="calc-row__main">
+                  <span class="calc-row__name">GmbH / AG Zuschlag</span>
+                  <span class="calc-row__price">GmbH CHF 20.00 · AG CHF 30.00 / Monat</span>
+                </div>
+                <div class="calc-seg" role="radiogroup" aria-label="Rechtsform">
+                  <label><input type="radio" name="rechtsform" data-price="0" data-label="Rechtsform" checked><span>Keine</span></label>
+                  <label><input type="radio" name="rechtsform" data-price="20" data-label="Rechtsform GmbH"><span>GmbH</span></label>
+                  <label><input type="radio" name="rechtsform" data-price="30" data-label="Rechtsform AG"><span>AG</span></label>
+                </div>
               </div>
             </div>
 

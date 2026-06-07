@@ -373,15 +373,16 @@
   const calc = document.getElementById("calc");
   if (calc) {
     const monthlyEl = document.getElementById("calcMonthly");
-    const yearlyEl = document.getElementById("calcYearly");
+    const yearlyEl  = document.getElementById("calcYearly");
     const breakdownEl = document.getElementById("calcBreakdown");
+    const BASE = parseFloat(calc.dataset.base) || 0;
 
     const fmt = (n) =>
-      "CHF " + n.toLocaleString("de-CH", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      "CHF " + n.toLocaleString("de-CH", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
     function recompute() {
-      let total = 0;
-      const items = [];
+      let total = BASE;
+      const items = [["Basispaket", BASE]];
 
       // checkboxes
       calc.querySelectorAll('input[type="checkbox"][data-price]').forEach((cb) => {
@@ -392,40 +393,55 @@
         }
       });
 
-      // radios (one per group)
+      // radios
       calc.querySelectorAll('input[type="radio"][data-price]:checked').forEach((r) => {
         const p = parseFloat(r.dataset.price);
         if (p > 0) { total += p; items.push([r.dataset.label, p]); }
       });
 
-      // number quantities
+      // standard number quantities (price per unit)
       calc.querySelectorAll('input[type="number"][data-price]').forEach((nu) => {
         const q = parseInt(nu.value, 10) || 0;
         if (q > 0) {
           const p = parseFloat(nu.dataset.price) * q;
           total += p;
-          items.push([nu.dataset.label + " × " + q, p]);
+          items.push([nu.dataset.label + " × " + q, p]);
+        }
+      });
+
+      // per-5 quantities (data-price-per5)
+      calc.querySelectorAll('input[type="number"][data-price-per5]').forEach((nu) => {
+        const q = parseInt(nu.value, 10) || 0;
+        if (q > 0) {
+          const p = (q / 5) * parseFloat(nu.dataset.pricePer5);
+          total += p;
+          items.push([nu.dataset.label + " × " + q + " Stk.", p]);
         }
       });
 
       monthlyEl.textContent = fmt(total);
-      yearlyEl.textContent = fmt(total * 12);
-      breakdownEl.innerHTML = items.length
-        ? items.map(([l, p]) => "<li><span>" + l + "</span><span>" + fmt(p) + "</span></li>").join("")
-        : '<li class="calc__empty">Noch nichts ausgewählt</li>';
+      yearlyEl.textContent  = fmt(total * 12);
+      breakdownEl.innerHTML = items.map(([l, p]) =>
+        "<li><span>" + l + "</span><span>" + fmt(p) + "</span></li>"
+      ).join("");
     }
 
-    // Stepper +/- buttons
+    // Stepper +/- with configurable step size and optional max
     calc.querySelectorAll(".calc-step").forEach((step) => {
-      const input = step.querySelector("input");
-      const dec = step.querySelector(".calc-step__dec");
-      const inc = step.querySelector(".calc-step__inc");
-      const setVal = (v) => {
-        input.value = Math.max(0, v);
+      const input   = step.querySelector("input");
+      const dec     = step.querySelector(".calc-step__dec");
+      const inc     = step.querySelector(".calc-step__inc");
+      const sz      = parseInt(step.dataset.stepsize, 10) || 1;
+      const max     = parseInt(step.dataset.max, 10) || Infinity;
+      const setVal  = (v) => {
+        input.value = Math.min(max, Math.max(0, v));
+        dec.disabled = parseInt(input.value, 10) <= 0;
+        inc.disabled = parseInt(input.value, 10) >= max;
         input.dispatchEvent(new Event("input", { bubbles: true }));
       };
-      dec?.addEventListener("click", () => setVal((parseInt(input.value, 10) || 0) - 1));
-      inc?.addEventListener("click", () => setVal((parseInt(input.value, 10) || 0) + 1));
+      dec.addEventListener("click", () => setVal((parseInt(input.value, 10) || 0) - sz));
+      inc.addEventListener("click", () => setVal((parseInt(input.value, 10) || 0) + sz));
+      dec.disabled = true;
     });
 
     calc.addEventListener("input", recompute);
