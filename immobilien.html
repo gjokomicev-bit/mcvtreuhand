@@ -3,27 +3,149 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Immobilien-Treuhand in Bern – Buchhaltung, Steuern & Strategie | MCV Treuhand</title>
-  <meta name="description" content="Spezialisierter Immobilien-Treuhänder in Bern: Immobilienbuchhaltung, Nebenkostenabrechnungen, Jahresabschlüsse für Immobiliengesellschaften, Steuerplanung bei Kauf & Verkauf, Grundstückgewinnsteuer und Portfolio-Strukturierung. Für Investoren, Verwaltungen und Immobilien-GmbHs.">
+  <title>Immobilienbuchhaltung & Verwaltung Bern – Fixpreis, Termingerecht | MCV Treuhand</title>
+  <meta name="description" content="Immobilienbuchhaltung, Bewirtschaftung und Outsourcing in Bern. Fixpreise, keine Überraschungen. Für Investoren, Verwaltungen und Immobilien-GmbHs.">
   <meta name="theme-color" content="#1B2A38">
   <link rel="canonical" href="https://www.mcvtreuhand.ch/immobilien">
-
-  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:locale" content="de_CH">
-  <meta property="og:title" content="Immobilien-Treuhand in Bern – MCV Treuhand">
-  <meta property="og:description" content="Mehr als saubere Buchhaltung – strategischer Vermögensaufbau für Immobilieninvestoren, Verwaltungen und Immobilien-GmbHs.">
+  <meta property="og:title" content="Immobilienbuchhaltung & Verwaltung – MCV Treuhand">
+  <meta property="og:description" content="Endlich Ordnung in deinen Immobilien. Fixpreis. Termingerecht.">
   <meta property="og:url" content="https://www.mcvtreuhand.ch/immobilien">
-
-  <!-- Favicon (inline SVG) -->
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%231B2A38'/%3E%3Ctext x='50%25' y='54%25' font-family='Arial,Helvetica,sans-serif' font-size='26' font-weight='700' fill='%235E9E7B' text-anchor='middle' dominant-baseline='middle'%3EM%3C/text%3E%3C/svg%3E">
-
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@500;600;700;800&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ---- Page-specific styles ---- */
+    .immo-hero {
+      background: radial-gradient(900px 500px at 80% 0%, rgba(94,158,123,.18), transparent 55%),
+                  linear-gradient(165deg, var(--primary) 0%, var(--primary-900, #0f1c28) 100%);
+      padding-block: 100px 80px;
+      color: #fff;
+    }
+    .immo-hero h1 { font-size: clamp(2.2rem, 4.5vw, 3.6rem); line-height: 1.1; margin: 0 0 20px; color: #fff; }
+    .immo-hero h1 em { color: var(--accent); font-style: normal; }
+    .immo-hero .lead { color: rgba(255,255,255,.78); max-width: 620px; }
+    .immo-hero__cta { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 32px; }
+    .hero-stats { display: flex; gap: 40px; flex-wrap: wrap; margin-top: 48px; padding-top: 36px; border-top: 1px solid rgba(255,255,255,.1); }
+    .hero-stat__num { font-family: var(--font-head); font-size: 1.8rem; font-weight: 800; color: #fff; line-height: 1; }
+    .hero-stat__stars { color: #F5A623; font-size: .9rem; margin: 4px 0; }
+    .hero-stat__label { font-size: .82rem; color: rgba(255,255,255,.55); }
+
+    /* philosophy */
+    .philo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+    .philo-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 24px; }
+    .philo-item { display: flex; gap: 16px; }
+    .philo-icon { width: 36px; height: 36px; border-radius: 10px; background: rgba(94,158,123,.12); color: var(--accent-700); display: grid; place-items: center; flex: none; margin-top: 2px; }
+    .philo-icon svg { width: 20px; height: 20px; }
+    .philo-item h4 { margin: 0 0 4px; font-size: 1rem; color: var(--ink); }
+    .philo-item p { margin: 0; font-size: .93rem; color: var(--ink-2, #4a5568); line-height: 1.5; }
+
+    /* service cards */
+    .service-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+    .service-card { background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); padding: 32px 28px 36px; }
+    .service-card__icon { width: 48px; height: 48px; border-radius: 14px; background: rgba(94,158,123,.12); color: var(--accent-700); display: grid; place-items: center; margin-bottom: 18px; }
+    .service-card__icon svg { width: 26px; height: 26px; }
+    .service-card h3 { font-size: 1.18rem; color: var(--ink); margin: 0 0 20px; }
+    .service-card ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+    .service-card li { display: flex; gap: 10px; font-size: .92rem; color: var(--ink); line-height: 1.4; }
+    .service-card li .tick { width: 20px; height: 20px; border-radius: 6px; background: linear-gradient(150deg, var(--accent), var(--accent-700)); color: #fff; display: grid; place-items: center; flex: none; margin-top: 1px; }
+    .service-card li .tick svg { width: 12px; height: 12px; }
+
+    /* pricing */
+    .pricing-trust { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 36px; }
+    .ptrust-item { display: flex; gap: 10px; align-items: flex-start; }
+    .ptrust-icon { color: var(--accent); flex: none; margin-top: 2px; }
+    .ptrust-icon svg { width: 18px; height: 18px; }
+    .ptrust-item h4 { font-size: .88rem; margin: 0 0 2px; }
+    .ptrust-item p { font-size: .82rem; color: var(--ink-2, #4a5568); margin: 0; line-height: 1.4; }
+    .immo-price-card { background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; display: flex; flex-direction: column; }
+    .immo-price-card h3 { font-size: 1.1rem; margin: 0 0 4px; }
+    .immo-price-card .price { font-family: var(--font-head); font-size: 1.8rem; font-weight: 800; color: var(--ink); line-height: 1.1; margin-bottom: 4px; }
+    .immo-price-card .price-sub { font-size: .82rem; color: var(--ink-2, #4a5568); margin-bottom: 20px; }
+    .immo-price-card .label { font-size: .7rem; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--accent-700); background: rgba(94,158,123,.12); display: inline-block; padding: 3px 9px; border-radius: 4px; margin-bottom: 16px; }
+    .immo-price-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+    .immo-price-list li { display: flex; gap: 8px; font-size: .88rem; color: var(--ink); line-height: 1.4; }
+    .immo-price-list li .tick { width: 18px; height: 18px; border-radius: 5px; background: rgba(94,158,123,.15); color: var(--accent-700); display: grid; place-items: center; flex: none; margin-top: 1px; }
+    .immo-price-list li .tick svg { width: 11px; height: 11px; }
+    .extra-list { list-style: none; margin: 12px 0 0; padding: 0; display: flex; flex-direction: column; gap: 6px; border-top: 1px solid var(--line); padding-top: 12px; }
+    .extra-list li { font-size: .83rem; color: var(--ink-2, #4a5568); display: flex; gap: 6px; }
+    .immo-price-card .btn { margin-top: auto; padding-top: 24px; }
+
+    /* IT section */
+    .it-box { background: var(--primary); border: 1px solid rgba(255,255,255,.08); border-radius: var(--radius); padding: 36px 40px; color: #fff; margin-top: 40px; }
+    .it-box-kicker { font-family: var(--font-head); font-size: .68rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+    .it-box h3 { font-size: 1.4rem; color: #fff; margin: 0 0 8px; }
+    .it-box > p { color: rgba(255,255,255,.7); margin: 0 0 28px; font-size: .95rem; }
+    .it-checklist { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 40px; list-style: none; margin: 0; padding: 0; }
+    .it-checklist li { display: flex; gap: 10px; font-size: .9rem; color: rgba(255,255,255,.85); line-height: 1.45; }
+    .it-checklist .tick { width: 20px; height: 20px; border-radius: 6px; background: rgba(94,158,123,.25); color: var(--accent); display: grid; place-items: center; flex: none; margin-top: 1px; }
+    .it-checklist .tick svg { width: 12px; height: 12px; }
+    .it-cta { margin-top: 28px; }
+    .tools-grid { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+    .tool-chip { background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 10px 16px; }
+    .tool-chip h4 { font-size: .78rem; font-weight: 700; color: var(--ink); margin: 0 0 2px; }
+    .tool-chip p { font-size: .72rem; color: var(--ink-2, #4a5568); margin: 0; }
+
+    /* comparison */
+    .myth-box { background: rgba(245, 166, 35, .08); border: 1px solid rgba(245, 166, 35, .3); border-radius: var(--radius); padding: 18px 22px; display: flex; gap: 14px; align-items: flex-start; margin-bottom: 36px; }
+    .myth-icon { color: #F5A623; flex: none; margin-top: 2px; }
+    .myth-icon svg { width: 22px; height: 22px; }
+    .myth-box p { margin: 0; font-size: .93rem; line-height: 1.5; }
+    .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .compare-col { border: 1px solid var(--line); border-radius: var(--radius); padding: 24px 28px; }
+    .compare-col--bad { border-color: rgba(190,76,76,.3); background: rgba(190,76,76,.04); }
+    .compare-col--good { border-color: rgba(94,158,123,.4); background: rgba(94,158,123,.04); }
+    .compare-col h3 { font-size: 1.05rem; margin: 0 0 4px; }
+    .compare-col .sub { font-size: .82rem; color: var(--ink-2, #4a5568); margin: 0 0 18px; }
+    .compare-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+    .compare-list li { display: flex; gap: 10px; font-size: .88rem; line-height: 1.45; }
+    .compare-list li .mark { width: 20px; height: 20px; border-radius: 50%; display: grid; place-items: center; flex: none; margin-top: 1px; }
+    .compare-list li .mark--bad { background: rgba(190,76,76,.12); color: #BE4C4C; }
+    .compare-list li .mark--good { background: linear-gradient(150deg, var(--accent), var(--accent-700)); color: #fff; }
+    .compare-list li .mark svg { width: 12px; height: 12px; }
+    .compare-list li strong { display: block; font-size: .88rem; }
+    .compare-list li span { font-size: .82rem; color: var(--ink-2, #4a5568); }
+
+    /* cost bars */
+    .cost-bars { display: flex; flex-direction: column; gap: 16px; margin: 36px 0; }
+    .cost-bar { }
+    .cost-bar__label { display: flex; justify-content: space-between; margin-bottom: 6px; font-size: .88rem; font-weight: 500; }
+    .cost-bar__track { height: 36px; border-radius: 8px; background: var(--line); overflow: hidden; }
+    .cost-bar__fill { height: 100%; border-radius: 8px; display: flex; align-items: center; padding-left: 14px; font-family: var(--font-head); font-weight: 700; font-size: .88rem; color: #fff; transition: width 1.2s var(--ease); }
+    .cost-bar__fill--bad { background: linear-gradient(90deg, #be4c4c, #9e2e2e); width: 100%; }
+    .cost-bar__fill--good { background: linear-gradient(90deg, var(--accent), var(--accent-700)); }
+
+    /* guarantee */
+    .guarantee-section { text-align: center; }
+    .guarantee-section h2 { font-size: clamp(1.5rem, 3vw, 2.4rem); max-width: 780px; margin: 0 auto 20px; }
+
+    /* expert split */
+    .expert-split { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+    .video-placeholder { aspect-ratio: 16/9; background: var(--primary); border-radius: var(--radius); display: grid; place-items: center; }
+    .play-btn { width: 60px; height: 60px; border-radius: 50%; background: var(--accent); display: grid; place-items: center; }
+    .play-btn svg { width: 24px; height: 24px; color: #fff; margin-left: 4px; }
+
+    /* conclusion box */
+    .conclusion-box { background: rgba(94,158,123,.08); border: 1px solid rgba(94,158,123,.3); border-radius: var(--radius); padding: 24px 28px; display: flex; gap: 16px; align-items: flex-start; margin-top: 40px; }
+    .conclusion-icon { width: 32px; height: 32px; border-radius: 9px; background: linear-gradient(150deg, var(--accent), var(--accent-700)); color: #fff; display: grid; place-items: center; flex: none; margin-top: 2px; }
+    .conclusion-icon svg { width: 18px; height: 18px; }
+    .conclusion-box p { margin: 0; font-size: .93rem; line-height: 1.6; }
+    .conclusion-box strong { color: var(--accent-700); }
+
+    /* responsive */
+    @media (max-width: 860px) {
+      .philo-grid, .service-cards, .compare-grid, .expert-split { grid-template-columns: 1fr; gap: 32px; }
+      .pricing-trust { grid-template-columns: 1fr 1fr; }
+      .it-checklist { grid-template-columns: 1fr; }
+      .hero-stats { gap: 24px; }
+    }
+    @media (max-width: 620px) {
+      .service-cards, .pricing-trust { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
@@ -34,7 +156,6 @@
         <span class="logo__mark">MCV</span>
         <span class="logo__text"><b>MCV</b> <span>Treuhand</span></span>
       </a>
-
       <nav aria-label="Hauptnavigation">
         <ul class="nav__menu" id="navMenu">
           <li><a class="nav__link" href="index.html#leistungen">Treuhand</a></li>
@@ -45,7 +166,6 @@
           <li><a class="btn btn--primary nav__cta" href="index.html#kontakt">Kennenlerngespräch sichern</a></li>
         </ul>
       </nav>
-
       <button class="nav__toggle" id="navToggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navMenu">
         <span></span>
       </button>
@@ -55,175 +175,439 @@
   <main id="top">
 
     <!-- ============ Hero ============ -->
-    <section class="section section--mint">
+    <section class="immo-hero">
       <div class="container">
-        <div class="section-head center reveal">
-          <span class="eyebrow">Immobilien-Spezialisierung</span>
-          <h1>Mehr als saubere Buchhaltung –<br><span class="hl-green">strategischer Vermögensaufbau</span></h1>
-          <p class="lead">Im Immobilienbereich verfügen wir über besondere Expertise. Du erhältst nicht nur eine korrekte Buchhaltung, sondern strategische Beratung zur langfristigen Optimierung deines Vermögens und deiner Steuerstruktur.</p>
-          <div class="hero__cta" style="justify-content:center;margin-top:28px">
-            <a href="index.html#kontakt" class="btn btn--primary">Immobilienstruktur analysieren <span class="arr" aria-hidden="true">→</span></a>
-            <a href="tel:+41315619113" class="btn btn--ghost">031 561 91 13</a>
+        <div class="reveal">
+          <span class="eyebrow">Immobilienbuchhaltung &amp; Verwaltung</span>
+          <h1>Endlich Ordnung<br><em>in deinen Immobilien.</em></h1>
+          <p class="lead">Du investierst, verwaltest, entwickelst – aber die Übersicht fehlt. Wir bringen Struktur durch kleine, gezielte Mechanismen die grosse Wirkung entfalten. Keine komplette Systemumstellung. Nur das was wirklich hilft.</p>
+          <div class="immo-hero__cta">
+            <a href="index.html#kontakt" class="btn btn--primary">Kostenloses Erstgespräch sichern</a>
+            <a href="#preise" class="btn btn--ghost">Transparente Preise</a>
+          </div>
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <div class="hero-stat__num">4.9 / 5.0</div>
+              <div class="hero-stat__stars">★★★★★</div>
+              <div class="hero-stat__label">Google Bewertungen</div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat__num">70+</div>
+              <div class="hero-stat__label">Mandate betreut</div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat__num">9+ Jahre</div>
+              <div class="hero-stat__label">Immobilien-Erfahrung</div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat__num">Fixpreis</div>
+              <div class="hero-stat__label">Keine Überraschungen</div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ============ Einleitung / Versprechen ============ -->
-    <section class="section">
+    <!-- ============ Philosophie ============ -->
+    <section class="section section--soft">
       <div class="container">
-        <div class="split">
+        <div class="philo-grid">
           <div class="reveal">
-            <span class="eyebrow">Dein Partner für Immobilien</span>
-            <h2>Vom ersten Objekt bis zum ganzen Portfolio</h2>
-            <p>Ob Renditeliegenschaft, Immobilien-GmbH oder ganzes Portfolio – wir begleiten dich finanziell bei jedem Schritt, von der ersten Liegenschaft bis zur Expansion.</p>
-            <p>Wir verstehen uns nicht als klassischer Buchhalter, sondern als langfristiger Partner für Wachstum, Struktur und finanzielle Klarheit. Wir reagieren nicht nur – wir denken mit und begleiten dich aktiv bei wichtigen Entscheidungen rund um deine Immobilien.</p>
-            <div style="margin-top:28px">
-              <a href="index.html#kontakt" class="btn btn--primary">Kostenloses Erstgespräch sichern <span class="arr" aria-hidden="true">→</span></a>
+            <span class="eyebrow">Unsere Philosophie</span>
+            <h2>Kleine Mechanismen,<br><span class="hl-green">grosse Wirkung.</span></h2>
+            <p>Viele glauben, sie müssen ihr ganzes System umstellen. Das stimmt nicht. Oft sind es kleine, gezielte Anpassungen die den grössten Unterschied machen – eine klare Ablage, eine automatische Erinnerung, ein Dashboard das die richtigen Zahlen zeigt.</p>
+            <p>Wir schauen genau hin, finden die Hebel die wirklich zählen – und setzen sie um. Ohne Chaos, ohne grossen Aufwand für dich.</p>
+          </div>
+          <ul class="philo-list reveal" data-delay="1">
+            <li class="philo-item">
+              <div class="philo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+              <div><h4>Fristenkalender für alle Objekte</h4><p>Ein zentraler Kalender mit allen relevanten Fristen – MWST, Steuern, Mieterhöhungen, Revisionen.</p></div>
+            </li>
+            <li class="philo-item">
+              <div class="philo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+              <div><h4>Automatischer Belegfluss</h4><p>Rechnungen landen automatisch am richtigen Ort – kein manuelles Sortieren, kein Chaos mehr.</p></div>
+            </li>
+            <li class="philo-item">
+              <div class="philo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></div>
+              <div><h4>Rendite-Report pro Liegenschaft</h4><p>Monatlich ein klarer Report pro Objekt – was läuft gut, was kostet zu viel, wo liegt Potenzial.</p></div>
+            </li>
+            <li class="philo-item">
+              <div class="philo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></div>
+              <div><h4>Digitale Ablagestruktur</h4><p>Alle Dokumente klar strukturiert, sofort auffindbar – nie wieder suchen bei einer Prüfung.</p></div>
+            </li>
+            <li class="philo-item">
+              <div class="philo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
+              <div><h4>Proaktive Meldungen</h4><p>Wir melden uns bevor etwas zum Problem wird – nicht erst wenn der Druck steigt.</p></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Leistungen ============ -->
+    <section class="section" id="leistungen">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Leistungen</span>
+          <h2>Struktur und Entlastung –<br>auf deine Bedürfnisse</h2>
+          <p class="lead">Wir passen die Leistungen exakt auf dein Portfolio und deinen Bedarf an. Nur was du wirklich brauchst.</p>
+        </div>
+        <div class="service-cards">
+
+          <div class="service-card reveal" data-delay="1">
+            <div class="service-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
             </div>
+            <h3>Immobilienbuchhaltung</h3>
+            <ul>
+              <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Laufende Buchhaltung pro Liegenschaft oder Portfolio</li>
+              <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Jahresabschluss &amp; Nebenkostenabrechnungen</li>
+              <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>MWST-Abrechnungen inkl. Unterstützung bei optierten Liegenschaften</li>
+              <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Kreditorenverarbeitung &amp; Zahlungslauf</li>
+              <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Erstellung Debitorenrechnungen</li>
+              <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Prüfung und Erstellung von Liegenschaftszu- und Abgängen</li>
+              <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Unterstützung bei der Budgetierung</li>
+              <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Koordination mit Revisor oder Steuerberater</li>
+            </ul>
           </div>
 
-          <div class="split__panel reveal" data-delay="1">
-            <h3>Unsere Immobilien-Leistungen</h3>
-            <ul class="feature-list">
-              <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Immobilienbuchhaltung</li>
-              <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Renditeliegenschaften</li>
-              <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Nebenkostenabrechnungen</li>
-              <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Jahresabschlüsse für Immobiliengesellschaften</li>
-              <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Betreuung von Immobilien-GmbHs</li>
-              <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Steuerplanung bei Kauf &amp; Verkauf</li>
-              <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Grundstückgewinnsteuer</li>
-              <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Strukturierung von Portfolios</li>
-              <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Begleitung von Investoren &amp; Expansion</li>
+          <div class="service-card reveal" data-delay="2">
+            <div class="service-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <h3>Bewirtschaftung</h3>
+            <ul>
+              <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Mieterkorrespondenz: Anfragen, Reklamationen, Kommunikation laufend bearbeiten</li>
+              <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Mietverträge: aufsetzen, anpassen, verwalten und archivieren</li>
+              <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Mieterwechsel: Ein- und Auszug koordinieren, Übergabeprotokolle</li>
+              <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Mieterhöhungen: Verfahren einleiten, Formulare erstellen, Fristen einhalten</li>
+              <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Mahnwesen: ausstehende Mieten überwachen und Mahnungen auslösen</li>
+              <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Inserate aufschalten</li>
+              <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Eigentümer-Reporting: Quartalsberichte und Jahresübersicht pro Liegenschaft</li>
+            </ul>
+          </div>
+
+          <div class="service-card reveal" data-delay="3">
+            <div class="service-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3z"/><path d="M3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+            </div>
+            <h3>Outsourcing</h3>
+            <ul>
+              <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Einspringen bei Jahresabschluss-Saison wenn internes Team überlastet ist</li>
+              <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Nebenkostenabrechnungen aufholen wenn Rückstände entstanden sind</li>
+              <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Überbrückung bei Personalausfall oder Kündigung im Team</li>
+              <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Unterstützung bei starkem Wachstum wenn neue Mandate die Kapazität übersteigen</li>
+              <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Buchhaltung ajour bringen vor einer Revision</li>
+              <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Saisonale Peaks abfedern z.B. Heizkosten-Abrechnungen im Frühling</li>
+              <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Kein fester Vertrag nötig – flexibel projektweise oder saisonal</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Transparente Preise ============ -->
+    <section class="section section--dark" id="preise">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Transparente Preise</span>
+          <h2>Fixpreise. Keine versteckten Überraschungen</h2>
+          <p class="lead">Du weisst im Voraus was es kostet. Keine Stundenabrechnungen, keine Zusatzrechnungen, keine bösen Überraschungen am Jahresende.</p>
+        </div>
+
+        <div class="service-cards" style="margin-top:40px">
+
+          <div class="immo-price-card reveal" data-delay="1">
+            <span class="label">Immobilienbuchhaltung</span>
+            <div class="price">ab CHF 120.00 / Monat</div>
+            <div class="price-sub">pro Liegenschaft<br>Preis je nach Anzahl Liegenschaften und Komplexität. Angebot vor Start.</div>
+            <p style="font-size:.82rem;font-weight:700;margin:0 0 8px;color:var(--ink-2,#4a5568)">Inbegriffen</p>
+            <ul class="immo-price-list">
+              <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Laufende Immobilienbuchhaltung</li>
+              <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>MWST-Abrechnungen</li>
+              <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Kreditorenverarbeitungen</li>
+              <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Erstellung Debitorenrechnungen</li>
+              <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Mahnwesen / Inkasso</li>
+              <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Abstimmungen</li>
+            </ul>
+            <ul class="extra-list">
+              <li>+ Jahresabschluss ab CHF 500</li>
+              <li>+ Nebenkostenabrechnung ab CHF 350</li>
+              <li>+ Steuererklärung auf Anfrage</li>
+            </ul>
+            <div class="btn"><a href="index.html#kontakt" class="btn btn--primary" style="width:100%;justify-content:center">Angebot anfragen</a></div>
+          </div>
+
+          <div class="immo-price-card reveal" data-delay="2">
+            <span class="label">Bewirtschaftung</span>
+            <div class="price">weniger als 5%</div>
+            <div class="price-sub">vom Nettomieteinnahmen / Jahr<br>Prozentsatz je nach Portfoliogrösse und Umfang. Angebot nach Erstgespräch.</div>
+            <p style="font-size:.82rem;font-weight:700;margin:0 0 8px;color:var(--ink-2,#4a5568)">Kaufmännische Bewirtschaftung</p>
+            <ul class="immo-price-list">
+              <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Immobilienbuchhaltung</li>
+              <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Jahresabschluss &amp; Nebenkosten</li>
+              <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Mieterkorrespondenz, Mietverträge &amp; Mieterwechsel</li>
+              <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Rückstellungen für Instandhaltung &amp; Erneuerungsfonds</li>
+              <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Dokumentenmanagement revisionssicher</li>
+            </ul>
+            <ul class="extra-list">
+              <li>Technische Bewirtschaftung: Handwerker &amp; Lieferanten koordinieren</li>
+              <li>Reparaturen &amp; Unterhaltsarbeiten beauftragen</li>
+              <li>Schadensmeldungen aufnehmen &amp; abwickeln</li>
+              <li>Hauswart &amp; Liegenschaftsinspektionen</li>
+              <li>Versicherungen verwalten &amp; Wartungsplanung</li>
+            </ul>
+            <div class="btn"><a href="index.html#kontakt" class="btn btn--primary" style="width:100%;justify-content:center">Angebot anfragen</a></div>
+          </div>
+
+          <div class="immo-price-card reveal" data-delay="3">
+            <span class="label">Outsourcing</span>
+            <div class="price">ab CHF 90.00</div>
+            <div class="price-sub">Fixpreis nach Erstanalyse und definiertem Stundenrahmen. Kein offenes Stundenkonto – du weisst immer was es kostet.</div>
+            <p style="font-size:.82rem;font-weight:700;margin:0 0 8px;color:var(--ink-2,#4a5568)">Typische Einsätze</p>
+            <ul class="immo-price-list">
+              <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Jahresabschlüsse bei Kapazitätsengpässen wenn dein internes Team überlastet ist</li>
+              <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Nebenkostenabrechnungen im Rückstand aufholen</li>
+              <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Überbrückung bei Personalausfall bei Kündigungen oder Krankheiten</li>
+              <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Teile der Buchhaltung projektweise übernehmen</li>
+              <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Unterstützung &amp; Support bei starkem Wachstum &amp; neuen Mandaten</li>
+              <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Kein Dauervertrag – flexibel &amp; saisonal jederzeit anpassbar</li>
+            </ul>
+            <div class="btn"><a href="index.html#kontakt" class="btn btn--primary" style="width:100%;justify-content:center">Angebot anfragen</a></div>
+          </div>
+
+        </div>
+
+        <div class="pricing-trust reveal" style="margin-top:40px">
+          <div class="ptrust-item">
+            <div class="ptrust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
+            <div><h4>Fixpreis transparent</h4><p>Klares Angebot vor Beginn, keine Nachforderungen.</p></div>
+          </div>
+          <div class="ptrust-item">
+            <div class="ptrust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+            <div><h4>Termingerecht</h4><p>Alle Fristen werden proaktiv überwacht und eingehalten.</p></div>
+          </div>
+          <div class="ptrust-item">
+            <div class="ptrust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+            <div><h4>Kein Stundenchaos</h4><p>Beim Outsourcing wird der Rahmen vorab definiert.</p></div>
+          </div>
+          <div class="ptrust-item">
+            <div class="ptrust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 17z"/></svg></div>
+            <div><h4>Persönlich erreichbar</h4><p>Direkter Ansprechpartner, kein Weiterleiten.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ IT-Setup & Prozessentwicklung ============ -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">IT Support &amp; Prozessentwicklung</span>
+          <h2>Systeme die wirklich laufen.<br><span class="hl-green">Prozesse die entlasten.</span></h2>
+          <p class="lead">Für Immobilienverwaltungen die ihre Abläufe professionalisieren wollen – ohne monatelange Projekte. Wir analysieren, richten ein und schulen. Du merkst den Unterschied sofort.</p>
+        </div>
+        <div class="it-box reveal">
+          <div class="it-box-kicker">Von Analyse bis Go-Live</div>
+          <h3>IT-Setup &amp; Prozessentwicklung</h3>
+          <p>Alles aus einer Hand – wir analysieren, konzipieren, richten ein, schulen und begleiten bis alles läuft. Kein Flickwerk, kein halbes Setup.</p>
+          <ul class="it-checklist">
+            <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Analyse bestehender Abläufe &amp; Engpässe</li>
+            <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Digitaler Fristenkalender für alle Objekte</li>
+            <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Konzept: welche Tools &amp; Automatisierungen sinnvoll sind</li>
+            <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Standardvorlagen: Abrechnungen, Reports, Korrespondenz</li>
+            <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Software-Einrichtung &amp; Konfiguration (Tool nach Bedarf)</li>
+            <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>KI-gestützte Belezerkennung &amp; automatische Kontierung</li>
+            <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Datenmigration von Excel oder bestehenden Systemen</li>
+            <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Schulung des Teams – praxisnah, nicht theoretisch</li>
+            <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Integration Verwaltungssoftware &amp; Buchhaltung</li>
+            <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Prozessdokumentation als internes Handbuch</li>
+            <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Automatisierter Belegfluss</li>
+            <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Testlauf, Qualitätskontrolle &amp; Go-Live Begleitung</li>
+          </ul>
+          <div class="it-cta">
+            <a href="index.html#kontakt" class="btn btn--primary">Auf Anfrage – Analyse <span class="arr" aria-hidden="true">→</span></a>
+            <p style="font-size:.78rem;color:rgba(255,255,255,.45);margin:8px 0 0">Fixpreis nach Analyse. Sie kontaktiert vor Start.</p>
+          </div>
+        </div>
+
+        <div class="reveal" style="margin-top:40px">
+          <p style="font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2,#4a5568);margin-bottom:16px">Wir arbeiten mit Tools die Sie bereits kennt</p>
+          <div class="tools-grid">
+            <div class="tool-chip"><h4>RIMO R5</h4><p>Buchhaltung &amp; Prozesse</p></div>
+            <div class="tool-chip"><h4>IMMOTOP 162</h4><p>Buchhaltung &amp; Prozesse</p></div>
+            <div class="tool-chip"><h4>GARAIO REM</h4><p>Buchhaltung &amp; Prozesse, Korrespondenz</p></div>
+            <div class="tool-chip"><h4>Google Workspace</h4><p>Korrespondenz &amp; Prozesse</p></div>
+            <div class="tool-chip"><h4>Microsoft</h4><p>Korrespondenz &amp; Prozesse</p></div>
+            <div class="tool-chip"><h4>n8n</h4><p>KI – Prozesse</p></div>
+            <div class="tool-chip"><h4>DocuWare</h4><p>DMS</p></div>
+            <div class="tool-chip"><h4>Abacus</h4><p>Buchhaltung &amp; Bewirtschaftung</p></div>
+            <div class="tool-chip"><h4>CASASOFT</h4><p>Bewirtschaftung</p></div>
+            <div class="tool-chip"><h4>und viele weitere</h4><p>&nbsp;</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Mythos aufgedeckt ============ -->
+    <section class="section section--soft">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Mythos aufgedeckt</span>
+          <h2>Eigenes Personal ist<br><span class="hl-green">teuerer als du denkst.</span></h2>
+          <p class="lead">Viele Verwaltungen glauben, eine interne Stelle sei günstiger. Die Realität sieht anders aus – wenn man alle Kosten ehrlich zusammenrechnet.</p>
+        </div>
+
+        <div class="myth-box reveal">
+          <div class="myth-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+          <p><strong>Der Mythos:</strong> «Eine eigene Stelle ist günstiger als Outsourcing.» Stimmt nicht – sobald man alle versteckten Kosten mitrechnet. Wir zeigen warum.</p>
+        </div>
+
+        <div class="compare-grid reveal">
+          <div class="compare-col compare-col--bad">
+            <h3>Eigenes Personal</h3>
+            <p class="sub">Alle realen Kosten ehrlich aufgelistet</p>
+            <ul class="compare-list">
+              <li>
+                <span class="mark mark--bad"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+                <div><strong>Bruttolohn + 13. Monatslohn</strong><span>CHF 7'000–7'500 / Monat für Fachpersonal</span></div>
+              </li>
+              <li>
+                <span class="mark mark--bad"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+                <div><strong>Sozialversicherungen (AHV, IV, EO, ALV)</strong><span>ca. 12–15% zusätzlich auf den Lohn</span></div>
+              </li>
+              <li>
+                <span class="mark mark--bad"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+                <div><strong>BVG, Krankentaggeld, UVG</strong><span>weitere 8–12% Nebenkosten</span></div>
+              </li>
+              <li>
+                <span class="mark mark--bad"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+                <div><strong>Ferien, Krankheit, Abwesenheiten</strong><span>20–25 Tage Ferien + Krankheitstage bezahlt</span></div>
+              </li>
+              <li>
+                <span class="mark mark--bad"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+                <div><strong>Kündigungsfrist 3–6 Monate</strong><span>Lohn läuft weiter – auch wenn kein Bedarf besteht</span></div>
+              </li>
+              <li>
+                <span class="mark mark--bad"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+                <div><strong>Rekrutierung &amp; Einarbeitung</strong><span>CHF 3'000–10'000 einmalig bei Neubesetzung</span></div>
+              </li>
+              <li>
+                <span class="mark mark--bad"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+                <div><strong>Weiterbildung &amp; Software-Lizenzen</strong><span>jährliche Zusatzkosten</span></div>
+              </li>
+              <li>
+                <span class="mark mark--bad"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+                <div><strong>Fixkosten auch bei geringer Auslastung</strong><span>Lohn läuft unabhängig vom Arbeitsvolumen</span></div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="compare-col compare-col--good">
+            <h3>Outsourcing MCV Treuhand</h3>
+            <p class="sub">Was du wirklich zahlst</p>
+            <ul class="compare-list">
+              <li>
+                <span class="mark mark--good"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <div><strong>Fixpreis pro Liegenschaft / Monat</strong><span>ab CHF 120 – planbar, transparent, schriftlich</span></div>
+              </li>
+              <li>
+                <span class="mark mark--good"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <div><strong>Keine Sozialversicherungen</strong><span>0 CHF – keine AHV, BVG, ALV, UVG</span></div>
+              </li>
+              <li>
+                <span class="mark mark--good"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <div><strong>Keine Feriensprüche</strong><span>Kein bezahlter Ausfall – Arbeit läuft immer</span></div>
+              </li>
+              <li>
+                <span class="mark mark--good"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <div><strong>Keine Kündigungsphase</strong><span>Zusammenarbeit endet ohne Sperrfristen</span></div>
+              </li>
+              <li>
+                <span class="mark mark--good"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <div><strong>Keine Rekrutierungskosten</strong><span>Sofort einsatzbereit – keine Einarbeitung</span></div>
+              </li>
+              <li>
+                <span class="mark mark--good"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <div><strong>Spezialisiert &amp; immer aktuell</strong><span>Weiterbildung inklusive – du profitierst direkt</span></div>
+              </li>
+              <li>
+                <span class="mark mark--good"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <div><strong>Flexibel skalierbar</strong><span>Mehr Liegenschaften? Preis passt sich an</span></div>
+              </li>
+              <li>
+                <span class="mark mark--good"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <div><strong>Kein Personalrisiko</strong><span>Kein Ausfall, kein Krankheitstag, keine Lücke</span></div>
+              </li>
             </ul>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- ============ Leistungen im Detail ============ -->
-    <section class="section section--soft" id="leistungen">
-      <div class="container">
-        <div class="section-head center reveal">
-          <span class="eyebrow">Was wir für dich übernehmen</span>
-          <h2>Immobilien-Dienstleistungen im Detail</h2>
-          <p class="lead">Von der laufenden Buchhaltung bis zur steuerlichen Strategie – alles aus einer Hand, digital und strukturiert.</p>
+        <h3 class="reveal" style="margin-top:56px;margin-bottom:24px">Kostenvergleich – Immobilienbuchhalter Vollzeit vs. Outsourcing</h3>
+        <div class="cost-bars reveal">
+          <div class="cost-bar">
+            <div class="cost-bar__label"><span>Bruttolohn inkl. Nebenkosten / eigenes Personal / Jahr</span></div>
+            <div class="cost-bar__track"><div class="cost-bar__fill cost-bar__fill--bad" style="width:100%">CHF 90'000–110'000 / Jahr</div></div>
+          </div>
+          <div class="cost-bar">
+            <div class="cost-bar__label"><span>Outsourcing 10 Liegenschaften / MCV Treuhand / Jahr</span></div>
+            <div class="cost-bar__track"><div class="cost-bar__fill cost-bar__fill--good" style="width:15%">CHF 14'400 / Jahr</div></div>
+          </div>
+          <div class="cost-bar">
+            <div class="cost-bar__label"><span>Outsourcing 30 Liegenschaften / MCV Treuhand / Jahr</span></div>
+            <div class="cost-bar__track"><div class="cost-bar__fill cost-bar__fill--good" style="width:44%">CHF 43'200 / Jahr</div></div>
+          </div>
+          <div class="cost-bar">
+            <div class="cost-bar__label"><span>Outsourcing 50 Liegenschaften / MCV Treuhand / Jahr</span></div>
+            <div class="cost-bar__track"><div class="cost-bar__fill cost-bar__fill--good" style="width:73%">CHF 72'000 / Jahr</div></div>
+          </div>
         </div>
 
-        <div class="prozess-right reveal" data-delay="1">
+        <div class="prozess-right reveal" style="margin-top:40px" data-delay="1">
           <div class="prozess-card">
-            <div class="prozess-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-            </div>
-            <h4>Immobilienbuchhaltung</h4>
-            <p>Saubere, revisionssichere Buchhaltung für deine Liegenschaften und Renditeobjekte – laufend geführt und jederzeit im Portal abrufbar.</p>
+            <h4>Keine Kündigungsphase</h4>
+            <p>Bei eigenem Personal läuft der Lohn 1–3 Monate weiter nach Kündigung. Bei uns endet die Zusammenarbeit ohne Sperrfrist.</p>
           </div>
           <div class="prozess-card">
-            <div class="prozess-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-            </div>
-            <h4>Renditeliegenschaften</h4>
-            <p>Wir behalten Erträge, Kosten und Rendite deiner Objekte im Blick und zeigen dir, wo sich dein Vermögen optimieren lässt.</p>
+            <h4>Sofort einsatzbereit</h4>
+            <p>Keine Einarbeitung, kein Wissensaufbau. Wir kennen Immobilienbuchhaltung von Tag 1 – du verlierst keine Zeit.</p>
           </div>
           <div class="prozess-card">
-            <div class="prozess-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="13" y2="17"/></svg>
-            </div>
-            <h4>Nebenkostenabrechnungen</h4>
-            <p>Korrekte und nachvollziehbare Nebenkostenabrechnungen für deine Mietobjekte – termingerecht und ohne Aufwand für dich.</p>
+            <h4>Kein Personalrisiko</h4>
+            <p>Kein Ausfall durch Krankheit, Ferien oder Kündigung. Die Arbeit läuft immer – unabhängig von Einzelpersonen.</p>
           </div>
           <div class="prozess-card">
-            <div class="prozess-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
-            </div>
-            <h4>Jahresabschlüsse für Immobiliengesellschaften</h4>
-            <p>Vollständige Jahresabschlüsse für deine Immobiliengesellschaften – fristgerecht, korrekt und nach den geltenden Vorschriften.</p>
+            <h4>Spezialisiertes Fachwissen</h4>
+            <p>Ein interner Buchhalter macht alles. Wir sind auf Immobilien spezialisiert – mit mehr Tiefe, weniger Fehler.</p>
           </div>
           <div class="prozess-card">
-            <div class="prozess-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            </div>
-            <h4>Betreuung von Immobilien-GmbHs</h4>
-            <p>Wir betreuen deine Immobilien-GmbH ganzheitlich – von der Buchhaltung über die Steuern bis zur strategischen Begleitung.</p>
+            <h4>Flexibel skalierbar</h4>
+            <p>Portfolio wächst? Preis passt sich an. Weniger Mandate? Kosten sinken. Kein fixer Personalblock.</p>
           </div>
           <div class="prozess-card prozess-card--accent">
-            <div class="prozess-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
-            </div>
-            <h4>Steuerplanung bei Kauf &amp; Verkauf</h4>
-            <p>Vorausschauende Steuerstrategie bei jeder Transaktion – damit aus deinen Immobiliengeschäften das Maximum für dich herausschaut.</p>
+            <h4>Keine versteckten Kosten</h4>
+            <p>Keine AHV, keine BVG, keine Rekrutierung, keine Weiterbildung. Fixpreis – du weisst immer was es kostet.</p>
           </div>
-          <div class="prozess-card">
-            <div class="prozess-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
-            </div>
-            <h4>Grundstückgewinnsteuer</h4>
-            <p>Wir berechnen und optimieren die Grundstückgewinnsteuer bei Verkäufen – damit du keine bösen Überraschungen erlebst.</p>
-          </div>
-          <div class="prozess-card">
-            <div class="prozess-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
-            </div>
-            <h4>Strukturierung von Portfolios</h4>
-            <p>Wir helfen dir, dein Immobilienportfolio steuerlich und organisatorisch optimal zu strukturieren – für nachhaltiges Wachstum.</p>
-          </div>
-          <div class="prozess-card">
-            <div class="prozess-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M23 6l-9.5 9.5-5-5L1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-            </div>
-            <h4>Begleitung von Investoren &amp; Expansion</h4>
-            <p>Vom ersten Investment bis zum Aufbau eines ganzen Portfolios – wir begleiten dich finanziell strategisch bei jedem Wachstumsschritt.</p>
-          </div>
+        </div>
+
+        <div class="conclusion-box reveal">
+          <div class="conclusion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <p><strong>Das Fazit: Outsourcing ist günstiger – und besser.</strong> Eine Vollzeitstelle für Immobilienbuchhaltung kostet realistisch CHF 90'000–110'000 pro Jahr inkl. aller Nebenkosten. Outsourcing zu MCV Treuhand kostet einen Bruchteil davon – und du bekommst Spezialisierung, Flexibilität und null Personalrisiko dazu. Das ist kein Kompromiss. Das ist die bessere Lösung.</p>
         </div>
       </div>
     </section>
 
-    <!-- ============ Für wen ============ -->
-    <section class="section">
+    <!-- ============ Erfolgsgarantie ============ -->
+    <section class="section section--dark">
       <div class="container">
-        <div class="section-head center reveal">
-          <span class="eyebrow">Für wen wir arbeiten</span>
-          <h2>Spezialisiert auf den Immobilienbereich</h2>
-        </div>
-        <div class="cards3-grid">
-          <div class="card3 card3--green reveal" data-delay="1">
-            <h3>Immobilieninvestoren</h3>
-            <p>Du baust ein Vermögen mit Liegenschaften auf? Wir sorgen für Klarheit, eine durchdachte Steuerstrategie und eine Struktur, die mit dir wächst.</p>
+        <div class="final-cta guarantee-section reveal">
+          <span class="eyebrow">Unsere Erfolgsgarantie</span>
+          <h2>Wir arbeiten nur mit Kunden zusammen, bei denen wir überzeugt sind, einen echten Unterschied machen zu können.</h2>
+          <p>Dank unserer Erfolgsgarantie gehen Sie kein Risiko ein: Im Erstgespräch erhalten Sie eine klare Einschätzung Ihrer Situation – unverbindlich und transparent. Erst wenn es für beide Seiten passt, starten wir die Zusammenarbeit.</p>
+          <div class="final-cta__actions" style="margin-top:28px">
+            <a href="index.html#kontakt" class="btn btn--primary">→ unverbindliches Erstgespräch vereinbaren<br><small style="font-weight:400;font-size:.78rem;opacity:.8">(inkl. klarer Einschätzung &amp; konkreten nächsten Schritten)</small></a>
           </div>
-          <div class="card3 card3--dark-green reveal" data-delay="2">
-            <h3>Immobilienverwaltungen</h3>
-            <p>Wir übernehmen Buchhaltung und Nebenkostenabrechnungen zuverlässig im Hintergrund – damit du dich auf deine Objekte und Mieter konzentrieren kannst.</p>
-          </div>
-          <div class="card3 card3--dark reveal" data-delay="3">
-            <h3>Immobilien-GmbHs</h3>
-            <p>Von Jahresabschluss bis Steuerplanung betreuen wir deine Immobiliengesellschaft ganzheitlich – proaktiv und vorausschauend.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ Warum MCV ============ -->
-    <section class="section section--soft">
-      <div class="container">
-        <div class="split">
-          <div class="reveal">
-            <span class="eyebrow">Der Unterschied</span>
-            <h2>Strategie statt nur Zahlen verwalten</h2>
-            <p>Die meisten scheitern im Immobilienbereich nicht an fehlenden Objekten – sondern daran, dass die Übersicht über Zahlen, Steuern und Strukturen fehlt.</p>
-            <p>Erfolgreiche Investoren wissen jederzeit, wo sie stehen, treffen fundierte Entscheidungen und haben ihre Finanzen im Griff. Genau diese Grundlage schaffen wir für dich – mit klaren Prozessen und verlässlicher Begleitung.</p>
-            <a href="index.html#kontakt" class="btn--cta-box">
-              <span class="cta-arrow" aria-hidden="true">→</span>
-              <span>Immobilienstruktur analysieren<small>kostenlos &amp; unverbindlich</small></span>
-            </a>
-          </div>
-          <ul class="benefits-grid reveal" data-delay="1">
-            <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Besondere Expertise im Immobilienbereich</li>
-            <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Strategische Steuerberatung statt reiner Abrechnung</li>
-            <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Digitale, strukturierte Prozesse</li>
-            <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Persönliche Begleitung – auch per WhatsApp</li>
-            <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Über 70 Mandate aus Bau, Handwerk &amp; Immobilien</li>
-            <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Proaktives Mitdenken bei jeder Entscheidung</li>
-          </ul>
         </div>
       </div>
     </section>
@@ -233,13 +617,40 @@
       <div class="container">
         <div class="final-cta reveal">
           <span class="eyebrow">Jetzt starten</span>
-          <h2>Bereit, deine Immobilien<br><span class="hl-green">strategisch aufzustellen?</span></h2>
-          <p>Buche dein kostenloses Erstgespräch – wir analysieren deine Immobilienstruktur und zeigen dir, wo das grösste Potenzial liegt.</p>
+          <h2>Endlich Ordnung.<br><span class="hl-green">Fixpreis. Termingerecht.</span></h2>
+          <p>Buche dein kostenloses Erstgespräch – wir zeigen dir welche kleinen Mechanismen bei dir die grösste Wirkung haben.</p>
           <div class="final-cta__actions">
-            <a href="index.html#kontakt" class="btn btn--primary">Immobilienstruktur analysieren</a>
+            <a href="index.html#kontakt" class="btn btn--primary">Kostenloses Erstgespräch sichern</a>
             <a href="tel:+41315619113" class="btn btn--ghost">031 561 91 13</a>
           </div>
           <p class="final-cta__trust">Wir melden uns innerhalb 24 Stunden persönlich · Unverbindlich · 30 Minuten</p>
+          <hr class="final-cta__sep">
+          <div class="final-cta__stats">
+            <div class="fcta-stat">
+              <div class="fcta-stat__num">4.9
+                <span class="stars" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01z"/></svg>
+                  <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01z"/></svg>
+                  <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01z"/></svg>
+                  <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01z"/></svg>
+                  <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01z"/></svg>
+                </span>
+              </div>
+              <p>Google Bewertungen</p>
+            </div>
+            <div class="fcta-stat">
+              <div class="fcta-stat__num">70+</div>
+              <p>Betreute Mandate</p>
+            </div>
+            <div class="fcta-stat">
+              <div class="fcta-stat__num">CHF 12'000</div>
+              <p>Ø Ersparnis pro Jahr</p>
+            </div>
+            <div class="fcta-stat">
+              <div class="fcta-stat__num">9+ Jahre</div>
+              <p>Erfahrung in der Branche</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -248,7 +659,6 @@
 
   <!-- ============ Footer ============ -->
   <footer>
-    <!-- Contact bar -->
     <div class="contact-bar">
       <div class="container contact-bar__inner">
         <span class="contact-bar__lead"><strong>Lieber direkt?</strong> Ruf uns an oder schreib uns.</span>
@@ -266,8 +676,6 @@
         </span>
       </div>
     </div>
-
-    <!-- Minimal bottom bar -->
     <div class="footer-min">
       <div class="container footer-min__inner">
         <span>© <span id="year">2026</span> MCV Treuhand GmbH. Alle Rechte vorbehalten.</span>
