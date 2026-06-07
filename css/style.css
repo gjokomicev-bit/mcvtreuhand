@@ -2019,8 +2019,8 @@ p { margin: 0 0 1rem; }
 .wheel__hub {
   position: absolute;
   top: 50%; left: 50%;
-  width: calc(var(--wheel-R) * 2 - var(--node-size) - 16px);
-  height: calc(var(--wheel-R) * 2 - var(--node-size) - 16px);
+  width: calc(var(--wheel-R) * 2 - var(--node-size) - 110px);
+  height: calc(var(--wheel-R) * 2 - var(--node-size) - 110px);
   transform: translate(-50%, -50%);
   border-radius: 50%;
   background: radial-gradient(120% 120% at 30% 20%, #24384a, var(--primary) 70%);
@@ -2031,18 +2031,18 @@ p { margin: 0 0 1rem; }
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 36px;
+  padding: 30px;
   color: #fff;
 }
 .wheel__hub-title {
   display: block;
   font-family: var(--font-head);
-  font-size: .82rem;
-  font-weight: 700;
-  line-height: 1.25;
-  margin: 0 0 10px;
-  color: var(--accent);
-  letter-spacing: -.005em;
+  font-size: 1.45rem;
+  font-weight: 800;
+  line-height: 1.15;
+  margin: 0 0 12px;
+  color: #fff;
+  letter-spacing: -.015em;
   transition: opacity .3s var(--ease);
 }
 .wheel__hub-desc {
