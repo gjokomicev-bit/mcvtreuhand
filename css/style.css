@@ -1990,9 +1990,9 @@ p { margin: 0 0 1rem; }
 /* ---------- Solution list ---------- */
 /* ---------- Solution wheel (rad) ---------- */
 .wheel {
-  --wheel-size: 660px;
-  --wheel-R: 260px;
-  --node-size: 128px;
+  --wheel-size: 720px;
+  --wheel-R: 278px;
+  --node-size: 156px;
   display: flex;
   justify-content: center;
   margin: 8px auto 0;
@@ -2097,19 +2097,19 @@ p { margin: 0 0 1rem; }
   box-shadow: var(--shadow-md);
 }
 .wheel__node-icon {
-  width: 42px; height: 42px;
+  width: 50px; height: 50px;
   display: grid; place-items: center;
-  border-radius: 12px;
+  border-radius: 14px;
   background: rgba(94,158,123,.12);
   color: var(--accent-700);
   flex: none;
   transition: background .3s var(--ease), color .3s var(--ease);
 }
-.wheel__node-icon svg { width: 23px; height: 23px; }
+.wheel__node-icon svg { width: 27px; height: 27px; }
 .wheel__node-title {
   font-family: var(--font-head);
   font-weight: 700;
-  font-size: .78rem;
+  font-size: .86rem;
   line-height: 1.2;
   color: var(--ink);
   letter-spacing: -.005em;
