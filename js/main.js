@@ -369,6 +369,70 @@
     imGoTo(1, true);
   }
 
+  /* --- Cost calculator --- */
+  const calc = document.getElementById("calc");
+  if (calc) {
+    const monthlyEl = document.getElementById("calcMonthly");
+    const yearlyEl = document.getElementById("calcYearly");
+    const breakdownEl = document.getElementById("calcBreakdown");
+
+    const fmt = (n) =>
+      "CHF " + n.toLocaleString("de-CH", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+    function recompute() {
+      let total = 0;
+      const items = [];
+
+      // checkboxes
+      calc.querySelectorAll('input[type="checkbox"][data-price]').forEach((cb) => {
+        if (cb.checked) {
+          const p = parseFloat(cb.dataset.price);
+          total += p;
+          items.push([cb.dataset.label, p]);
+        }
+      });
+
+      // radios (one per group)
+      calc.querySelectorAll('input[type="radio"][data-price]:checked').forEach((r) => {
+        const p = parseFloat(r.dataset.price);
+        if (p > 0) { total += p; items.push([r.dataset.label, p]); }
+      });
+
+      // number quantities
+      calc.querySelectorAll('input[type="number"][data-price]').forEach((nu) => {
+        const q = parseInt(nu.value, 10) || 0;
+        if (q > 0) {
+          const p = parseFloat(nu.dataset.price) * q;
+          total += p;
+          items.push([nu.dataset.label + " × " + q, p]);
+        }
+      });
+
+      monthlyEl.textContent = fmt(total);
+      yearlyEl.textContent = fmt(total * 12);
+      breakdownEl.innerHTML = items.length
+        ? items.map(([l, p]) => "<li><span>" + l + "</span><span>" + fmt(p) + "</span></li>").join("")
+        : '<li class="calc__empty">Noch nichts ausgewählt</li>';
+    }
+
+    // Stepper +/- buttons
+    calc.querySelectorAll(".calc-step").forEach((step) => {
+      const input = step.querySelector("input");
+      const dec = step.querySelector(".calc-step__dec");
+      const inc = step.querySelector(".calc-step__inc");
+      const setVal = (v) => {
+        input.value = Math.max(0, v);
+        input.dispatchEvent(new Event("input", { bubbles: true }));
+      };
+      dec?.addEventListener("click", () => setVal((parseInt(input.value, 10) || 0) - 1));
+      inc?.addEventListener("click", () => setVal((parseInt(input.value, 10) || 0) + 1));
+    });
+
+    calc.addEventListener("input", recompute);
+    calc.addEventListener("change", recompute);
+    recompute();
+  }
+
   /* --- Footer year --- */
   const year = document.getElementById("year");
   if (year) year.textContent = String(new Date().getFullYear());

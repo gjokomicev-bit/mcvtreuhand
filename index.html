@@ -1282,6 +1282,165 @@
       </div>
     </section>
 
+    <!-- ============ Kostenrechner ============ -->
+    <section class="section" id="rechner">
+      <div class="container">
+        <div class="section-head center reveal">
+          <span class="eyebrow">Kostenrechner</span>
+          <h2>Berechne deine monatlichen Kosten</h2>
+          <p class="lead">Stell dir dein Paket zusammen – die Schätzung aktualisiert sich live. Unverbindlich &amp; transparent.</p>
+        </div>
+
+        <div class="calc reveal" id="calc">
+          <div class="calc__form">
+
+            <div class="calc-group">
+              <p class="calc-group__title">Grundleistungen</p>
+              <div class="calc-row">
+                <div class="calc-row__main">
+                  <span class="calc-row__name">Grundpauschale</span>
+                  <span class="calc-row__price">CHF 50.00 / Monat</span>
+                </div>
+                <label class="calc-check">
+                  <input type="checkbox" data-price="50" data-label="Grundpauschale" checked>
+                  <span class="calc-check__track"></span>
+                </label>
+              </div>
+              <div class="calc-row">
+                <div class="calc-row__main">
+                  <span class="calc-row__name">Buchführung inkl. Belege</span>
+                  <span class="calc-row__price">bis 20 Belege / Monat · CHF 40.00 / Monat</span>
+                </div>
+                <label class="calc-check">
+                  <input type="checkbox" data-price="40" data-label="Buchführung inkl. Belege" checked>
+                  <span class="calc-check__track"></span>
+                </label>
+              </div>
+              <div class="calc-row">
+                <div class="calc-row__main">
+                  <span class="calc-row__name">MWST-Abrechnung</span>
+                  <span class="calc-row__price">CHF 30.00 / Monat</span>
+                </div>
+                <label class="calc-check">
+                  <input type="checkbox" data-price="30" data-label="MWST-Abrechnung">
+                  <span class="calc-check__track"></span>
+                </label>
+              </div>
+            </div>
+
+            <div class="calc-group">
+              <p class="calc-group__title">Mengen pro Monat</p>
+              <div class="calc-row">
+                <div class="calc-row__main">
+                  <span class="calc-row__name">Zusätzliche Belege</span>
+                  <span class="calc-row__price">CHF 3.50 pro Beleg</span>
+                </div>
+                <div class="calc-step" data-step>
+                  <button type="button" class="calc-step__dec" aria-label="weniger">−</button>
+                  <input type="number" min="0" step="1" value="0" inputmode="numeric" data-price="3.5" data-label="Zusätzliche Belege">
+                  <button type="button" class="calc-step__inc" aria-label="mehr">+</button>
+                </div>
+              </div>
+              <div class="calc-row">
+                <div class="calc-row__main">
+                  <span class="calc-row__name">Kreditorenrechnungen</span>
+                  <span class="calc-row__price">CHF 15.00 pro Rechnung</span>
+                </div>
+                <div class="calc-step" data-step>
+                  <button type="button" class="calc-step__dec" aria-label="weniger">−</button>
+                  <input type="number" min="0" step="1" value="0" inputmode="numeric" data-price="15" data-label="Kreditorenrechnungen">
+                  <button type="button" class="calc-step__inc" aria-label="mehr">+</button>
+                </div>
+              </div>
+              <div class="calc-row">
+                <div class="calc-row__main">
+                  <span class="calc-row__name">Lohnbuchhaltung – Mitarbeitende</span>
+                  <span class="calc-row__price">CHF 35.00 pro Mitarbeiter / Monat</span>
+                </div>
+                <div class="calc-step" data-step>
+                  <button type="button" class="calc-step__dec" aria-label="weniger">−</button>
+                  <input type="number" min="0" step="1" value="0" inputmode="numeric" data-price="35" data-label="Mitarbeitende">
+                  <button type="button" class="calc-step__inc" aria-label="mehr">+</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="calc-group">
+              <p class="calc-group__title">Rechtsform &amp; Abschluss</p>
+              <div class="calc-row">
+                <div class="calc-row__main">
+                  <span class="calc-row__name">Rechtsform</span>
+                  <span class="calc-row__price">GmbH CHF 20.00 · AG CHF 30.00 / Monat</span>
+                </div>
+                <div class="calc-seg" role="radiogroup" aria-label="Rechtsform">
+                  <label><input type="radio" name="rechtsform" data-price="0" data-label="Rechtsform" checked><span>Keine</span></label>
+                  <label><input type="radio" name="rechtsform" data-price="20" data-label="Rechtsform GmbH"><span>GmbH</span></label>
+                  <label><input type="radio" name="rechtsform" data-price="30" data-label="Rechtsform AG"><span>AG</span></label>
+                </div>
+              </div>
+              <div class="calc-row">
+                <div class="calc-row__main">
+                  <span class="calc-row__name">Jahresabschluss</span>
+                  <span class="calc-row__price">CHF 75.00 / Monat</span>
+                </div>
+                <label class="calc-check">
+                  <input type="checkbox" data-price="75" data-label="Jahresabschluss" checked>
+                  <span class="calc-check__track"></span>
+                </label>
+              </div>
+              <div class="calc-row">
+                <div class="calc-row__main">
+                  <span class="calc-row__name">Quartalsbesprechung (1h)</span>
+                  <span class="calc-row__price">CHF 50.00 / Monat</span>
+                </div>
+                <label class="calc-check">
+                  <input type="checkbox" data-price="50" data-label="Quartalsbesprechung">
+                  <span class="calc-check__track"></span>
+                </label>
+              </div>
+            </div>
+
+            <div class="calc-group">
+              <p class="calc-group__title">Steuererklärung</p>
+              <div class="calc-row">
+                <div class="calc-row__main">
+                  <span class="calc-row__name">Steuererklärung Firma</span>
+                  <span class="calc-row__price">CHF 15.00 / Monat</span>
+                </div>
+                <label class="calc-check">
+                  <input type="checkbox" data-price="15" data-label="Steuererklärung Firma">
+                  <span class="calc-check__track"></span>
+                </label>
+              </div>
+              <div class="calc-row">
+                <div class="calc-row__main">
+                  <span class="calc-row__name">Steuererklärung privat</span>
+                  <span class="calc-row__price">CHF 10.00 / Monat</span>
+                </div>
+                <label class="calc-check">
+                  <input type="checkbox" data-price="10" data-label="Steuererklärung privat">
+                  <span class="calc-check__track"></span>
+                </label>
+              </div>
+            </div>
+
+          </div><!-- /calc__form -->
+
+          <aside class="calc__summary">
+            <div class="calc__summary-inner">
+              <span class="calc__sum-label">Geschätzte Kosten</span>
+              <div class="calc__sum-total"><span id="calcMonthly">CHF 0.00</span><small>pro Monat exkl. MWST</small></div>
+              <div class="calc__sum-year">≈ <span id="calcYearly">CHF 0.00</span> / Jahr</div>
+              <ul class="calc__breakdown" id="calcBreakdown"></ul>
+              <a href="#kontakt" class="btn btn--primary calc__cta">Unverbindliches Angebot anfragen <span class="arr" aria-hidden="true">→</span></a>
+              <p class="calc__note">Richtwert auf Basis unserer Standard-Preisliste. Das definitive Fixpreis-Angebot erhältst du nach dem kostenlosen Erstgespräch.</p>
+            </div>
+          </aside>
+
+        </div><!-- /calc -->
+      </div>
+    </section>
+
     <!-- ============ Kontakt ============ -->
     <section class="section section--soft" id="kontakt">
       <div class="container">
