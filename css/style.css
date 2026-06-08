@@ -1403,6 +1403,29 @@ p { margin: 0 0 1rem; }
 .cmod__submit { width: 100%; justify-content: center; margin-top: 6px; }
 .cmod__note { font-size: .72rem; color: var(--ink-3); margin: 8px 0 0; text-align: center; }
 
+/* field-wrap: styled inputs for the calculator modal form */
+.field-wrap { margin-bottom: 14px; position: relative; }
+.field-wrap label {
+  display: block; font-size: .82rem; font-weight: 600;
+  color: var(--ink-2); margin-bottom: 6px; letter-spacing: .01em;
+}
+.field-wrap input {
+  width: 100%; font-family: var(--font-body); font-size: .97rem;
+  color: var(--ink); padding: 11px 14px; border: 1.5px solid var(--line);
+  border-radius: var(--radius-sm); background: var(--bg-soft);
+  transition: border-color .18s var(--ease), background .18s var(--ease), box-shadow .18s var(--ease);
+  outline: none; box-sizing: border-box;
+}
+.field-wrap input::placeholder { color: var(--ink-3); }
+.field-wrap input:focus {
+  border-color: var(--accent); background: #fff; box-shadow: var(--ring);
+}
+.field-wrap--icon input { padding-left: 40px; }
+.field-wrap__icon {
+  position: absolute; left: 13px; bottom: 11px; pointer-events: none;
+  color: var(--ink-3); display: flex; align-items: center;
+}
+
 /* Done state */
 .cmod__done {
   display: flex; flex-direction: column; align-items: center;
