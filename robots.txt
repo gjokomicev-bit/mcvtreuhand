@@ -2,5 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /datenschutz.html
 Disallow: /impressum.html
+Disallow: /kontakt.html
 
 Sitemap: https://mcv-treuhand.ch/sitemap.xml

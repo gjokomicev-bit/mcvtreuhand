@@ -17,13 +17,18 @@
   <meta property="og:title" content="Immobilienbuchhaltung Bern – Fixpreis | MCV Treuhand">
   <meta property="og:description" content="Immobilienbuchhaltung, Bewirtschaftung und Outsourcing in Bern. Klare Fixpreise, kein Aufwand für dich. Für Eigentümer und Verwaltungen.">
   <meta property="og:url" content="https://mcv-treuhand.ch/immobilien.html">
+  <meta property="og:image" content="https://mcv-treuhand.ch/assets/og-preview.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="MCV Treuhand – Immobilienbuchhaltung in Bern">
 
   <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Immobilienbuchhaltung Bern – Fixpreis | MCV Treuhand">
   <meta name="twitter:description" content="Immobilienbuchhaltung & Verwaltung in Bern. Fixpreis, termingerecht, persönlich.">
+  <meta name="twitter:image" content="https://mcv-treuhand.ch/assets/og-preview.jpg">
 
-  <!-- Schema.org: Service -->
+  <!-- Schema.org: Service + BreadcrumbList + FAQPage -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -31,8 +36,10 @@
     "name": "Immobilienbuchhaltung & Verwaltung Bern",
     "description": "Professionelle Immobilienbuchhaltung, Bewirtschaftung und Outsourcing in Bern. Fixpreise, keine versteckten Kosten.",
     "url": "https://mcv-treuhand.ch/immobilien.html",
+    "serviceType": ["Immobilienbuchhaltung", "Immobilienverwaltung", "Liegenschaftsbuchhaltung"],
     "provider": {
       "@type": "LocalBusiness",
+      "@id": "https://mcv-treuhand.ch/#organization",
       "name": "MCV Treuhand GmbH",
       "telephone": "+41315619113",
       "email": "info@mcv-treuhand.ch",
@@ -41,11 +48,14 @@
         "streetAddress": "Worblentalstrasse 33",
         "addressLocality": "Ittigen",
         "postalCode": "3063",
+        "addressRegion": "BE",
         "addressCountry": "CH"
       }
     },
-    "areaServed": {"@type": "City", "name": "Bern"},
-    "serviceType": ["Immobilienbuchhaltung", "Immobilienverwaltung", "Liegenschaftsbuchhaltung"],
+    "areaServed": [
+      {"@type": "City", "name": "Bern"},
+      {"@type": "State", "name": "Kanton Bern"}
+    ],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "Immobilien Dienstleistungen",
@@ -56,6 +66,58 @@
         {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Nebenkostenabrechnung"}}
       ]
     }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://mcv-treuhand.ch/"},
+      {"@type": "ListItem", "position": 2, "name": "Immobilien", "item": "https://mcv-treuhand.ch/immobilien.html"}
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Was kostet Immobilienbuchhaltung durch MCV Treuhand?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Unsere Immobilienbuchhaltung wird zu Fixpreisen angeboten. Der Preis richtet sich nach Anzahl Liegenschaften, Mieteinheiten und Leistungsumfang. Fordern Sie direkt ein kostenloses, unverbindliches Angebot an."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Was umfasst die Immobilienbuchhaltung bei MCV Treuhand?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Wir übernehmen: laufende Buchführung für Liegenschaften, Jahresabschlüsse, MWST-Abrechnungen, Mieterzahlungsverfolgung, Nebenkostenabrechnungen, Heiz- und Betriebskostenabrechnungen sowie Steuererklärungen für Immobilien-GmbHs und -AGs."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Für wen ist das Outsourcing der Immobilienverwaltung geeignet?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Unser Outsourcing-Angebot richtet sich an private Immobilieneigentümer mit mehreren Liegenschaften, Immobilien-GmbHs und professionelle Verwaltungen, die ihre Buchhaltung und Administration auslagern möchten. Besonders geeignet ab 3+ Mieteinheiten."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Wie funktioniert der Wechsel zur Immobilienbuchhaltung bei MCV Treuhand?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nach einer kostenlosen Erstberatung übernehmen wir die Migration Ihrer bestehenden Daten und koordinieren die Übergabe mit dem bisherigen Anbieter. Der Wechsel ist unkompliziert und für Sie mit minimalem Aufwand verbunden."
+        }
+      }
+    ]
   }
   </script>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%231B2A38'/%3E%3Ctext x='50%25' y='54%25' font-family='Arial,Helvetica,sans-serif' font-size='26' font-weight='700' fill='%235E9E7B' text-anchor='middle' dominant-baseline='middle'%3EM%3C/text%3E%3C/svg%3E">

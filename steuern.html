@@ -17,13 +17,18 @@
   <meta property="og:title" content="Steuererklärung ausfüllen lassen Bern – ab CHF 39">
   <meta property="og:description" content="Steuererklärung professionell ausfüllen lassen in Bern. Innert 10 Werktagen. Für Schüler, Einzelpersonen und Ehepaare. Ab CHF 39.">
   <meta property="og:url" content="https://mcv-treuhand.ch/steuern.html">
+  <meta property="og:image" content="https://mcv-treuhand.ch/assets/og-preview.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="MCV Treuhand – Steuererklärung ausfüllen lassen in Bern">
 
   <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Steuererklärung ausfüllen lassen Bern – ab CHF 39 | MCV Treuhand">
   <meta name="twitter:description" content="Steuererklärung innert 10 Werktagen. Ab CHF 39. MCV Treuhand Bern.">
+  <meta name="twitter:image" content="https://mcv-treuhand.ch/assets/og-preview.jpg">
 
-  <!-- Schema.org -->
+  <!-- Schema.org: Service + BreadcrumbList + FAQPage -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -31,8 +36,10 @@
     "name": "Steuererklärung ausfüllen lassen Bern",
     "description": "Professionelles Ausfüllen der Steuererklärung für Privatpersonen in Bern. Innert 10 Werktagen, ab CHF 39.",
     "url": "https://mcv-treuhand.ch/steuern.html",
+    "serviceType": "Steuererklärung",
     "provider": {
       "@type": "LocalBusiness",
+      "@id": "https://mcv-treuhand.ch/#organization",
       "name": "MCV Treuhand GmbH",
       "telephone": "+41315619113",
       "email": "info@mcv-treuhand.ch",
@@ -41,14 +48,78 @@
         "streetAddress": "Worblentalstrasse 33",
         "addressLocality": "Ittigen",
         "postalCode": "3063",
+        "addressRegion": "BE",
         "addressCountry": "CH"
       }
     },
-    "areaServed": {"@type": "City", "name": "Bern"},
+    "areaServed": [
+      {"@type": "City", "name": "Bern"},
+      {"@type": "State", "name": "Kanton Bern"}
+    ],
     "offers": [
-      {"@type": "Offer", "name": "Schüler / Student", "price": "39", "priceCurrency": "CHF"},
-      {"@type": "Offer", "name": "Einzelperson",      "price": "59", "priceCurrency": "CHF"},
-      {"@type": "Offer", "name": "Ehepaar",           "price": "89", "priceCurrency": "CHF"}
+      {"@type": "Offer", "name": "Schüler / Student", "price": "39", "priceCurrency": "CHF", "description": "Steuererklärung für Schüler und Studenten"},
+      {"@type": "Offer", "name": "Einzelperson",      "price": "59", "priceCurrency": "CHF", "description": "Steuererklärung für Einzelpersonen"},
+      {"@type": "Offer", "name": "Ehepaar",           "price": "89", "priceCurrency": "CHF", "description": "Steuererklärung für Ehepaare"}
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://mcv-treuhand.ch/"},
+      {"@type": "ListItem", "position": 2, "name": "Steuererklärung", "item": "https://mcv-treuhand.ch/steuern.html"}
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Was kostet es, die Steuererklärung ausfüllen zu lassen?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Bei MCV Treuhand kostet die Steuererklärung für Schüler und Studenten CHF 39, für Einzelpersonen CHF 59 und für Ehepaare CHF 89. Alle Preise sind Fixpreise – keine versteckten Zusatzkosten."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Wie lange dauert die Bearbeitung meiner Steuererklärung?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Wir bearbeiten Ihre Steuererklärung innert 10 Werktagen nach Eingang aller Unterlagen. Bei dringendem Bedarf bieten wir auf Anfrage einen Express-Service an."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Welche Dokumente brauche ich für die Steuererklärung?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sie benötigen: Lohnausweis(e), AHV-Ausweis, Kontoauszüge per 31. Dezember, Wertschriften- und Fondsauszüge sowie Belege für Abzüge (Berufskosten, Versicherungsprämien, Krankheitskosten) und die Vorjahres-Veranlagungsverfügung. Eine vollständige Checkliste erhalten Sie kostenlos von uns."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Macht MCV Treuhand auch die Steuererklärung für GmbH und AG?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja. Neben der Privatsteuererklärung übernehmen wir auch die Steuererklärung für juristische Personen (GmbH, AG) inklusive Gewinn- und Kapitalsteuer. Die Preise werden individuell nach Aufwand kalkuliert."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Kann ich meine Unterlagen digital einreichen?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja – Sie können Dokumente bequem per E-Mail, Foto oder über unser digitales Portal einreichen. Persönliche Abgabe an unserem Standort in Ittigen (bei Bern) ist ebenfalls möglich, mit oder ohne Voranmeldung."
+        }
+      }
     ]
   }
   </script>
