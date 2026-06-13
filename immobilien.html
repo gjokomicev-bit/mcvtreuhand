@@ -188,7 +188,8 @@
 
     /* service cards */
     .service-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
-    .service-card { background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); padding: 32px 28px 36px; }
+    .service-card { background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); padding: 32px 28px 36px; min-width: 0; }
+    .service-card li { overflow-wrap: break-word; word-break: break-word; }
     .service-card__icon { width: 48px; height: 48px; border-radius: 14px; background: rgba(94,158,123,.12); color: var(--accent-700); display: grid; place-items: center; margin-bottom: 18px; }
     .service-card__icon svg { width: 26px; height: 26px; }
     .service-card h3 { font-size: 1.18rem; color: var(--ink); margin: 0 0 20px; }
@@ -305,10 +306,11 @@
     .iw-opt {
       display: flex; align-items: center; gap: 13px; text-align: left; width: 100%;
       padding: 14px 16px; border: 1.5px solid var(--line); border-radius: 12px;
-      background: var(--bg); cursor: pointer;
+      background: var(--bg); cursor: pointer; min-width: 0;
       font-family: var(--font-body); font-size: .92rem; font-weight: 600; color: var(--ink);
       transition: border-color .18s var(--ease), background .18s var(--ease), transform .18s var(--ease);
     }
+    .iw-opt span:not(.iw-opt__check) { overflow-wrap: break-word; word-break: break-word; min-width: 0; flex: 1; }
     .iw-opt:hover { border-color: var(--accent); background: rgba(94,158,123,.06); transform: translateY(-1px); }
     .iw-opt.selected { border-color: var(--accent); background: rgba(94,158,123,.1); }
     .iw-opt__ico { width: 22px; height: 22px; color: var(--accent); flex: none; }
@@ -341,16 +343,27 @@
 
     /* responsive */
     @media (max-width: 980px) {
-      /* keep the chart below the copy on tablet/mobile (overrides global order:-1) */
       .hero__visual--chart { order: 2; zoom: 1; max-width: 520px; margin: 8px auto 0; width: 100%; }
     }
     @media (max-width: 860px) {
       .philo-grid, .service-cards, .compare-grid, .expert-split { grid-template-columns: 1fr; gap: 32px; }
       .pricing-trust { grid-template-columns: 1fr 1fr; }
       .it-checklist { grid-template-columns: 1fr; }
+      .compare-col { padding: 20px 18px; }
+      .it-box { padding: 28px 20px; }
     }
     @media (max-width: 620px) {
       .service-cards, .pricing-trust { grid-template-columns: 1fr; }
+      .philo-grid { gap: 24px; }
+    }
+    @media (max-width: 480px) {
+      .service-card { padding: 22px 18px 26px; }
+      .pricing-trust { gap: 12px; }
+      .ptrust-item { padding: 14px 12px; }
+      .myth-box { padding: 14px 16px; flex-direction: column; gap: 10px; }
+      .it-box { padding: 22px 16px; }
+      .it-checklist { gap: 8px 0; }
+      .conclusion-box { padding: 18px 16px; }
     }
   </style>
 

@@ -66,6 +66,7 @@ body {
   background: var(--bg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 img { max-width: 100%; display: block; }
@@ -1040,6 +1041,7 @@ p { margin: 0 0 1rem; }
   border-radius: var(--radius);
   padding: 38px;
   box-shadow: var(--shadow-sm);
+  min-width: 0;
 }
 .field { margin-bottom: 20px; }
 .field--row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
@@ -1727,6 +1729,7 @@ p { margin: 0 0 1rem; }
 }
 
 @media (max-width: 520px) {
+  :root { --section-y: 64px; }
   body { font-size: 16px; }
   .services-grid,
   .steps,
