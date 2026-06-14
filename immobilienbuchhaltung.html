@@ -166,6 +166,74 @@
   </script>
 
   <style>
+    /* ---- Steuer-Hero ---- */
+    .st-hero {
+      position: relative;
+      padding-top: calc(var(--nav-h) + 70px);
+      padding-bottom: 100px;
+      background:
+        radial-gradient(900px 500px at 85% -10%, rgba(94,158,123,.28), transparent 60%),
+        radial-gradient(700px 600px at 0% 110%, rgba(94,158,123,.12), transparent 55%),
+        linear-gradient(165deg, var(--primary) 0%, var(--primary-900) 100%);
+      color: rgba(255,255,255,.86);
+      overflow: hidden;
+    }
+    .st-hero::before {
+      content: "";
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: radial-gradient(80% 80% at 50% 30%, #000 40%, transparent 100%);
+      -webkit-mask-image: radial-gradient(80% 80% at 50% 30%, #000 40%, transparent 100%);
+      pointer-events: none;
+    }
+    .st-hero__pill {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 7px 14px 7px 8px;
+      border-radius: var(--radius-pill);
+      background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.16);
+      font-size: .85rem; font-weight: 500; color: #fff;
+      margin-bottom: 26px;
+    }
+    .st-hero__pill-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--accent); flex: none;
+    }
+    .st-hero h1 {
+      font-family: var(--font-head); font-size: clamp(2.1rem, 4vw, 2.9rem);
+      font-weight: 800; line-height: 1.15; letter-spacing: -.03em;
+      color: #fff; margin: 0 0 22px;
+    }
+    .st-hero h1 .hl {
+      background: linear-gradient(120deg, #8FCBA9, #C6E4D2);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .st-hero__sub {
+      font-size: 1.18rem; max-width: 520px;
+      color: rgba(255,255,255,.78); margin-bottom: 34px; line-height: 1.65;
+    }
+    .st-hero__trust {
+      display: flex; flex-wrap: wrap; gap: 10px 24px;
+      font-size: .92rem; color: rgba(255,255,255,.66); list-style: none;
+      padding: 0; margin: 0; margin-top: 28px;
+    }
+    .st-hero__trust li { display: flex; align-items: center; gap: 8px; }
+    .st-hero__trust li svg { width: 16px; height: 16px; color: var(--accent); flex: none; }
+    .st-hero__inner { position: relative; padding-top: 8px; }
+    .st-hero__copy { max-width: 700px; }
+    .st-hero__actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 36px; }
+
+    /* ---- Stats strip ---- */
+    .nk-stats-strip { background: var(--bg); border-bottom: 1.5px solid var(--line); padding: 20px 0; }
+    .nk-stats-inner { display: flex; align-items: center; justify-content: center; gap: 0; flex-wrap: wrap; }
+    .nk-stat { display: flex; flex-direction: column; align-items: center; padding: 8px 40px; }
+    .nk-stat__num { font-family: var(--font-head); font-size: 1.6rem; font-weight: 800; color: var(--primary); line-height: 1.1; }
+    .nk-stat__lbl { font-size: .78rem; color: var(--ink-3); margin-top: 2px; }
+    .nk-stat-divider { width: 1.5px; height: 36px; background: var(--line); flex-shrink: 0; }
+    @media (max-width: 520px) { .nk-stat { padding: 8px 20px; } }
+
     .nk-tab-nav { display: flex; gap: 8px; margin-bottom: 40px; flex-wrap: wrap; }
     .nk-tab-btn {
       padding: 10px 22px; border-radius: var(--radius-pill);
@@ -187,32 +255,35 @@
     .nk-card {
       background: #fff; border: 1.5px solid var(--line);
       border-radius: var(--radius); padding: 28px 26px;
-      transition: border-color .2s, box-shadow .2s;
+      transition: border-color .2s, box-shadow .2s, transform .2s;
+      min-width: 0;
     }
-    .nk-card:hover { border-color: var(--accent); box-shadow: 0 8px 32px -8px rgba(94,158,123,.18); }
+    .nk-card:hover { border-color: var(--accent); box-shadow: 0 12px 40px -12px rgba(94,158,123,.22); transform: translateY(-2px); }
     .nk-card__icon {
-      width: 44px; height: 44px; border-radius: 12px;
-      background: rgba(94,158,123,.12); display: flex; align-items: center; justify-content: center;
-      margin-bottom: 16px; color: var(--accent);
+      width: 48px; height: 48px; border-radius: 14px;
+      background: linear-gradient(150deg, rgba(94,158,123,.15), rgba(94,158,123,.07));
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 18px; color: var(--accent-700);
+      border: 1px solid rgba(94,158,123,.18);
     }
-    .nk-card__icon svg { width: 22px; height: 22px; }
-    .nk-card h3 { font-size: 1.05rem; font-weight: 700; margin: 0 0 10px; color: var(--primary); }
-    .nk-card p { font-size: .92rem; color: var(--ink-2); line-height: 1.6; margin: 0; }
+    .nk-card__icon svg { width: 24px; height: 24px; }
+    .nk-card h3 { font-size: 1.06rem; font-weight: 700; margin: 0 0 10px; color: var(--primary); }
+    .nk-card p { font-size: .93rem; color: var(--ink-2); line-height: 1.65; margin: 0; }
 
     .nk-compare {
       display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 32px;
     }
-    .nk-compare-col { border-radius: var(--radius); padding: 28px; }
+    .nk-compare-col { border-radius: var(--radius); padding: 28px 26px; }
     .nk-compare-col--bad { background: rgba(220,38,38,.05); border: 1.5px solid rgba(220,38,38,.15); }
     .nk-compare-col--good { background: rgba(94,158,123,.07); border: 1.5px solid rgba(94,158,123,.25); }
-    .nk-compare-col h4 { font-size: .92rem; font-weight: 700; margin: 0 0 16px; text-transform: uppercase; letter-spacing: .06em; }
+    .nk-compare-col h4 { font-size: .88rem; font-weight: 700; margin: 0 0 20px; text-transform: uppercase; letter-spacing: .08em; display: flex; align-items: center; gap: 8px; }
     .nk-compare-col--bad h4 { color: #DC2626; }
     .nk-compare-col--good h4 { color: var(--accent-700); }
     .nk-compare-col ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
-    .nk-compare-col li { font-size: .92rem; color: var(--ink-2); display: flex; gap: 10px; line-height: 1.5; }
-    .nk-compare-col li::before { content: ""; flex-shrink: 0; }
-    .nk-compare-col--bad li::before { content: "✕"; color: #DC2626; font-weight: 700; }
-    .nk-compare-col--good li::before { content: "✓"; color: var(--accent); font-weight: 700; }
+    .nk-compare-col li { font-size: .92rem; color: var(--ink-2); display: flex; gap: 10px; line-height: 1.5; align-items: flex-start; }
+    .nk-compare-col li .mk { width: 20px; height: 20px; border-radius: 50%; display: grid; place-items: center; flex: none; margin-top: 1px; }
+    .nk-compare-col--bad .mk { background: rgba(220,38,38,.1); }
+    .nk-compare-col--good .mk { background: linear-gradient(150deg, var(--accent), var(--accent-700)); }
 
     .nk-steps { display: flex; flex-direction: column; gap: 0; margin-top: 32px; }
     .nk-step { display: flex; gap: 20px; padding-bottom: 32px; position: relative; }
@@ -229,8 +300,15 @@
     .nk-step__body h4 { font-size: 1rem; font-weight: 700; margin: 0 0 6px; color: var(--primary); }
     .nk-step__body p { font-size: .92rem; color: var(--ink-2); margin: 0; line-height: 1.6; }
 
+    h1, h2, h3, h4 { overflow-wrap: break-word; }
+
     @media (max-width: 600px) {
       .nk-compare { grid-template-columns: 1fr; }
+      .nk-stats-inner { gap: 0; }
+    }
+    @media (max-width: 480px) {
+      .st-hero { padding-bottom: 64px; }
+      .nk-card { padding: 22px 18px; }
     }
   </style>
 </head>
@@ -264,10 +342,7 @@
       <div class="st-hero__bg"></div>
       <div class="container st-hero__inner">
         <div class="st-hero__copy">
-          <span class="st-hero__pill">
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-            Spezialist für Immobilien in Bern
-          </span>
+          <span class="st-hero__pill"><span class="st-hero__pill-dot"></span> Spezialist für Immobilien in Bern</span>
           <h1>Immobilienbuchhaltung &amp; Nebenkostenabrechnung <span class="hl">in Bern</span></h1>
           <p class="st-hero__sub">Laufende Liegenschaftsbuchhaltung, korrekte Nebenkostenabrechnungen und Steuerdeklaration – alles aus einer Hand. Für private Vermieter, Immobilien-GmbHs und professionelle Verwaltungen im Kanton Bern.</p>
           <ul class="st-hero__trust">
@@ -301,6 +376,21 @@
         </div>
       </div>
     </section>
+
+    <!-- Stats strip -->
+    <div class="nk-stats-strip">
+      <div class="container">
+        <div class="nk-stats-inner">
+          <div class="nk-stat"><span class="nk-stat__num">70+</span><span class="nk-stat__lbl">Mandate</span></div>
+          <div class="nk-stat-divider"></div>
+          <div class="nk-stat"><span class="nk-stat__num">100%</span><span class="nk-stat__lbl">Fixpreis</span></div>
+          <div class="nk-stat-divider"></div>
+          <div class="nk-stat"><span class="nk-stat__num">24h</span><span class="nk-stat__lbl">Antwortzeit</span></div>
+          <div class="nk-stat-divider"></div>
+          <div class="nk-stat"><span class="nk-stat__num">Bern</span><span class="nk-stat__lbl">Kanton</span></div>
+        </div>
+      </div>
+    </div>
 
     <!-- Tab section -->
     <section class="section section--soft" id="leistungen">
@@ -427,21 +517,21 @@
           <div class="nk-compare-col nk-compare-col--bad">
             <h4>Ohne integrierten Ansatz</h4>
             <ul>
-              <li>Doppelte Dateneingabe bei Buchhalter und Verwalter</li>
-              <li>Fehler durch manuelle Übertragung</li>
-              <li>Zeitverzögerung bei der Jahresabrechnung</li>
-              <li>Unklare Verantwortlichkeiten bei Mieterfragen</li>
-              <li>Höherer Gesamtaufwand und Kosten</li>
+              <li><span class="mk"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(220,38,38,.8)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="11" height="11"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>Doppelte Dateneingabe bei Buchhalter und Verwalter</li>
+              <li><span class="mk"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(220,38,38,.8)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="11" height="11"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>Fehler durch manuelle Übertragung</li>
+              <li><span class="mk"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(220,38,38,.8)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="11" height="11"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>Zeitverzögerung bei der Jahresabrechnung</li>
+              <li><span class="mk"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(220,38,38,.8)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="11" height="11"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>Unklare Verantwortlichkeiten bei Mieterfragen</li>
+              <li><span class="mk"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(220,38,38,.8)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="11" height="11"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>Höherer Gesamtaufwand und Kosten</li>
             </ul>
           </div>
           <div class="nk-compare-col nk-compare-col--good">
             <h4>Mit MCV Treuhand</h4>
             <ul>
-              <li>Alle Daten in einem System – keine Übertragungsfehler</li>
-              <li>Nebenkosten entstehen direkt aus der Buchführung</li>
-              <li>Abrechnung fristgerecht, jedes Jahr</li>
-              <li>Ein Ansprechpartner für alle Fragen</li>
-              <li>Fixpreis – planbar und kosteneffizient</li>
+              <li><span class="mk"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="11" height="11"><polyline points="20 6 9 17 4 12"/></svg></span>Alle Daten in einem System – keine Übertragungsfehler</li>
+              <li><span class="mk"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="11" height="11"><polyline points="20 6 9 17 4 12"/></svg></span>Nebenkosten entstehen direkt aus der Buchführung</li>
+              <li><span class="mk"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="11" height="11"><polyline points="20 6 9 17 4 12"/></svg></span>Abrechnung fristgerecht, jedes Jahr</li>
+              <li><span class="mk"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="11" height="11"><polyline points="20 6 9 17 4 12"/></svg></span>Ein Ansprechpartner für alle Fragen</li>
+              <li><span class="mk"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="11" height="11"><polyline points="20 6 9 17 4 12"/></svg></span>Fixpreis – planbar und kosteneffizient</li>
             </ul>
           </div>
         </div>
@@ -576,10 +666,27 @@
 
   </main>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__bottom" style="border-top:0;padding-top:0">
-        <span>© <span id="year">2026</span> MCV Treuhand GmbH. Alle Rechte vorbehalten.</span>
+  <footer>
+    <div class="contact-bar">
+      <div class="container contact-bar__inner">
+        <span class="contact-bar__lead"><strong>Lieber direkt?</strong> Ruf uns an oder schreib uns.</span>
+        <a href="tel:+41315619113">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l.95-.95a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 17z"/></svg>
+          031 561 91 13
+        </a>
+        <a href="mailto:info@mcv-treuhand.ch">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+          info@mcv-treuhand.ch
+        </a>
+        <span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Worblentalstrasse 33, 3063 Ittigen
+        </span>
+      </div>
+    </div>
+    <div class="footer-min">
+      <div class="container footer-min__inner">
+        <span>&copy; <span id="year">2026</span> MCV Treuhand GmbH. Alle Rechte vorbehalten.</span>
         <nav aria-label="Rechtliches">
           <a href="impressum.html">Impressum</a>
           <a href="datenschutz.html">Datenschutz</a>
