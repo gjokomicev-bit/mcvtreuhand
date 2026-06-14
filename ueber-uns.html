@@ -110,48 +110,17 @@
   <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2583743615428941&ev=PageView&noscript=1"/></noscript>
 
   <style>
-    /* ---- Über-uns Hero ---- */
-    .au-hero {
-      position: relative;
-      padding-top: calc(var(--nav-h) + 64px);
-      padding-bottom: 70px;
-      background:
-        radial-gradient(900px 500px at 85% -10%, rgba(94,158,123,.28), transparent 60%),
-        radial-gradient(700px 600px at 0% 110%, rgba(94,158,123,.12), transparent 55%),
-        linear-gradient(165deg, var(--primary) 0%, var(--primary-900) 100%);
-      color: rgba(255,255,255,.86);
-      overflow: hidden;
-      text-align: center;
-    }
-    .au-hero::before {
-      content: "";
-      position: absolute; inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
-      background-size: 56px 56px;
-      mask-image: radial-gradient(80% 80% at 50% 30%, #000 40%, transparent 100%);
-      -webkit-mask-image: radial-gradient(80% 80% at 50% 30%, #000 40%, transparent 100%);
-      pointer-events: none;
-    }
-    .au-hero__inner { position: relative; max-width: 760px; margin: 0 auto; }
-    .au-hero__pill {
-      display: inline-flex; align-items: center; gap: 10px;
-      padding: 7px 16px; border-radius: var(--radius-pill);
-      background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.16);
-      font-size: .85rem; font-weight: 500; color: #fff; margin-bottom: 24px;
-    }
-    .au-hero__pill .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
-    .au-hero h1 {
-      font-family: var(--font-head); font-size: clamp(2.1rem, 4.4vw, 3rem);
-      font-weight: 800; line-height: 1.12; letter-spacing: -.03em;
-      color: #fff; margin: 0 0 20px;
-    }
-    .au-hero h1 .hl {
-      background: linear-gradient(120deg, #8FCBA9, #C6E4D2);
-      -webkit-background-clip: text; background-clip: text; color: transparent;
-    }
-    .au-hero__sub { font-size: 1.18rem; color: rgba(255,255,255,.78); line-height: 1.65; margin: 0; }
+    /* ---- Hero overrides (centered, no grid) ---- */
+    .au-hero-inner { max-width: 780px; margin: 0 auto; text-align: center; }
+    .hero h1 { font-weight: 400; }
+
+    /* ---- Stats strip ---- */
+    .au-stats { background: var(--bg); border-bottom: 1.5px solid var(--line); padding: 20px 0; }
+    .au-stats__inner { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; }
+    .au-stat { display: flex; flex-direction: column; align-items: center; padding: 8px 40px; }
+    .au-stat__num { font-family: var(--font-head); font-size: 1.6rem; font-weight: 800; color: var(--primary); line-height: 1; margin-bottom: 4px; }
+    .au-stat__label { font-size: .83rem; color: var(--ink-3); font-weight: 500; }
+    .au-stat-div { width: 1.5px; height: 36px; background: var(--line); flex-shrink: 0; }
 
     /* ---- Why + Founder ---- */
     .au-why__grid {
@@ -217,9 +186,13 @@
     .au-cta__box h2 { font-family: var(--font-head); color: #fff; font-size: clamp(1.6rem, 3vw, 2.1rem); font-weight: 800; margin: 0 0 12px; letter-spacing: -.02em; }
     .au-cta__box p { color: rgba(255,255,255,.78); font-size: 1.05rem; max-width: 540px; margin: 0 auto 28px; }
 
+    h1, h2, h3, h4 { overflow-wrap: break-word; }
+
     @media (max-width: 880px) {
       .au-why__grid { grid-template-columns: 1fr; }
       .au-card { padding: 32px 26px; }
+      .au-stat { padding: 10px 20px; }
+      .au-stat-div { display: none; }
     }
     @media (max-width: 520px) {
       .au-founder__photo, .au-founder__mono { width: 120px; height: 120px; }
@@ -253,15 +226,65 @@
   <main>
 
     <!-- ============ Hero ============ -->
-    <section class="au-hero">
+    <section class="hero">
       <div class="container">
-        <div class="au-hero__inner">
-          <div class="au-hero__pill"><span class="dot"></span> Über 70+ Unternehmen betreut</div>
+        <div class="au-hero-inner">
+          <span class="hero__pill">
+            <b aria-label="Schweiz"><svg viewBox="0 0 20 20" width="14" height="14" xmlns="http://www.w3.org/2000/svg" style="display:block"><rect width="20" height="20" fill="#D52B1E"/><rect x="8.25" y="3.5" width="3.5" height="13" fill="#fff"/><rect x="3.5" y="8.25" width="13" height="3.5" fill="#fff"/></svg></b>
+            Über 70 Mandate in Bern &amp; Region
+          </span>
           <h1>Kein gewöhnliches Treuhandbüro.<br><span class="hl">Dein Finanzpartner.</span></h1>
-          <p class="au-hero__sub">MCV Treuhand ist ein modernes, digitales Treuhandunternehmen in Bern. Wir helfen Unternehmern, Immobilieninvestoren und Verwaltungen, ihre Finanzen, Steuern und administrativen Prozesse effizient zu organisieren.</p>
+          <p class="hero__sub" style="margin: 0 auto 34px;">MCV Treuhand ist ein modernes, digitales Treuhandunternehmen in Bern. Wir helfen Unternehmern, Immobilieninvestoren und Verwaltungen, ihre Finanzen, Steuern und administrativen Prozesse effizient zu organisieren.</p>
+          <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+            <a href="index.html#kontakt" class="btn btn--primary btn--stack">Kennenlerngespräch sichern <small>unverbindlich &amp; ohne Druck</small></a>
+            <a href="#team" class="btn btn--ghost">Unser Team &amp; Philosophie <span class="arr" aria-hidden="true">→</span></a>
+          </div>
+          <div class="hero__rating" style="justify-content:center; margin-top:32px;">
+            <div class="hero__avatars" aria-hidden="true">
+              <span>JM</span><span>SK</span><span>RT</span>
+            </div>
+            <div class="hero__rating-text">
+              <b>70+ Kunden vertrauen uns</b>
+              <span class="stars" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01z"/></svg>
+              </span>
+              <small>4.9 von 5.0 basierend auf 11 Bewertungen</small>
+            </div>
+          </div>
         </div>
       </div>
     </section>
+
+    <!-- Stats strip -->
+    <div class="au-stats">
+      <div class="container">
+        <div class="au-stats__inner">
+          <div class="au-stat">
+            <span class="au-stat__num">70+</span>
+            <span class="au-stat__label">betreute Mandate</span>
+          </div>
+          <div class="au-stat-div"></div>
+          <div class="au-stat">
+            <span class="au-stat__num">9+</span>
+            <span class="au-stat__label">Jahre Erfahrung</span>
+          </div>
+          <div class="au-stat-div"></div>
+          <div class="au-stat">
+            <span class="au-stat__num">100%</span>
+            <span class="au-stat__label">digital &amp; papierlos</span>
+          </div>
+          <div class="au-stat-div"></div>
+          <div class="au-stat">
+            <span class="au-stat__num">1:1</span>
+            <span class="au-stat__label">persönliche Betreuung</span>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- ============ Story + Stats ============ -->
     <section class="section section--soft">
@@ -309,7 +332,7 @@
     </section>
 
     <!-- ============ Warum MCV + Gründer ============ -->
-    <section class="section">
+    <section class="section" id="team">
       <div class="container">
         <div class="au-why__grid">
 
