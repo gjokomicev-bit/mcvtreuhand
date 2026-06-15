@@ -280,36 +280,16 @@ p { margin: 0 0 1rem; }
 .nav.menu-open .nav__toggle span::after { transform: translateY(-7px) rotate(-45deg); background: var(--ink); }
 
 /* ---------- Logo ---------- */
-.logo { display: inline-flex; align-items: center; gap: 12px; }
-.logo__mark {
-  width: 40px; height: 40px;
-  border-radius: 11px;
-  background: linear-gradient(150deg, var(--primary), var(--primary-900));
-  display: grid;
-  place-items: center;
-  color: var(--accent);
-  font-family: var(--font-head);
-  font-weight: 700;
-  font-size: .92rem;
-  letter-spacing: -.02em;
-  box-shadow: inset 0 0 0 1px rgba(94, 158, 123, .35);
-  flex: none;
+.logo { display: inline-flex; align-items: center; }
+.logo__img {
+  height: 40px;
+  width: auto;
+  display: block;
+  filter: brightness(0) invert(1);
+  transition: filter .2s;
 }
-.logo__text {
-  font-family: var(--font-head);
-  font-weight: 700;
-  font-size: 1.18rem;
-  letter-spacing: -.02em;
-  color: var(--white);
-  line-height: 1;
-}
-.logo__text b { color: var(--white); }
-.logo__text span { color: var(--accent); font-weight: 500; }
-.nav.scrolled .logo__text { color: var(--ink); }
-.nav.scrolled .logo__text b { color: var(--ink); }
-/* footer / legal logo on dark always light */
-.logo--light .logo__text,
-.logo--light .logo__text b { color: var(--white); }
+.nav.scrolled .logo__img { filter: none; }
+.nav.menu-open .logo__img { filter: none; }
 
 /* ---------- Hero ---------- */
 .hero {
@@ -1580,7 +1560,7 @@ p { margin: 0 0 1rem; }
   border-bottom-color: var(--line);
 }
 .nav--solid .nav__link { color: var(--ink); }
-.nav--solid .logo__text, .nav--solid .logo__text b { color: var(--ink); }
+.nav--solid .logo__img { filter: none; }
 .nav--solid .nav__toggle span,
 .nav--solid .nav__toggle span::before,
 .nav--solid .nav__toggle span::after { background: var(--ink); }
@@ -1642,7 +1622,8 @@ p { margin: 0 0 1rem; }
     box-shadow: 0 6px 24px -18px rgba(11, 27, 42, .5);
   }
   .nav.menu-open .nav__toggle span,
-  .nav.menu-open .logo { color: var(--ink); }
+  .nav.menu-open .nav__toggle span::before,
+  .nav.menu-open .nav__toggle span::after { background: var(--ink); }
 
   .nav__menu {
     position: fixed;
