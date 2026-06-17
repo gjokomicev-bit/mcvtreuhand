@@ -4,4 +4,22 @@ Disallow: /datenschutz.html
 Disallow: /impressum.html
 Disallow: /kontakt.html
 
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
 Sitemap: https://mcv-treuhand.ch/sitemap.xml
